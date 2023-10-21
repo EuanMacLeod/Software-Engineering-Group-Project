@@ -17,7 +17,10 @@ namespace Software_Engineering_Project_New
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomePage());
+            //Application.Run(new HomePage());
+
+            new HomePage().Show();
+            Application.Run();
         }
     }
     //test comment Euan

@@ -34,6 +34,7 @@ namespace Software_Engineering_Project_New
 
         }
 
+        /*
         public DataSet getDataSet(string sqlQuery)
         {
             DataSet ds = new DataSet();
@@ -56,7 +57,29 @@ namespace Software_Engineering_Project_New
 
             return ds;
         }
+        */
 
+        public DataSet getDataSet(string sqlQuery)
+        {
+            //create an empty dataset
+            DataSet dataSet = new DataSet();
+
+            using (connectionToDatabase = new SqlConnection(connectionString))
+            {
+                //open the connection
+                connectionToDatabase.Open();
+
+                //create teh object dataAdapter to send a query to the DB
+                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, connectionToDatabase);
+
+                //fill in the dataset
+                dataAdapter.Fill(dataSet);
+
+                connectionToDatabase.Close();
+            }
+
+            return dataSet;
+        }
 
 
 
