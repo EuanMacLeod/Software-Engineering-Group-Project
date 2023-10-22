@@ -32,6 +32,8 @@
             this.DBTestingBackButton = new System.Windows.Forms.Button();
             this.viewVendorsButton = new System.Windows.Forms.Button();
             this.viewEmployeesButton = new System.Windows.Forms.Button();
+            this.viewManagersButton = new System.Windows.Forms.Button();
+            this.viewVendorBranchesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,7 +58,7 @@
             // 
             // viewVendorsButton
             // 
-            this.viewVendorsButton.Location = new System.Drawing.Point(515, 378);
+            this.viewVendorsButton.Location = new System.Drawing.Point(504, 378);
             this.viewVendorsButton.Name = "viewVendorsButton";
             this.viewVendorsButton.Size = new System.Drawing.Size(89, 23);
             this.viewVendorsButton.TabIndex = 2;
@@ -74,11 +76,33 @@
             this.viewEmployeesButton.UseVisualStyleBackColor = true;
             this.viewEmployeesButton.Click += new System.EventHandler(this.viewEmployeesButton_Click);
             // 
+            // viewManagersButton
+            // 
+            this.viewManagersButton.Location = new System.Drawing.Point(305, 378);
+            this.viewManagersButton.Name = "viewManagersButton";
+            this.viewManagersButton.Size = new System.Drawing.Size(93, 23);
+            this.viewManagersButton.TabIndex = 4;
+            this.viewManagersButton.Text = "View Managers";
+            this.viewManagersButton.UseVisualStyleBackColor = true;
+            this.viewManagersButton.Click += new System.EventHandler(this.viewManagersButton_Click);
+            // 
+            // viewVendorBranchesButton
+            // 
+            this.viewVendorBranchesButton.Location = new System.Drawing.Point(155, 378);
+            this.viewVendorBranchesButton.Name = "viewVendorBranchesButton";
+            this.viewVendorBranchesButton.Size = new System.Drawing.Size(144, 23);
+            this.viewVendorBranchesButton.TabIndex = 5;
+            this.viewVendorBranchesButton.Text = "View Vendor Branches";
+            this.viewVendorBranchesButton.UseVisualStyleBackColor = true;
+            this.viewVendorBranchesButton.Click += new System.EventHandler(this.viewVendorBranchesButton_Click);
+            // 
             // DatabaseTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 536);
+            this.Controls.Add(this.viewVendorBranchesButton);
+            this.Controls.Add(this.viewManagersButton);
             this.Controls.Add(this.viewEmployeesButton);
             this.Controls.Add(this.viewVendorsButton);
             this.Controls.Add(this.DBTestingBackButton);
@@ -97,5 +121,7 @@
         private System.Windows.Forms.Button DBTestingBackButton;
         private System.Windows.Forms.Button viewVendorsButton;
         private System.Windows.Forms.Button viewEmployeesButton;
+        private System.Windows.Forms.Button viewManagersButton;
+        private System.Windows.Forms.Button viewVendorBranchesButton;
     }
 }

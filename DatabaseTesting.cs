@@ -64,5 +64,18 @@ namespace Software_Engineering_Project_New
 
         }
 
+        private void viewManagersButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLMANAGERS);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
+
+        private void viewVendorBranchesButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLBRANCHES);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
     }
 }
