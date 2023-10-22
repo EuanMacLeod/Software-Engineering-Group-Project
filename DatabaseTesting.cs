@@ -47,5 +47,22 @@ namespace Software_Engineering_Project_New
             this.Close();
             new HomePage().Show();
         }
+
+        private void viewVendorsButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLVENDORS);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
+
+
+        
+        private void viewEmployeesButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLEMPLOYEES);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
+
     }
 }

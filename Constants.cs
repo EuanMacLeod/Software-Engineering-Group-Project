@@ -13,6 +13,9 @@ namespace Software_Engineering_Project_New
         //
         public static string SELECTALLEMPLOYEES  = "SELECT * FROM Employees";
 
+        //
+        public static string SELECTALLVENDORS = "SELECT * FROM Vendors";
+
         //returns string of 
         public static string SELECTALLMANAGERS = " SELECT e.EmployeeID, e.name, e.ManagerID, m.name AS ManagerName " +
             "FROM Employees e" +

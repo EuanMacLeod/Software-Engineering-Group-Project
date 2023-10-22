@@ -30,6 +30,8 @@
         {
             this.dgvTest = new System.Windows.Forms.DataGridView();
             this.DBTestingBackButton = new System.Windows.Forms.Button();
+            this.viewVendorsButton = new System.Windows.Forms.Button();
+            this.viewEmployeesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +54,33 @@
             this.DBTestingBackButton.UseVisualStyleBackColor = true;
             this.DBTestingBackButton.Click += new System.EventHandler(this.DBTestingBackButton_Click);
             // 
+            // viewVendorsButton
+            // 
+            this.viewVendorsButton.Location = new System.Drawing.Point(515, 378);
+            this.viewVendorsButton.Name = "viewVendorsButton";
+            this.viewVendorsButton.Size = new System.Drawing.Size(89, 23);
+            this.viewVendorsButton.TabIndex = 2;
+            this.viewVendorsButton.Text = "View Vendors";
+            this.viewVendorsButton.UseVisualStyleBackColor = true;
+            this.viewVendorsButton.Click += new System.EventHandler(this.viewVendorsButton_Click);
+            // 
+            // viewEmployeesButton
+            // 
+            this.viewEmployeesButton.Location = new System.Drawing.Point(404, 378);
+            this.viewEmployeesButton.Name = "viewEmployeesButton";
+            this.viewEmployeesButton.Size = new System.Drawing.Size(94, 23);
+            this.viewEmployeesButton.TabIndex = 3;
+            this.viewEmployeesButton.Text = "View Employees";
+            this.viewEmployeesButton.UseVisualStyleBackColor = true;
+            this.viewEmployeesButton.Click += new System.EventHandler(this.viewEmployeesButton_Click);
+            // 
             // DatabaseTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(900, 536);
+            this.Controls.Add(this.viewEmployeesButton);
+            this.Controls.Add(this.viewVendorsButton);
             this.Controls.Add(this.DBTestingBackButton);
             this.Controls.Add(this.dgvTest);
             this.Name = "DatabaseTesting";
@@ -71,5 +95,7 @@
 
         private System.Windows.Forms.DataGridView dgvTest;
         private System.Windows.Forms.Button DBTestingBackButton;
+        private System.Windows.Forms.Button viewVendorsButton;
+        private System.Windows.Forms.Button viewEmployeesButton;
     }
 }
