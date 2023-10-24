@@ -34,6 +34,12 @@
             this.viewEmployeesButton = new System.Windows.Forms.Button();
             this.viewManagersButton = new System.Windows.Forms.Button();
             this.viewVendorBranchesButton = new System.Windows.Forms.Button();
+            this.viewPurchasedSoftwareButton = new System.Windows.Forms.Button();
+            this.viewSoftwareButton = new System.Windows.Forms.Button();
+            this.viewSoftwareClientTypesButton = new System.Windows.Forms.Button();
+            this.viewSoftwareModulesButton = new System.Windows.Forms.Button();
+            this.viewSoftwareTypesButton = new System.Windows.Forms.Button();
+            this.viewSoftwareBuisnessAreas = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,7 +66,7 @@
             // 
             this.viewVendorsButton.Location = new System.Drawing.Point(504, 378);
             this.viewVendorsButton.Name = "viewVendorsButton";
-            this.viewVendorsButton.Size = new System.Drawing.Size(89, 23);
+            this.viewVendorsButton.Size = new System.Drawing.Size(130, 23);
             this.viewVendorsButton.TabIndex = 2;
             this.viewVendorsButton.Text = "View Vendors";
             this.viewVendorsButton.UseVisualStyleBackColor = true;
@@ -96,11 +102,77 @@
             this.viewVendorBranchesButton.UseVisualStyleBackColor = true;
             this.viewVendorBranchesButton.Click += new System.EventHandler(this.viewVendorBranchesButton_Click);
             // 
+            // viewPurchasedSoftwareButton
+            // 
+            this.viewPurchasedSoftwareButton.Location = new System.Drawing.Point(155, 407);
+            this.viewPurchasedSoftwareButton.Name = "viewPurchasedSoftwareButton";
+            this.viewPurchasedSoftwareButton.Size = new System.Drawing.Size(144, 23);
+            this.viewPurchasedSoftwareButton.TabIndex = 6;
+            this.viewPurchasedSoftwareButton.Text = "View Purchased Software";
+            this.viewPurchasedSoftwareButton.UseVisualStyleBackColor = true;
+            this.viewPurchasedSoftwareButton.Click += new System.EventHandler(this.viewPurchasedSoftwareButton_Click);
+            // 
+            // viewSoftwareButton
+            // 
+            this.viewSoftwareButton.Location = new System.Drawing.Point(305, 407);
+            this.viewSoftwareButton.Name = "viewSoftwareButton";
+            this.viewSoftwareButton.Size = new System.Drawing.Size(89, 23);
+            this.viewSoftwareButton.TabIndex = 7;
+            this.viewSoftwareButton.Text = "View Software";
+            this.viewSoftwareButton.UseVisualStyleBackColor = true;
+            this.viewSoftwareButton.Click += new System.EventHandler(this.viewSoftwareButton_Click);
+            // 
+            // viewSoftwareClientTypesButton
+            // 
+            this.viewSoftwareClientTypesButton.Location = new System.Drawing.Point(155, 436);
+            this.viewSoftwareClientTypesButton.Name = "viewSoftwareClientTypesButton";
+            this.viewSoftwareClientTypesButton.Size = new System.Drawing.Size(144, 23);
+            this.viewSoftwareClientTypesButton.TabIndex = 8;
+            this.viewSoftwareClientTypesButton.Text = "View Software Client Types";
+            this.viewSoftwareClientTypesButton.UseVisualStyleBackColor = true;
+            this.viewSoftwareClientTypesButton.Click += new System.EventHandler(this.viewSoftwareClientTypesButton_Click);
+            // 
+            // viewSoftwareModulesButton
+            // 
+            this.viewSoftwareModulesButton.Location = new System.Drawing.Point(504, 407);
+            this.viewSoftwareModulesButton.Name = "viewSoftwareModulesButton";
+            this.viewSoftwareModulesButton.Size = new System.Drawing.Size(130, 23);
+            this.viewSoftwareModulesButton.TabIndex = 9;
+            this.viewSoftwareModulesButton.Text = "View Software Modules";
+            this.viewSoftwareModulesButton.UseVisualStyleBackColor = true;
+            this.viewSoftwareModulesButton.Click += new System.EventHandler(this.viewSoftwareModulesButton_Click);
+            // 
+            // viewSoftwareTypesButton
+            // 
+            this.viewSoftwareTypesButton.Location = new System.Drawing.Point(501, 436);
+            this.viewSoftwareTypesButton.Name = "viewSoftwareTypesButton";
+            this.viewSoftwareTypesButton.Size = new System.Drawing.Size(133, 23);
+            this.viewSoftwareTypesButton.TabIndex = 10;
+            this.viewSoftwareTypesButton.Text = "View Types Of Software";
+            this.viewSoftwareTypesButton.UseVisualStyleBackColor = true;
+            this.viewSoftwareTypesButton.Click += new System.EventHandler(this.viewSoftwareTypesButton_Click);
+            // 
+            // viewSoftwareBuisnessAreas
+            // 
+            this.viewSoftwareBuisnessAreas.Location = new System.Drawing.Point(305, 436);
+            this.viewSoftwareBuisnessAreas.Name = "viewSoftwareBuisnessAreas";
+            this.viewSoftwareBuisnessAreas.Size = new System.Drawing.Size(193, 23);
+            this.viewSoftwareBuisnessAreas.TabIndex = 11;
+            this.viewSoftwareBuisnessAreas.Text = "View Software Buisness Areas";
+            this.viewSoftwareBuisnessAreas.UseVisualStyleBackColor = true;
+            this.viewSoftwareBuisnessAreas.Click += new System.EventHandler(this.viewSoftwareBuisnessAreas_Click);
+            // 
             // DatabaseTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 536);
+            this.Controls.Add(this.viewSoftwareBuisnessAreas);
+            this.Controls.Add(this.viewSoftwareTypesButton);
+            this.Controls.Add(this.viewSoftwareModulesButton);
+            this.Controls.Add(this.viewSoftwareClientTypesButton);
+            this.Controls.Add(this.viewSoftwareButton);
+            this.Controls.Add(this.viewPurchasedSoftwareButton);
             this.Controls.Add(this.viewVendorBranchesButton);
             this.Controls.Add(this.viewManagersButton);
             this.Controls.Add(this.viewEmployeesButton);
@@ -123,5 +195,11 @@
         private System.Windows.Forms.Button viewEmployeesButton;
         private System.Windows.Forms.Button viewManagersButton;
         private System.Windows.Forms.Button viewVendorBranchesButton;
+        private System.Windows.Forms.Button viewPurchasedSoftwareButton;
+        private System.Windows.Forms.Button viewSoftwareButton;
+        private System.Windows.Forms.Button viewSoftwareClientTypesButton;
+        private System.Windows.Forms.Button viewSoftwareModulesButton;
+        private System.Windows.Forms.Button viewSoftwareTypesButton;
+        private System.Windows.Forms.Button viewSoftwareBuisnessAreas;
     }
 }

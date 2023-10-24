@@ -77,5 +77,47 @@ namespace Software_Engineering_Project_New
             dgvTest.DataSource = dataSet.Tables[0];
 
         }
+
+        private void viewSoftwareButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWARES);
+            dgvTest.DataSource = dataSet.Tables[0];
+        }
+
+        private void viewPurchasedSoftwareButton_Click(object sender, EventArgs e)
+        {
+            
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLPURCHASEDSOFTWARES);
+            dgvTest.DataSource = dataSet.Tables[0];
+        }
+
+        private void viewSoftwareClientTypesButton_Click(object sender, EventArgs e)
+        {
+            
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWARECLIENTTYPES);
+            dgvTest.DataSource = dataSet.Tables[0];
+        }
+
+        private void viewSoftwareModulesButton_Click(object sender, EventArgs e)
+        {
+            
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWAREMODULES);
+            dgvTest.DataSource = dataSet.Tables[0];
+        }
+        
+        private void viewSoftwareTypesButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLTYPESOFSOFTWARES);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
+        
+        private void viewSoftwareBuisnessAreas_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWAREBUISNESSAREAS);
+            dgvTest.DataSource = dataSet.Tables[0];
+
+        }
+
     }
 }
