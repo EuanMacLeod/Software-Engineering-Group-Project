@@ -63,35 +63,44 @@ SELECT ID, pdf_name, pdf_author, pdf_URL FROM tblPDF WHERE (ID = @ID)</CommandTe
               <Mapping SourceColumn="pdf_author" DataSetColumn="pdf_author" />
               <Mapping SourceColumn="pdf_URL" DataSetColumn="pdf_URL" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="PDFConnectionString (Settings)" DbObjectName="PDF.dbo.tblPDF" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Output" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="Output" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="Output">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, pdf_name, pdf_author, pdf_URL FROM dbo.tblPDF</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="PDFDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="PDFDataSet" msprop:Generator_DataSetName="PDFDataSet">
+  <xs:element name="PDFDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="PDFDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="PDFDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblPDF" msprop:Generator_RowEvHandlerName="tblPDFRowChangeEventHandler" msprop:Generator_RowDeletedName="tblPDFRowDeleted" msprop:Generator_RowDeletingName="tblPDFRowDeleting" msprop:Generator_RowEvArgName="tblPDFRowChangeEvent" msprop:Generator_TablePropName="tblPDF" msprop:Generator_RowChangedName="tblPDFRowChanged" msprop:Generator_RowChangingName="tblPDFRowChanging" msprop:Generator_TableClassName="tblPDFDataTable" msprop:Generator_RowClassName="tblPDFRow" msprop:Generator_TableVarName="tabletblPDF" msprop:Generator_UserTableName="tblPDF">
+        <xs:element name="tblPDF" msprop:Generator_RowClassName="tblPDFRow" msprop:Generator_RowEvHandlerName="tblPDFRowChangeEventHandler" msprop:Generator_RowDeletedName="tblPDFRowDeleted" msprop:Generator_RowDeletingName="tblPDFRowDeleting" msprop:Generator_RowEvArgName="tblPDFRowChangeEvent" msprop:Generator_TablePropName="tblPDF" msprop:Generator_RowChangedName="tblPDFRowChanged" msprop:Generator_UserTableName="tblPDF" msprop:Generator_RowChangingName="tblPDFRowChanging" msprop:Generator_TableClassName="tblPDFDataTable" msprop:Generator_TableVarName="tabletblPDF">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="pdf_name" msprop:Generator_ColumnPropNameInRow="pdf_name" msprop:Generator_ColumnPropNameInTable="pdf_nameColumn" msprop:Generator_ColumnVarNameInTable="columnpdf_name" msprop:Generator_UserColumnName="pdf_name">
+              <xs:element name="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:int" />
+              <xs:element name="pdf_name" msprop:Generator_UserColumnName="pdf_name" msprop:Generator_ColumnPropNameInTable="pdf_nameColumn" msprop:Generator_ColumnPropNameInRow="pdf_name" msprop:Generator_ColumnVarNameInTable="columnpdf_name">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="pdf_author" msprop:Generator_ColumnPropNameInRow="pdf_author" msprop:Generator_ColumnPropNameInTable="pdf_authorColumn" msprop:Generator_ColumnVarNameInTable="columnpdf_author" msprop:Generator_UserColumnName="pdf_author">
+              <xs:element name="pdf_author" msprop:Generator_UserColumnName="pdf_author" msprop:Generator_ColumnPropNameInTable="pdf_authorColumn" msprop:Generator_ColumnPropNameInRow="pdf_author" msprop:Generator_ColumnVarNameInTable="columnpdf_author">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="pdf_URL" msprop:Generator_ColumnPropNameInRow="pdf_URL" msprop:Generator_ColumnPropNameInTable="pdf_URLColumn" msprop:Generator_ColumnVarNameInTable="columnpdf_URL" msprop:Generator_UserColumnName="pdf_URL">
+              <xs:element name="pdf_URL" msprop:Generator_UserColumnName="pdf_URL" msprop:Generator_ColumnPropNameInTable="pdf_URLColumn" msprop:Generator_ColumnPropNameInRow="pdf_URL" msprop:Generator_ColumnVarNameInTable="columnpdf_URL">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
