@@ -47,5 +47,36 @@ namespace Software_Engineering_Project_New
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoginPage LoginPage = new LoginPage();
+            LoginPage.Show();
+            this.Hide();
+        }
+
+        private void button_adminTools_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Updatebutton_adminTools()
+        {
+
+            
+            button_adminTools.Visible = false; // no need for if/else
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button_PDF_Click(object sender, EventArgs e)
+        {
+            PDF pdf = new PDF();
+            pdf.Show();
+            this.Hide();
+        }
     }
 }
