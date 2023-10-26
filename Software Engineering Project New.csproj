@@ -69,66 +69,19 @@
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnections.cs" />
-    <Compile Include="UploadPDF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UploadPDF.Designer.cs">
-      <DependentUpon>UploadPDF.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PDFDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PDFDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="PDFDB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PDFDB.Designer.cs">
-      <DependentUpon>PDFDB.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PDF.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PDF.Designer.cs">
-      <DependentUpon>PDF.cs</DependentUpon>
-    </Compile>
     <Compile Include="HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="LoginPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginPage.Designer.cs">
-      <DependentUpon>LoginPage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Register.Designer.cs">
-      <DependentUpon>Register.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="DatabaseTesting.resx">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UploadPDF.resx">
-      <DependentUpon>UploadPDF.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PDFDB.resx">
-      <DependentUpon>PDFDB.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
-      <DependentUpon>LoginPage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PDF.resx">
-      <DependentUpon>PDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,20 +92,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Register.resx">
-      <DependentUpon>Register.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="PDFDataSet.xsc">
-      <DependentUpon>PDFDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PDFDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PDFDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PDFDataSet.xss">
-      <DependentUpon>PDFDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
