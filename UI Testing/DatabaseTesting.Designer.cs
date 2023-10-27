@@ -40,6 +40,7 @@
             this.viewSoftwareModulesButton = new System.Windows.Forms.Button();
             this.viewSoftwareTypesButton = new System.Windows.Forms.Button();
             this.viewSoftwareBuisnessAreas = new System.Windows.Forms.Button();
+            this.viewRolesButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,11 +163,22 @@
             this.viewSoftwareBuisnessAreas.UseVisualStyleBackColor = true;
             this.viewSoftwareBuisnessAreas.Click += new System.EventHandler(this.viewSoftwareBuisnessAreas_Click);
             // 
+            // viewRolesButton
+            // 
+            this.viewRolesButton.Location = new System.Drawing.Point(400, 407);
+            this.viewRolesButton.Name = "viewRolesButton";
+            this.viewRolesButton.Size = new System.Drawing.Size(98, 23);
+            this.viewRolesButton.TabIndex = 12;
+            this.viewRolesButton.Text = "View Roles";
+            this.viewRolesButton.UseVisualStyleBackColor = true;
+            this.viewRolesButton.Click += new System.EventHandler(this.viewRolesButton_Click);
+            // 
             // DatabaseTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 536);
+            this.Controls.Add(this.viewRolesButton);
             this.Controls.Add(this.viewSoftwareBuisnessAreas);
             this.Controls.Add(this.viewSoftwareTypesButton);
             this.Controls.Add(this.viewSoftwareModulesButton);
@@ -201,5 +213,6 @@
         private System.Windows.Forms.Button viewSoftwareModulesButton;
         private System.Windows.Forms.Button viewSoftwareTypesButton;
         private System.Windows.Forms.Button viewSoftwareBuisnessAreas;
+        private System.Windows.Forms.Button viewRolesButton;
     }
 }

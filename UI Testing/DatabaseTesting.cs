@@ -119,5 +119,10 @@ namespace Software_Engineering_Project_New
 
         }
 
+        private void viewRolesButton_Click(object sender, EventArgs e)
+        {
+            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTEMPLOYEEROLES);
+            dgvTest.DataSource = dataSet.Tables[0];
+        }
     }
 }

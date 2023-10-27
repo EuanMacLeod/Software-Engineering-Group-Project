@@ -17,8 +17,9 @@ namespace Software_Engineering_Project_New
         public static string SELECTALLVENDORS = "SELECT * FROM Vendors";
 
         //
-        public static string SELECTALLMANAGERS = " SELECT e.EmployeeID, e.name, e.ManagerID, m.name AS ManagerName FROM Employees e INNER JOIN employees m ON e.ManagerID = m.EmployeeID";
+        public static string SELECTALLMANAGERS = "SELECT e.EmployeeID, e.name, e.ManagerID, m.name AS ManagerName FROM Employees e INNER JOIN employees m ON e.ManagerID = m.EmployeeID";
 
+        public static string SELECTEMPLOYEEROLES = "SELECT e.EmployeeID, e.name, r.Title AS Role FROM Employees e INNER JOIN Roles r ON e.RoleID = r.RoleID";
         // "SELECT * FROM Branches INNER JOIN Vendors ON Branches.VendorID = Vendors.VendorID";
         //"SELECT * FROM Vendors INNER JOIN Branches ON Vendors.VendorID = Branches.VendorID";
         public static string SELECTALLBRANCHES = "SELECT v.Name AS Vendor, v.Website, v.Email, b.Country, b.City FROM Vendors v INNER JOIN Branches b ON v.VendorID = b.VendorID";

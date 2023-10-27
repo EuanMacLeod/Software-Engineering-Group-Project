@@ -62,10 +62,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="DatabaseTesting.cs">
+    <Compile Include="Roles.cs" />
+    <Compile Include="UI Testing\DatabaseTesting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DatabaseTesting.Designer.cs">
+    <Compile Include="UI Testing\DatabaseTesting.Designer.cs">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </Compile>
     <Compile Include="DBConnections.cs" />
@@ -77,7 +78,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DatabaseTesting.resx">
+    <Compile Include="User.cs" />
+    <EmbeddedResource Include="UI Testing\DatabaseTesting.resx">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="HomePage.resx">
