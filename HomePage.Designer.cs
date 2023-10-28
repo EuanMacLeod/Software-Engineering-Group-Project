@@ -35,12 +35,13 @@ namespace Software_Engineering_Project_New
             this.welcomeLabel = new System.Windows.Forms.Label();
             this.exitButton = new System.Windows.Forms.Button();
             this.button_login = new System.Windows.Forms.Button();
+            this.button_productView = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DBTestButton
             // 
             this.DBTestButton.Location = new System.Drawing.Point(220, 257);
-            this.DBTestButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DBTestButton.Margin = new System.Windows.Forms.Padding(4);
             this.DBTestButton.Name = "DBTestButton";
             this.DBTestButton.Size = new System.Drawing.Size(145, 28);
             this.DBTestButton.TabIndex = 2;
@@ -63,7 +64,7 @@ namespace Software_Engineering_Project_New
             // exitButton
             // 
             this.exitButton.Location = new System.Drawing.Point(409, 257);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(4);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(100, 28);
             this.exitButton.TabIndex = 4;
@@ -82,16 +83,28 @@ namespace Software_Engineering_Project_New
             this.button_login.UseVisualStyleBackColor = true;
             this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
+            // button_productView
+            // 
+            this.button_productView.Location = new System.Drawing.Point(418, 341);
+            this.button_productView.Margin = new System.Windows.Forms.Padding(4);
+            this.button_productView.Name = "button_productView";
+            this.button_productView.Size = new System.Drawing.Size(100, 28);
+            this.button_productView.TabIndex = 6;
+            this.button_productView.Text = "Product View";
+            this.button_productView.UseVisualStyleBackColor = true;
+            this.button_productView.Click += new System.EventHandler(this.button_pdf_Click);
+            // 
             // HomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1209, 682);
+            this.Controls.Add(this.button_productView);
             this.Controls.Add(this.button_login);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.welcomeLabel);
             this.Controls.Add(this.DBTestButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "HomePage";
             this.Text = "HomePage";
             this.Load += new System.EventHandler(this.HomePage_Load);
@@ -105,6 +118,7 @@ namespace Software_Engineering_Project_New
         private Label welcomeLabel;
         private Button exitButton;
         private Button button_login;
+        private Button button_productView;
     }
 }
 

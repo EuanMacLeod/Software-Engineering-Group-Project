@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -61,6 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CitisoftDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Constants.cs" />
     <Compile Include="Login\Login\LoginPage.cs">
       <SubType>Form</SubType>
@@ -73,6 +78,12 @@
     </Compile>
     <Compile Include="Login\Signup\Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Products\ProductView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products\ProductView.Designer.cs">
+      <DependentUpon>ProductView.cs</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs" />
     <Compile Include="UI Testing\DatabaseTesting.cs">
@@ -97,6 +108,9 @@
     <EmbeddedResource Include="Login\Signup\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\ProductView.resx">
+      <DependentUpon>ProductView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI Testing\DatabaseTesting.resx">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +126,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CitisoftDataSet.xsc">
+      <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CitisoftDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitisoftDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitisoftDataSet.xss">
+      <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -139,6 +164,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SQL Databases\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Citisoft.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Citisoft_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Citisoft.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

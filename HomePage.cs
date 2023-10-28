@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Software_Engineering_Project_New.PDF;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,13 @@ namespace Software_Engineering_Project_New
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
             this.Hide();
+        }
+
+        private void button_pdf_Click(object sender, EventArgs e)
+        {
+            ProductView productView = new ProductView();
+            this.Close();
+            productView.Show();
         }
     }
 }
