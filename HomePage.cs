@@ -47,5 +47,12 @@ namespace Software_Engineering_Project_New
         {
 
         }
+
+        private void button_login_Click(object sender, EventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            this.Hide();
+        }
     }
 }
