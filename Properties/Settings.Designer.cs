@@ -26,9 +26,9 @@ namespace Software_Engineering_Project_New.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\euanm\\Documents\\GitH" +
-            "ub\\Software-Engineering-Group-Project\\Citisoft.mdf;Integrated Security=True;Conn" +
-            "ect Timeout=30")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"C:\\Users\\Luca\\Documents\\GitH" +
+            "ub\\Software-Engineering-Group-Project\\SQL Databases\\Citisoft.mdf\";Integrated Sec" +
+            "urity=True;Connect Timeout=30")]
         public string CitisoftDBConnection {
             get {
                 return ((string)(this["CitisoftDBConnection"]));

@@ -21,6 +21,8 @@ namespace Software_Engineering_Project_New
             InitializeComponent();
         }
 
+
+
         private void button_submit_Click(object sender, EventArgs e)
         {
             if (txt_username.Text == "" || txt_password.Text == "")
@@ -30,6 +32,10 @@ namespace Software_Engineering_Project_New
             else if (txt_password.Text != txt_conpassword.Text)
             {
                 MessageBox.Show("Passwords dont match");
+            }
+            else if (radioButton1.Checked == false && radioButton2.Checked == false)
+            {
+                MessageBox.Show("Please choose a role");
             }
             else
             {
@@ -45,11 +51,11 @@ namespace Software_Engineering_Project_New
                     sqlcmd.Parameters.AddWithValue("@Email", txt_email.Text.Trim());
                     if (radioButton1.Checked)
                     {
-                        sqlcmd.Parameters.AddWithValue("@RoleID", radioButton1.Checked);
+                        sqlcmd.Parameters.AddWithValue("@RoleID", 3);
                     }
                     else
                     {
-                        sqlcmd.Parameters.AddWithValue("@RoleID", radioButton2.Checked);
+                        sqlcmd.Parameters.AddWithValue("@RoleID", 4);
                     }
                     
                   //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
@@ -93,7 +99,7 @@ namespace Software_Engineering_Project_New
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             int roleid;
-            if (radioButton1.Checked)
+            if (radioButton1.Checked == true)
             {
                 roleid = 3;
             }
@@ -103,7 +109,7 @@ namespace Software_Engineering_Project_New
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             int roleid;
-            if (radioButton1.Checked)
+            if (radioButton2.Checked == true)
             {
                 roleid = 4;
             }
