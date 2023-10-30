@@ -50,79 +50,75 @@ namespace Software_Engineering_Project_New
 
         private void viewVendorsButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLVENDORS);
-            dgvTest.DataSource = dataSet.Tables[0];
-
+            populateDgv(generateDataSet(Constants.SELECTALLVENDORS));
         }
-
-
         
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLEMPLOYEES);
-            dgvTest.DataSource = dataSet.Tables[0];
-
+            populateDgv(generateDataSet(Constants.SELECTALLEMPLOYEES));
         }
 
         private void viewManagersButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLMANAGERS);
-            dgvTest.DataSource = dataSet.Tables[0];
-
+            populateDgv(generateDataSet(Constants.SELECTALLMANAGERS));
         }
 
         private void viewVendorBranchesButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLBRANCHES);
-            dgvTest.DataSource = dataSet.Tables[0];
-
+            populateDgv(generateDataSet(Constants.SELECTALLBRANCHES));
         }
 
         private void viewSoftwareButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWARES);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTALLSOFTWARES));
         }
 
         private void viewPurchasedSoftwareButton_Click(object sender, EventArgs e)
         {
-            
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLPURCHASEDSOFTWARES);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTALLPURCHASEDSOFTWARES));
         }
 
         private void viewSoftwareClientTypesButton_Click(object sender, EventArgs e)
         {
-            
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWARECLIENTTYPES);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTALLSOFTWARECLIENTTYPES));
         }
 
         private void viewSoftwareModulesButton_Click(object sender, EventArgs e)
         {
-            
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWAREMODULES);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTALLSOFTWAREMODULES));
         }
         
         private void viewSoftwareTypesButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLTYPESOFSOFTWARES);
-            dgvTest.DataSource = dataSet.Tables[0];
-
+            populateDgv(generateDataSet(Constants.SELECTALLTYPESOFSOFTWARES));
         }
         
         private void viewSoftwareBuisnessAreas_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLSOFTWAREBUISNESSAREAS);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTALLSOFTWAREBUISNESSAREAS));
 
         }
 
         private void viewRolesButton_Click(object sender, EventArgs e)
         {
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTEMPLOYEEROLES);
-            dgvTest.DataSource = dataSet.Tables[0];
+            populateDgv(generateDataSet(Constants.SELECTEMPLOYEEROLES));
         }
+
+
+
+
+        private DataSet generateDataSet(string sqlQuery)
+        {
+            return(DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery));
+        }
+
+        private void populateDgv(DataSet ds)
+        {
+            dgvTest.DataSource = ds.Tables[0];
+        }
+
+
+
+
     }
 }
