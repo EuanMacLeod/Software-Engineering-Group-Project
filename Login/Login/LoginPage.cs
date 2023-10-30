@@ -13,7 +13,9 @@ namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
-        String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
+        //String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
+        
+        string ConnectionString = Properties.Settings.Default.CitisoftDBConnection;
         public LoginPage()
         {
             InitializeComponent();

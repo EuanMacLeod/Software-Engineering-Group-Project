@@ -34,7 +34,7 @@ namespace Software_Engineering_Project_New
 
         }
 
-        /*
+        
         public DataSet getDataSet(string sqlQuery)
         {
             DataSet ds = new DataSet();
@@ -57,9 +57,9 @@ namespace Software_Engineering_Project_New
 
             return ds;
         }
-        */
+        
 
-        public DataSet getDataSet(string sqlQuery)
+        /*public DataSet getDataSet(string sqlQuery)
         {
             //create an empty dataset
             DataSet dataSet = new DataSet();
@@ -80,8 +80,7 @@ namespace Software_Engineering_Project_New
 
             return dataSet;
         }
-
-
+        */
 
 
     }
