@@ -26,9 +26,8 @@ namespace Software_Engineering_Project_New.PDF
 
         private void button_exit_Click(object sender, EventArgs e)
         {
-            ProductView productView = new ProductView();
             this.Close();
-            productView.Show();
+            new HomePage().Show();
         }
     }
 }
