@@ -37,7 +37,7 @@ namespace Software_Engineering_Project_New
             DialogResult dr = MessageBox.Show("Exit", "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
             if (dr == DialogResult.Yes)
             {
-                this.Close();
+                Application.Exit();
             }
         }
 

@@ -105,8 +105,6 @@ namespace Software_Engineering_Project_New
         }
 
 
-
-
         private DataSet generateDataSet(string sqlQuery)
         {
             return(DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery));
