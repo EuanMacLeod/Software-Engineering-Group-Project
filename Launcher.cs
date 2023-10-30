@@ -13,7 +13,7 @@ namespace Software_Engineering_Project_New
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] Args)
         {
             Program program = new Program();
             program.startProgram();

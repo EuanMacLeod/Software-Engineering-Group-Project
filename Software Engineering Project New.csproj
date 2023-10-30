@@ -67,6 +67,7 @@
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Launcher.cs" />
     <Compile Include="Login\Login\LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
