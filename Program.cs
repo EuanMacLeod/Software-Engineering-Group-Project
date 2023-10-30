@@ -7,13 +7,14 @@ using System.Windows.Forms;
 namespace Software_Engineering_Project_New
 
 {
-    internal static class Program
+    internal class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+
+
+        private User user;
+
+
+        public void startProgram()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -21,7 +22,14 @@ namespace Software_Engineering_Project_New
 
             new HomePage().Show();
             Application.Run();
+
+
+
         }
+
+
+
+
+        //test comment Euan
     }
-    //test comment Euan
 }
