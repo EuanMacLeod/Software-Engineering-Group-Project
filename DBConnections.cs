@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Software_Engineering_Project_New
 {
@@ -59,29 +60,77 @@ namespace Software_Engineering_Project_New
             return ds;
         }
 
-        public void saveToDB(string sqlQuery, string name, int age)
+        //
+        public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email, int roleID)
         {
-            using (SqlConnection connToDB = new SqlConnection(connectionString))
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
-                //open connection
-                connectionToDatabase.Open();
+                sqlcon.Open();
+                SqlCommand sqlcmd = new SqlCommand("EmployeesAdd", sqlcon);
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.Parameters.AddWithValue("@Name", name);
+                sqlcmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                sqlcmd.Parameters.AddWithValue("@Username", username);
+                sqlcmd.Parameters.AddWithValue("@Password", password);
+                sqlcmd.Parameters.AddWithValue("@Email", email);
+                sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
 
-                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connectionToDatabase);
 
-                //set the sqlCommand's properties
-                sqlCommand.CommandType = CommandType.Text;
+                //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
+                sqlcmd.ExecuteNonQuery();
 
-                //add the parameters to the sqlCommand
-                sqlCommand.Parameters.Add(new SqlParameter("Name", name));
-                sqlCommand.Parameters.Add(new SqlParameter("Age", age));
 
-                //execute the command
-                sqlCommand.ExecuteNonQuery();
+            }
+        }
 
-                connectionToDatabase.Close();
+        public User veryfyLogin(string username, string password)
+        {
+            SqlConnection sqlcon = new SqlConnection(connectionString);
+            String querry = "SELECT * FROM Employees WHERE Username = '" + username + "' AND Password = '" + password + "'";
+
+            DataSet ds = getDataSet(querry);
+
+            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
+
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+
+
+            
+
+
+            if (dt.Rows.Count > 0)
+            {
+                MessageBox.Show(dt.Columns[0].ToString());
+
+                string name = dt.Rows[0]["Name"].ToString();
+                string email = dt.Rows[0]["Email"].ToString();
+                //string username = dt.Rows[0]["Name"].ToString();
+                string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+                int? roleID = Convert.ToInt32(dt.Rows[0]["RoleID"]);
+                int? managerID = Convert.ToInt32(dt.Rows[0]["ManagerID"]);
+
+                User user = new User(
+                    name,
+                    email,
+                    username,
+                    contactNumber,
+                    roleID,
+                    managerID
+                    );
+                return user;
+
+
+            }
+            else
+            {
+                return null;
             }
 
         }
+
+
+
 
 
 

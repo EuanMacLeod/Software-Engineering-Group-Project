@@ -13,27 +13,21 @@ namespace Software_Engineering_Project_New
         private String email;
         private String username;
         private String contactNumber;
-        private int role;
+        private int? roleID;
         private int? managerID; //nullable
 
-        public User(string pName, string pEmail,string pContactNumber, int pRole)
+
+        public User(string pName, string pEmail, string pContactNumber,  string pUsername, int? pRoleID, int? pManagerID)
         {
-            Initialise(pName, pEmail, pContactNumber, pRole);
-        }
-        public User(string pName, string pEmail, string pContactNumber, int pRole, int pManagerID)
-        {
-            Initialise(pName, pEmail, pContactNumber, pRole);
+            this.name = pName;
+            this.email = pEmail;
+            this.contactNumber = pContactNumber;
+            this.username = pUsername;
+            this.roleID = pRoleID;
             this.managerID = pManagerID;
 
         }
 
-        private void Initialise(string pName, string pEmail, string pContactNumber, int pRole)
-        {
-            this.name = pName;
-            this.email = pEmail;
-            this.username = pContactNumber;
-            this.contactNumber = pContactNumber;
-        }
 
         public string Name   // property
         {
@@ -53,10 +47,10 @@ namespace Software_Engineering_Project_New
             set { username = value; }
         }
 
-        public int Role
+        public int? RoleID
         {
-            get { return role; }
-            set { role = value; }
+            get { return roleID; }
+            set { roleID = value; }
         }
 
         public int? ManagerID

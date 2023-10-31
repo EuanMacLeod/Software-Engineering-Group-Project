@@ -46,7 +46,7 @@
             this.button_login.TabIndex = 0;
             this.button_login.Text = "Login";
             this.button_login.UseVisualStyleBackColor = true;
-            this.button_login.Click += new System.EventHandler(this.button1_Click);
+            this.button_login.Click += new System.EventHandler(this.button_login_Click);
             // 
             // button_switchboard
             // 
@@ -57,7 +57,7 @@
             this.button_switchboard.TabIndex = 1;
             this.button_switchboard.Text = "Switchboard";
             this.button_switchboard.UseVisualStyleBackColor = true;
-            this.button_switchboard.Click += new System.EventHandler(this.button2_Click);
+            this.button_switchboard.Click += new System.EventHandler(this.button_switchboard_Click);
             // 
             // label_username
             // 

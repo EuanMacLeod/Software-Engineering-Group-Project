@@ -40,6 +40,26 @@ namespace Software_Engineering_Project_New
             }
             else
             {
+                
+                int RoleID = radioButton1.Checked ? 3 : 4;
+                DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
+                    txt_firstname.Text.Trim(),
+                    txt_ContactNumber.Text.Trim(),
+                    txt_username.Text.Trim(),
+                    txt_password.Text.Trim(),
+                    txt_email.Text.Trim(),
+                    RoleID
+                    );
+
+                MessageBox.Show("registraition is sucessfull");
+
+                HomePage homePage = new HomePage();
+                homePage.Show();
+                this.Hide();
+
+
+                // bellow code moved to DBConnections ~Euan
+                /*
                 using (SqlConnection sqlcon = new SqlConnection(connectionString))
                 {
                     sqlcon.Open();
@@ -58,43 +78,41 @@ namespace Software_Engineering_Project_New
                     {
                         sqlcmd.Parameters.AddWithValue("@RoleID", 4);
                     }
-                    
-                  //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
+
+                    //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
                     sqlcmd.ExecuteNonQuery();
+                }
+                */
 
-                   
-                   
-                    /*
-                      char c = txt_email.Text.ToCharArray()[0];
-                      String admin = "@Citisoft.com";
-                      char[] adminChar = admin.ToCharArray();
-                      char[] emailChar = txt_email.Text.ToCharArray();
 
-                      for (int i = 0; i < adminChar.Length; i++)
+
+                /*
+                  char c = txt_email.Text.ToCharArray()[0];
+                  String admin = "@Citisoft.com";
+                  char[] adminChar = admin.ToCharArray();
+                  char[] emailChar = txt_email.Text.ToCharArray();
+
+                  for (int i = 0; i < adminChar.Length; i++)
+                  {
+                      int j = 0;
+                      if (adminChar[i] == emailChar[i])
                       {
-                          int j = 0;
-                          if (adminChar[i] == emailChar[i])
-                          {
-                              ++j;
-                              if (j == adminChar.Length)
-                              {  
-                                  sqlcmd.Parameters.AddWithValue("@admin", box_admin);
-                              }
+                          ++j;
+                          if (j == adminChar.Length)
+                          {  
+                              sqlcmd.Parameters.AddWithValue("@admin", box_admin);
                           }
                       }
-                     */
-
-
-                    MessageBox.Show("registraition is sucessfull");
-                    
-                    HomePage homePage = new HomePage();
-                    homePage.Show();
-                    this.Hide();
+                  }
+                 */
 
 
 
-                }
+
+
+
             }
+            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)

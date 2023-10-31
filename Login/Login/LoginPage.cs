@@ -22,7 +22,7 @@ namespace Software_Engineering_Project_New
             
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button_login_Click(object sender, EventArgs e)
         {
             String username, user_password;
             username = txt_username.Text;
@@ -41,7 +41,7 @@ namespace Software_Engineering_Project_New
                 user_password = txt_password.Text;
                 txt_password.Clear();
                 txt_username.Clear();
-                ; MessageBox.Show("Win");
+                MessageBox.Show("Win");
 
             }
             else
@@ -50,7 +50,7 @@ namespace Software_Engineering_Project_New
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button_switchboard_Click(object sender, EventArgs e)
         {
             HomePage homePage = new HomePage();
             homePage.Show();

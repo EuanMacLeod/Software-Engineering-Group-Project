@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Software_Engineering_Project_New
 {
@@ -44,6 +45,7 @@ namespace Software_Engineering_Project_New
         public static string SELECTALLSOFTWAREBUISNESSAREAS = "SELECT s.SoftwareID, s.Name AS Software, b.BusinessArea FROM Softwares s INNER JOIN SoftwareBusinessAreas ON s.SoftwareID = SoftwareBusinessAreas.SoftwareID INNER JOIN BusinessAreas b ON SoftwareBusinessAreas.BusinessAreaID = b.BusinessAreaID";
 
         public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
+
 
 
         //public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";

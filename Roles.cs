@@ -8,9 +8,9 @@ namespace Software_Engineering_Project_New
 {
     internal enum Roles
     {
-        Manager = 0,
-        DatabaseEngineer = 1,
-        SoftwareSalesman = 2,
-
+        Admin = 1,
+        Manager = 2,
+        SoftwareSalesman = 3,
+        DatabaseEngineer = 4
     }
 }
