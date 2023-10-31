@@ -24,6 +24,29 @@ namespace Software_Engineering_Project_New
 
         private void button_login_Click(object sender, EventArgs e)
         {
+
+            User user = DBConnections.getInstanceOfDBConnection().veryfyLogin(
+                txt_username.Text.Trim(),
+                txt_password.Text.Trim());
+
+
+            if (user == null)
+            {
+                MessageBox.Show("Error Logging In:\nUsername Or Password Is Incorrect");
+            } else if (user.RoleID == null){
+                MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
+            }
+
+
+            
+
+
+
+
+
+
+            //code bellow has been moved to DBConnections.cs ~Euan
+            /*
             String username, user_password;
             username = txt_username.Text;
             user_password = txt_password.Text;
@@ -48,6 +71,7 @@ namespace Software_Engineering_Project_New
             {
                 MessageBox.Show("Not good news");
             }
+            */
         }
 
         private void button_switchboard_Click(object sender, EventArgs e)

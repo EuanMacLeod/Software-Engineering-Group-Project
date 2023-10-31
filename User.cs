@@ -9,6 +9,7 @@ namespace Software_Engineering_Project_New
 {
     internal class User
     {
+        private int id;
         private String name;
         private String email;
         private String username;
@@ -17,8 +18,9 @@ namespace Software_Engineering_Project_New
         private int? managerID; //nullable
 
 
-        public User(string pName, string pEmail, string pContactNumber,  string pUsername, int? pRoleID, int? pManagerID)
+        public User(int pID, string pName, string pEmail, string pContactNumber,  string pUsername, int? pRoleID, int? pManagerID)
         {
+            this.id = pID;
             this.name = pName;
             this.email = pEmail;
             this.contactNumber = pContactNumber;

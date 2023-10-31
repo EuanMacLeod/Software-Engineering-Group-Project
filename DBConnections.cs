@@ -101,16 +101,20 @@ namespace Software_Engineering_Project_New
 
             if (dt.Rows.Count > 0)
             {
-                MessageBox.Show(dt.Columns[0].ToString());
 
+
+                //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
+
+                int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
                 string name = dt.Rows[0]["Name"].ToString();
                 string email = dt.Rows[0]["Email"].ToString();
                 //string username = dt.Rows[0]["Name"].ToString();
                 string contactNumber = dt.Rows[0]["Contact Number"].ToString();
-                int? roleID = Convert.ToInt32(dt.Rows[0]["RoleID"]);
-                int? managerID = Convert.ToInt32(dt.Rows[0]["ManagerID"]);
+                int? roleID = dt.Rows[0].Field<int?>("roleID");
+                int? managerID = dt.Rows[0].Field<int?>("ManagerID");
 
                 User user = new User(
+                    id,
                     name,
                     email,
                     username,
@@ -118,6 +122,7 @@ namespace Software_Engineering_Project_New
                     roleID,
                     managerID
                     );
+                MessageBox.Show("Hai");
                 return user;
 
 
