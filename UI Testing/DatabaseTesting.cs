@@ -24,11 +24,7 @@ namespace Software_Engineering_Project_New
 
         private void LoadEmployeesDGV()
         {
-
-            DataSet dataSet = DBConnections.getInstanceOfDBConnection().getDataSet(Constants.SELECTALLEMPLOYEES);
-            dgvTest.DataSource = dataSet.Tables[0];
-
-
+            populateDgv(generateDataSet(Constants.SELECTALLEMPLOYEES));
         }
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)

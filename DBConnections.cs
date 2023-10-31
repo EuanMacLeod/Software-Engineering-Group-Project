@@ -35,6 +35,7 @@ namespace Software_Engineering_Project_New
         }
 
         
+        //accepts sql query and returns dataset of results from DB
         public DataSet getDataSet(string sqlQuery)
         {
             DataSet ds = new DataSet();
@@ -57,30 +58,31 @@ namespace Software_Engineering_Project_New
 
             return ds;
         }
-        
 
-        /*public DataSet getDataSet(string sqlQuery)
+        public void saveToDB(string sqlQuery, string name, int age)
         {
-            //create an empty dataset
-            DataSet dataSet = new DataSet();
-
-            using (connectionToDatabase = new SqlConnection(connectionString))
+            using (SqlConnection connToDB = new SqlConnection(connectionString))
             {
-                //open the connection
+                //open connection
                 connectionToDatabase.Open();
 
-                //create teh object dataAdapter to send a query to the DB
-                SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlQuery, connectionToDatabase);
+                SqlCommand sqlCommand = new SqlCommand(sqlQuery, connectionToDatabase);
 
-                //fill in the dataset
-                dataAdapter.Fill(dataSet);
+                //set the sqlCommand's properties
+                sqlCommand.CommandType = CommandType.Text;
+
+                //add the parameters to the sqlCommand
+                sqlCommand.Parameters.Add(new SqlParameter("Name", name));
+                sqlCommand.Parameters.Add(new SqlParameter("Age", age));
+
+                //execute the command
+                sqlCommand.ExecuteNonQuery();
 
                 connectionToDatabase.Close();
             }
 
-            return dataSet;
         }
-        */
+
 
 
     }
