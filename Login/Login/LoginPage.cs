@@ -33,13 +33,16 @@ namespace Software_Engineering_Project_New
             if (user == null)
             {
                 MessageBox.Show("Error Logging In:\nUsername Or Password Is Incorrect");
-            } else if (user.RoleID == null){
+            }
+            else if (user.RoleID == null)
+            {
                 MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
             }
-
-
-            
-
+            else
+            {
+                //TO DO
+                //LOAD INTO NEW PAGE, PASS USER CLASS INTO NEXT FORM SO USER CAN BE RETAINED
+            }
 
 
 
