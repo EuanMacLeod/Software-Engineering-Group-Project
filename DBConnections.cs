@@ -26,13 +26,7 @@ namespace Software_Engineering_Project_New
 
         public static DBConnections getInstanceOfDBConnection()
         {
-
-            if (_instance == null)
-            {
-                _instance = new DBConnections();
-            }
-            return _instance;
-
+            return _instance ?? (_instance = new DBConnections());
         }
 
         

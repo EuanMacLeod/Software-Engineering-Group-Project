@@ -11,7 +11,6 @@ namespace Software_Engineering_Project_New
     {
 
 
-        private User user;
 
 
         public void startProgram()
