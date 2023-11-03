@@ -1,69 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-
-namespace Software_Engineering_Project_New
+﻿namespace Software_Engineering_Project_New
 {
     internal class User
     {
+        private string contactNumber;
         private int id;
-        private String name;
-        private String email;
-        private String username;
-        private String contactNumber;
-        private int? roleID;
-        private int? managerID; //nullable
 
 
-        public User(int pID, string pName, string pEmail, string pContactNumber,  string pUsername, int? pRoleID, int? pManagerID)
+        public User(int pID, string pName, string pEmail, string pContactNumber, string pUsername, int? pRoleID,
+            int? pManagerID)
         {
-            this.id = pID;
-            this.name = pName;
-            this.email = pEmail;
-            this.contactNumber = pContactNumber;
-            this.username = pUsername;
-            this.roleID = pRoleID;
-            this.managerID = pManagerID;
-
+            id = pID;
+            Name = pName;
+            Email = pEmail;
+            contactNumber = pContactNumber;
+            Username = pUsername;
+            RoleID = pRoleID;
+            ManagerID = pManagerID;
         }
 
 
-        public string Name   // property
+        public string Name // property
         {
-            get { return name; }   // get method
-            set { name = value; }  // set method
+            get;
+            // get method
+            set;
+            // set method
         }
 
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
+        public string Email { get; set; }
 
-        public string Username
-        {
-            get { return username; }
-            set { username = value; }
-        }
+        public string Username { get; set; }
 
-        public int? RoleID
-        {
-            get { return roleID; }
-            set { roleID = value; }
-        }
+        public int? RoleID { get; set; }
 
-        public int? ManagerID
-        {
-            get { return managerID; }
-            set {  managerID = value; }
-
-        }
-
-
-
-
+        public int? ManagerID { get; set; }
     }
 }

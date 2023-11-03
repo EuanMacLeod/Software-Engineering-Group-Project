@@ -1,7 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Engineering_Project_New
@@ -9,10 +6,6 @@ namespace Software_Engineering_Project_New
 {
     internal class Program
     {
-
-
-
-
         public void startProgram()
         {
             Application.EnableVisualStyles();
@@ -22,12 +15,7 @@ namespace Software_Engineering_Project_New
             new HomePage().Show();
             Application.Run();
             Console.WriteLine("Bye Bye");
-
-
-
         }
-
-
 
 
         //test comment Euan

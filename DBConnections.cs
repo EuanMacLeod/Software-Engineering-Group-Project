@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
 {
@@ -13,15 +10,13 @@ namespace Software_Engineering_Project_New
     {
         private static DBConnections _instance;
 
-        private string connectionString;
+        private readonly string connectionString;
 
         private SqlConnection connectionToDatabase;
 
         private DBConnections()
         {
-
-            connectionString = Properties.Settings.Default.CitisoftDBConnection;
-
+            connectionString = Settings.Default.CitisoftConnectionString;
         }
 
         public static DBConnections getInstanceOfDBConnection()
@@ -29,13 +24,13 @@ namespace Software_Engineering_Project_New
             return _instance ?? (_instance = new DBConnections());
         }
 
-        
+
         //accepts sql query and returns dataset of results from DB
         public DataSet getDataSet(string sqlQuery)
         {
             DataSet ds = new DataSet();
 
-            using(connectionToDatabase = new SqlConnection(connectionString))
+            using (connectionToDatabase = new SqlConnection(connectionString))
             {
                 //open connection to db
                 connectionToDatabase.Open();
@@ -48,14 +43,14 @@ namespace Software_Engineering_Project_New
 
                 ///close connection to db
                 connectionToDatabase.Close();
-
             }
 
             return ds;
         }
 
         //
-        public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email, int roleID)
+        public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
+            int roleID)
         {
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
@@ -72,17 +67,16 @@ namespace Software_Engineering_Project_New
 
                 //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
                 sqlcmd.ExecuteNonQuery();
-
-
             }
         }
 
         public User veryfyLogin(string username, string password)
         {
             SqlConnection sqlcon = new SqlConnection(connectionString);
-            String querry = "SELECT * FROM Employees WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            //String querry = "SELECT * FROM Employees WHERE Username = '" + username + "' AND Password = '" + password + "'";
+            string querry = "SELECT * FROM Employees WHERE Username = '" + username + "'";
 
-            DataSet ds = getDataSet(querry);
+            //DataSet ds = getDataSet(querry);
 
             SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
 
@@ -90,60 +84,48 @@ namespace Software_Engineering_Project_New
             sda.Fill(dt);
 
 
-            
-
-
             if (dt.Rows.Count > 0)
             {
+                string hashedPassword = dt.Rows[0]["Password"].ToString();
+                MessageBox.Show(hashedPassword);
 
+                if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword))
+                {
+                    int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
+                    string name = dt.Rows[0]["Name"].ToString();
+                    string email = dt.Rows[0]["Email"].ToString();
+                    //string username = dt.Rows[0]["Name"].ToString();
+                    string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+                    int? roleID = dt.Rows[0].Field<int?>("roleID");
+                    int? managerID = dt.Rows[0].Field<int?>("ManagerID");
 
-                //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
-
-                int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
-                string name = dt.Rows[0]["Name"].ToString();
-                string email = dt.Rows[0]["Email"].ToString();
-                //string username = dt.Rows[0]["Name"].ToString();
-                string contactNumber = dt.Rows[0]["Contact Number"].ToString();
-                int? roleID = dt.Rows[0].Field<int?>("roleID");
-                int? managerID = dt.Rows[0].Field<int?>("ManagerID");
-
-                User user = new User(
-                    id,
-                    name,
-                    email,
-                    username,
-                    contactNumber,
-                    roleID,
-                    managerID
+                    User user = new User(
+                        id,
+                        name,
+                        email,
+                        username,
+                        contactNumber,
+                        roleID,
+                        managerID
                     );
-                MessageBox.Show("Hai");
-                return user;
-
-
-            }
-            else
-            {
-                return null;
+                    MessageBox.Show("Hai");
+                    return user;
+                }
             }
 
+            return null;
         }
-
-
-
-
-
-
     }
 }
 
 /*
-Resources Used:  
-Help With Setting Up The DB - https://canvas.anglia.ac.uk/courses/33889/files/4029182?module_item_id=1877766 
+Resources Used:
+Help With Setting Up The DB - https://canvas.anglia.ac.uk/courses/33889/files/4029182?module_item_id=1877766
 
 Help With Syntax For SQL Statements - https://canvas.anglia.ac.uk/courses/33889/files/4029173?module_item_id=1877768
 
 Help With Using Datasets - https://learn.microsoft.com/en-us/dotnet/api/system.data.dataset
-  
+
 Help With Generating SQL Commands - https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient
 
 Help With SqLDataAdapter - https://learn.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqldataadapter

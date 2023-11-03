@@ -1,41 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
         //String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
-        
-        string ConnectionString = Properties.Settings.Default.CitisoftDBConnection;
+
+        private string ConnectionString = Settings.Default.CitisoftDBConnection;
+
         public LoginPage()
         {
             InitializeComponent();
-            
         }
 
         private void button_login_Click(object sender, EventArgs e)
         {
-
             User user = DBConnections.getInstanceOfDBConnection().veryfyLogin(
                 txt_username.Text.Trim(),
                 txt_password.Text.Trim());
 
 
             if (user == null)
-            {
                 MessageBox.Show("Error Logging In:\nUsername Or Password Is Incorrect");
-            }
             else
-            {
                 //TO DO
                 //LOAD INTO NEW PAGE, PASS USER CLASS INTO NEXT FORM SO USER CAN BE RETAINED
                 switch (user.RoleID)
@@ -55,15 +44,7 @@ namespace Software_Engineering_Project_New
                     case (int)Roles.SoftwareSalesman:
 
                         break;
-                    default:
-                        break;
-
                 }
-
-            }
-
-
-
 
 
             //code bellow has been moved to DBConnections.cs ~Euan
@@ -99,8 +80,7 @@ namespace Software_Engineering_Project_New
         {
             HomePage homePage = new HomePage();
             homePage.Show();
-            this.Hide();
-
+            Hide();
         }
 
         private void button_register_Click(object sender, EventArgs e)
@@ -108,7 +88,7 @@ namespace Software_Engineering_Project_New
         {
             Register register = new Register();
             register.Show();
-            this.Hide();
+            Hide();
         }
     }
 }

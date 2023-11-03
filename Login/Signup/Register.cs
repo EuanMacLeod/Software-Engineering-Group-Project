@@ -1,61 +1,56 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
 {
     public partial class Register : Form
     {
         //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
-        string connectionString = Properties.Settings.Default.CitisoftDBConnection;
+        private string connectionString = Settings.Default.CitisoftDBConnection;
+
         public Register()
         {
             InitializeComponent();
         }
 
 
-
         private void button_submit_Click(object sender, EventArgs e)
         {
             if (txt_username.Text == "" || txt_password.Text == "")
             {
-                MessageBox.Show("All fields are mandatory");
+                MessageBox.Show("All Fields Are Mandatory");
             }
             else if (txt_password.Text != txt_conpassword.Text)
             {
-                MessageBox.Show("Passwords dont match");
+                MessageBox.Show("Passwords Don't Match");
             }
             else if (radioButton1.Checked == false && radioButton2.Checked == false)
             {
-                MessageBox.Show("Please choose a role");
+                MessageBox.Show("Please Choose A Role");
             }
             else
             {
-                
                 int RoleID = radioButton1.Checked ? 3 : 4;
+
+                string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
+                MessageBox.Show(passwordHash);
+
+
                 DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
                     txt_firstname.Text.Trim(),
                     txt_ContactNumber.Text.Trim(),
                     txt_username.Text.Trim(),
-                    txt_password.Text.Trim(),
+                    passwordHash,
                     txt_email.Text.Trim(),
                     RoleID
-                    );
+                );
 
-                MessageBox.Show("registraition is sucessfull");
+                MessageBox.Show("Registration Successful");
 
                 HomePage homePage = new HomePage();
                 homePage.Show();
-                this.Hide();
+                Hide();
 
 
                 // bellow code moved to DBConnections ~Euan
@@ -85,7 +80,6 @@ namespace Software_Engineering_Project_New
                 */
 
 
-
                 /*
                   char c = txt_email.Text.ToCharArray()[0];
                   String admin = "@Citisoft.com";
@@ -99,39 +93,25 @@ namespace Software_Engineering_Project_New
                       {
                           ++j;
                           if (j == adminChar.Length)
-                          {  
+                          {
                               sqlcmd.Parameters.AddWithValue("@admin", box_admin);
                           }
                       }
                   }
                  */
-
-
-
-
-
-
             }
-            
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             int roleid;
-            if (radioButton1.Checked == true)
-            {
-                roleid = 3;
-            }
-            
+            if (radioButton1.Checked) roleid = 3;
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
             int roleid;
-            if (radioButton2.Checked == true)
-            {
-                roleid = 4;
-            }
+            if (radioButton2.Checked) roleid = 4;
         }
     }
 }

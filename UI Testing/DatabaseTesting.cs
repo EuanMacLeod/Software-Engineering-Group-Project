@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Software_Engineering_Project_New
@@ -29,18 +23,15 @@ namespace Software_Engineering_Project_New
 
         private void dgvEmployees_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void dgvTest_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void DBTestingBackButton_Click(object sender, EventArgs e)
         {
-            
-            this.Close();
+            Close();
             new HomePage().Show();
         }
 
@@ -48,7 +39,7 @@ namespace Software_Engineering_Project_New
         {
             populateDgv(generateDataSet(Constants.SELECTALLVENDORS));
         }
-        
+
         private void viewEmployeesButton_Click(object sender, EventArgs e)
         {
             populateDgv(generateDataSet(Constants.SELECTALLEMPLOYEES));
@@ -83,16 +74,15 @@ namespace Software_Engineering_Project_New
         {
             populateDgv(generateDataSet(Constants.SELECTALLSOFTWAREMODULES));
         }
-        
+
         private void viewSoftwareTypesButton_Click(object sender, EventArgs e)
         {
             populateDgv(generateDataSet(Constants.SELECTALLTYPESOFSOFTWARES));
         }
-        
+
         private void viewSoftwareBuisnessAreas_Click(object sender, EventArgs e)
         {
             populateDgv(generateDataSet(Constants.SELECTALLSOFTWAREBUISNESSAREAS));
-
         }
 
         private void viewRolesButton_Click(object sender, EventArgs e)
@@ -103,16 +93,12 @@ namespace Software_Engineering_Project_New
 
         private DataSet generateDataSet(string sqlQuery)
         {
-            return(DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery));
+            return DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
         }
 
         private void populateDgv(DataSet ds)
         {
             dgvTest.DataSource = ds.Tables[0];
         }
-
-
-
-
     }
 }
