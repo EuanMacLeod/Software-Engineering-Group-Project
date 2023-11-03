@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using BCrypt.Net;
 namespace Software_Engineering_Project_New
 {
     public partial class Register : Form
@@ -21,7 +21,6 @@ namespace Software_Engineering_Project_New
         {
             InitializeComponent();
         }
-
 
 
         private void button_submit_Click(object sender, EventArgs e)
@@ -42,15 +41,17 @@ namespace Software_Engineering_Project_New
             {
                 
                 int RoleID = radioButton1.Checked ? 3 : 4;
+
+                string hashedPassword = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
+
                 DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
                     txt_firstname.Text.Trim(),
                     txt_ContactNumber.Text.Trim(),
                     txt_username.Text.Trim(),
-                    txt_password.Text.Trim(),
+                    hashedPassword,
                     txt_email.Text.Trim(),
                     RoleID
                     );
-
                 MessageBox.Show("registraition is sucessfull");
 
                 HomePage homePage = new HomePage();

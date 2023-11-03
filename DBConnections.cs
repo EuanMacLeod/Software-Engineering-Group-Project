@@ -35,7 +35,6 @@ namespace Software_Engineering_Project_New
 
         }
 
-        
         //accepts sql query and returns dataset of results from DB
         public DataSet getDataSet(string sqlQuery)
         {
@@ -83,58 +82,99 @@ namespace Software_Engineering_Project_New
             }
         }
 
+        // public User veryfyLogin(string username, string password)
+        // {
+        //     SqlConnection sqlcon = new SqlConnection(connectionString);
+        //     String querry = "SELECT * FROM Employees WHERE Username = '" + username + "'";
+        //
+        //     DataSet ds = getDataSet(querry);
+        //     
+        //
+        //     SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
+        //
+        //     DataTable dt = new DataTable();
+        //     sda.Fill(dt);
+        //
+        //     if (dt.Rows.Count > 0)
+        //     {
+        //         
+        //         string storedPasswordHash = dt.Rows[0]["Password"].ToString();
+        //         if (BCrypt.Net.BCrypt.Verify(password, storedPasswordHash))
+        //         {
+        //             MessageBox.Show("Here");
+        //             //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
+        //
+        //             int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
+        //             string name = dt.Rows[0]["Name"].ToString();
+        //             string email = dt.Rows[0]["Email"].ToString();
+        //             //string username = dt.Rows[0]["Name"].ToString();
+        //             string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+        //             int? roleID = dt.Rows[0].Field<int?>("roleID");
+        //             int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+        //
+        //             User user = new User(
+        //                 id,
+        //                 name,
+        //                 email,
+        //                 username,
+        //                 contactNumber,
+        //                 roleID,
+        //                 managerID
+        //             );
+        //             MessageBox.Show("Hai");
+        //             return user;
+        //         }
+        //
+        //
+        //     }
+        //
+        //     return null;
+        //
+        //
+        // }
+        //
+        
         public User veryfyLogin(string username, string password)
         {
-            SqlConnection sqlcon = new SqlConnection(connectionString);
-            String querry = "SELECT * FROM Employees WHERE Username = '" + username + "' AND Password = '" + password + "'";
-
-            DataSet ds = getDataSet(querry);
-
-            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
-
-            DataTable dt = new DataTable();
-            sda.Fill(dt);
-
-
-            
-
-
-            if (dt.Rows.Count > 0)
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
+                string query = "SELECT * FROM Employees WHERE Username = @username";
+                SqlCommand cmd = new SqlCommand(query, sqlcon);
+                cmd.Parameters.AddWithValue("@username", username);
 
+                sqlcon.Open();
 
-                //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
+                using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
 
-                int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
-                string name = dt.Rows[0]["Name"].ToString();
-                string email = dt.Rows[0]["Email"].ToString();
-                //string username = dt.Rows[0]["Name"].ToString();
-                string contactNumber = dt.Rows[0]["Contact Number"].ToString();
-                int? roleID = dt.Rows[0].Field<int?>("roleID");
-                int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+                    if (dt.Rows.Count > 0)
+                    {
+                        string storedPasswordHash = dt.Rows[0]["Password"].ToString();
+                        Console.WriteLine(storedPasswordHash);
+                        Console.WriteLine(password);
+                        
+                        if (BCrypt.Net.BCrypt.Verify(password, storedPasswordHash))
+                        {
+                            int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
+                            string name = dt.Rows[0]["Name"].ToString();
+                            string email = dt.Rows[0]["Email"].ToString();
+                            string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+                            int? roleID = dt.Rows[0].Field<int?>("roleID");
+                            int? managerID = dt.Rows[0].Field<int?>("ManagerID");
 
-                User user = new User(
-                    id,
-                    name,
-                    email,
-                    username,
-                    contactNumber,
-                    roleID,
-                    managerID
-                    );
-                MessageBox.Show("Hai");
-                return user;
-
-
-            }
-            else
-            {
-                return null;
+                            User user = new User(id, name, email, username, contactNumber, roleID, managerID);
+                            return user;
+                        }
+                    }
+                }
             }
 
+            return null;
         }
 
-
+        
 
 
 

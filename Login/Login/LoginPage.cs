@@ -8,18 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
         //String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
-        
+
         string ConnectionString = Properties.Settings.Default.CitisoftDBConnection;
         public LoginPage()
         {
             InitializeComponent();
-            
         }
 
         private void button_login_Click(object sender, EventArgs e)
@@ -29,22 +29,13 @@ namespace Software_Engineering_Project_New
                 txt_username.Text.Trim(),
                 txt_password.Text.Trim());
 
-
             if (user == null)
             {
                 MessageBox.Show("Error Logging In:\nUsername Or Password Is Incorrect");
             } else if (user.RoleID == null){
                 MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
             }
-
-
             
-
-
-
-
-
-
             //code bellow has been moved to DBConnections.cs ~Euan
             /*
             String username, user_password;
