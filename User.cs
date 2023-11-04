@@ -2,22 +2,21 @@
 {
     internal class User
     {
-        private string contactNumber;
-        private int id;
-
 
         public User(int pID, string pName, string pEmail, string pContactNumber, string pUsername, int? pRoleID,
             int? pManagerID)
         {
-            id = pID;
+            ID = pID;
             Name = pName;
             Email = pEmail;
-            contactNumber = pContactNumber;
+            ContactNumber = pContactNumber;
             Username = pUsername;
             RoleID = pRoleID;
             ManagerID = pManagerID;
         }
 
+
+        public int ID { get; set; }
 
         public string Name // property
         {
@@ -26,8 +25,10 @@
             set;
             // set method
         }
-
+        
         public string Email { get; set; }
+
+        public string ContactNumber { get; set; }
 
         public string Username { get; set; }
 
