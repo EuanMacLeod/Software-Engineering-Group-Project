@@ -3,37 +3,31 @@
     internal class User
     {
 
-        public User(int pID, string pName, string pEmail, string pContactNumber, string pUsername, int? pRoleID,
-            int? pManagerID)
+        public User(int pId, string pName, string pEmail, string pContactNumber, string pUsername, int? pRoleId,
+            int? pManagerId)
         {
-            ID = pID;
+            Id = pId;
             Name = pName;
             Email = pEmail;
             ContactNumber = pContactNumber;
             Username = pUsername;
-            RoleID = pRoleID;
-            ManagerID = pManagerID;
+            RoleId = pRoleId;
+            ManagerId = pManagerId;
         }
 
 
-        public int ID { get; set; }
+        public int Id { get; set; }
 
-        public string Name // property
-        {
-            get;
-            // get method
-            set;
-            // set method
-        }
+        public string Name { get; }
         
-        public string Email { get; set; }
+        public string Email { get; }
 
-        public string ContactNumber { get; set; }
+        public string ContactNumber { get; }
 
-        public string Username { get; set; }
+        public string Username { get; }
 
-        public int? RoleID { get; set; }
+        public int? RoleId { get; }
 
-        public int? ManagerID { get; set; }
+        public int? ManagerId { get; }
     }
 }
