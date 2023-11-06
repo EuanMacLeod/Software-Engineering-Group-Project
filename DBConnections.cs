@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Software_Engineering_Project_New
 {
@@ -48,6 +51,32 @@ namespace Software_Engineering_Project_New
             return ds;
         }
 
+        public bool doesUserExist(string username, string email)
+        {
+            object queryResult;
+
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                command.Parameters.AddWithValue("Username", username);
+                command.Parameters.AddWithValue("@Email", email);
+
+                sqlcon.Open();
+                queryResult = command.ExecuteScalar();
+            }
+
+            if (queryResult == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
             int roleID)
@@ -64,53 +93,55 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Email", email);
                 sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
 
-
-                //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
                 sqlcmd.ExecuteNonQuery();
             }
         }
 
-        public User veryfyLogin(string username, string password)
+        public User getUserFromDB(string username, string password)
         {
-            SqlConnection sqlcon = new SqlConnection(connectionString);
-            //String querry = "SELECT * FROM Employees WHERE Username = '" + username + "' AND Password = '" + password + "'";
-            string querry = "SELECT * FROM Employees WHERE Username = '" + username + "'";
-
-            //DataSet ds = getDataSet(querry);
-
-            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
 
             DataTable dt = new DataTable();
-            sda.Fill(dt);
 
-
-            if (dt.Rows.Count > 0)
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
-                string hashedPassword = dt.Rows[0]["Password"].ToString();
-                MessageBox.Show(hashedPassword);
+                sqlcon.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                command.CommandText = "SELECT * FROM Employees WHERE Username = @Username";
+                command.Parameters.AddWithValue("Username", username);
 
-                if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword))
-                {
-                    int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
-                    string name = dt.Rows[0]["Name"].ToString();
-                    string email = dt.Rows[0]["Email"].ToString();
-                    //string username = dt.Rows[0]["Name"].ToString();
-                    string contactNumber = dt.Rows[0]["Contact Number"].ToString();
-                    int? roleID = dt.Rows[0].Field<int?>("roleID");
-                    int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+                SqlDataAdapter sda = new SqlDataAdapter(command);
 
-                    User user = new User(
-                        id,
-                        name,
-                        email,
-                        username,
-                        contactNumber,
-                        roleID,
-                        managerID
-                    );
-                    MessageBox.Show("Hai");
-                    return user;
-                }
+
+                sda.Fill(dt);
+            }
+
+
+            if (dt.Rows.Count <= 0) return null; //if username not in db, return null
+
+            string hashedPassword = dt.Rows[0]["Password"].ToString();
+
+            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword))
+            {
+                int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
+                string name = dt.Rows[0]["Name"].ToString();
+                string email = dt.Rows[0]["Email"].ToString();
+                //string username = dt.Rows[0]["Name"].ToString();
+                string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+                int? roleID = dt.Rows[0].Field<int?>("roleID");
+                int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+
+                User user = new User(
+                    id,
+                    name,
+                    email,
+                    contactNumber,
+                    username,
+                    managerID,
+                    roleID
+                );
+                MessageBox.Show("Hai");
+                return user;
             }
 
             return null;

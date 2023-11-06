@@ -29,6 +29,10 @@ namespace Software_Engineering_Project_New
             {
                 MessageBox.Show("Please Choose A Role");
             }
+            else if(DBConnections.getInstanceOfDBConnection().doesUserExist(txt_username.Text.Trim(), txt_email.Text.Trim()))
+            {
+                MessageBox.Show("User Already Exists");
+            }
             else
             {
                 int RoleID = radioButton1.Checked ? 3 : 4;

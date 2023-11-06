@@ -17,7 +17,7 @@ namespace Software_Engineering_Project_New
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            User user = DBConnections.getInstanceOfDBConnection().veryfyLogin(
+            User user = DBConnections.getInstanceOfDBConnection().getUserFromDB(
                 txt_username.Text.Trim(),
                 txt_password.Text.Trim());
 
@@ -27,7 +27,7 @@ namespace Software_Engineering_Project_New
             else
                 //TO DO
                 //LOAD INTO NEW PAGE, PASS USER CLASS INTO NEXT FORM SO USER CAN BE RETAINED
-                switch (user.RoleID)
+                switch (user.RoleId)
                 {
                     case null:
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");

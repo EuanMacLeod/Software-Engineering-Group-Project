@@ -3,20 +3,19 @@
     internal class User
     {
 
-        public User(int pId, string pName, string pEmail, string pContactNumber, string pUsername, int? pRoleId,
-            int? pManagerId)
+        public User(int pId, string pName, string pEmail, string pContactNumber, string pUsername, int? pManagerId, int? pRoleId)
         {
             Id = pId;
             Name = pName;
             Email = pEmail;
             ContactNumber = pContactNumber;
             Username = pUsername;
-            RoleId = pRoleId;
             ManagerId = pManagerId;
+            RoleId = pRoleId;
         }
 
 
-        public int Id { get; set; }
+        public int Id { get; }
 
         public string Name { get; }
         
@@ -26,8 +25,8 @@
 
         public string Username { get; }
 
-        public int? RoleId { get; }
-
         public int? ManagerId { get; }
+
+        public int? RoleId { get; }
     }
 }
