@@ -54,7 +54,7 @@ namespace Software_Engineering_Project_New
         //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)
         {
-            object queryResult;
+            int count;
 
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
@@ -66,10 +66,10 @@ namespace Software_Engineering_Project_New
                 command.Parameters.AddWithValue("@Email", email);
 
                 sqlcon.Open();
-                queryResult = command.ExecuteScalar();
+                count = (int)command.ExecuteScalar();
             }
 
-            return queryResult != null;
+            return count >= 1;
         }
 
 
