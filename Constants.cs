@@ -49,6 +49,12 @@
 
 
 
+        public static string COUNT_PEOPLE_WITH_NAME_OR_EMAIL = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+
+        public static string SELECT_EMPLOYEE_WITH_USERNAME = "SELECT * FROM Employees WHERE Username = @Username";
+
+
+
         //public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
         //Constants.INSERTPerson, name, age);
     }

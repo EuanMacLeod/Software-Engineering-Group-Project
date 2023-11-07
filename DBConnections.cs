@@ -51,6 +51,7 @@ namespace Software_Engineering_Project_New
             return ds;
         }
 
+        //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)
         {
             object queryResult;
@@ -59,7 +60,8 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_OR_EMAIL;
                 command.Parameters.AddWithValue("Username", username);
                 command.Parameters.AddWithValue("@Email", email);
 
@@ -67,11 +69,7 @@ namespace Software_Engineering_Project_New
                 queryResult = command.ExecuteScalar();
             }
 
-            if (queryResult == null)
-            {
-                return false;
-            }
-            return true;
+            return queryResult != null;
         }
 
 
@@ -97,17 +95,20 @@ namespace Software_Engineering_Project_New
             }
         }
 
+        //returns a user class if employee exists, else returns null
         public User getUserFromDB(string username, string password)
         {
 
             DataTable dt = new DataTable();
 
+            //searching DB for user with provided username and populates a datatable with the results
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
                 sqlcon.Open();
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                command.CommandText = "SELECT * FROM Employees WHERE Username = @Username";
+                //command.CommandText = "SELECT * FROM Employees WHERE Username = @Username";
+                command.CommandText = Constants.SELECT_EMPLOYEE_WITH_USERNAME;
                 command.Parameters.AddWithValue("Username", username);
 
                 SqlDataAdapter sda = new SqlDataAdapter(command);
@@ -121,8 +122,9 @@ namespace Software_Engineering_Project_New
 
             string hashedPassword = dt.Rows[0]["Password"].ToString();
 
-            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword))
+            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword)) //checks entered password is same as stored password
             {
+                //gets data from the datatable
                 int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
                 string name = dt.Rows[0]["Name"].ToString();
                 string email = dt.Rows[0]["Email"].ToString();
