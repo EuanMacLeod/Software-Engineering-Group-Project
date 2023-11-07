@@ -17,7 +17,7 @@ namespace Software_Engineering_Project_New
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            User user = DBConnections.getInstanceOfDBConnection().getUserFromDB(
+            User user = DBConnections.getInstanceOfDBConnection().login(
                 txt_username.Text.Trim(),
                 txt_password.Text.Trim());
 
