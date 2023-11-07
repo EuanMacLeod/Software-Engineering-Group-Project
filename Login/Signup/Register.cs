@@ -41,7 +41,7 @@ namespace Software_Engineering_Project_New
                 MessageBox.Show(passwordHash);
 
 
-                DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
+                DBConnections.getInstanceOfDBConnection().storeUser(
                     txt_firstname.Text.Trim(),
                     txt_ContactNumber.Text.Trim(),
                     txt_username.Text.Trim(),

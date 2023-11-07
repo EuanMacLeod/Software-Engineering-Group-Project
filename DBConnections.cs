@@ -66,17 +66,22 @@ namespace Software_Engineering_Project_New
                 command.Parameters.AddWithValue("@Email", email);
 
                 sqlcon.Open();
-                queryResult = command.ExecuteScalar();
-            }
+                int count = (int)command.ExecuteScalar();
+                Console.WriteLine(count);
 
-            return queryResult != null;
+                if (count >= 1)
+                {
+                    return true;
+                }
+                return false;
+            }
         }
 
 
 
 
         //
-        public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
+        public void storeUser(string name, string contactNumber, string username, string password, string email,
             int roleID)
         {
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
@@ -96,7 +101,7 @@ namespace Software_Engineering_Project_New
         }
 
         //returns a user class if employee exists, else returns null
-        public User getUserFromDB(string username, string password)
+        public User login(string username, string password)
         {
 
             DataTable dt = new DataTable();
