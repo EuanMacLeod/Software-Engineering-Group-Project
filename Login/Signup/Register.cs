@@ -38,7 +38,7 @@ namespace Software_Engineering_Project_New
                 int RoleID = radioButton1.Checked ? 3 : 4;
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
-                MessageBox.Show(passwordHash);
+                //MessageBox.Show(passwordHash);
 
 
                 DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
