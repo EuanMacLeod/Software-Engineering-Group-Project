@@ -83,6 +83,12 @@
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Constants.cs" />
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
+      <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Launcher.cs" />
     <Compile Include="Controllers\Login\LoginPage.cs">
       <SubType>Form</SubType>
@@ -119,6 +125,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.resx">
+      <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Login\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
     </EmbeddedResource>

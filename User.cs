@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Project_New
 {
-    internal class User
+    public class User
     {
 
         public User(int pId, string pName, string pEmail, string pContactNumber, string pUsername, int? pManagerId, int? pRoleId)
