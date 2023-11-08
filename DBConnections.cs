@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -72,8 +73,27 @@ namespace Software_Engineering_Project_New
             return count >= 1;
         }
 
+        public DataTable Search(string search)
+        {
+            DataTable searchResults = new DataTable();
 
+            using (SqlConnection connectionToDatabase = new SqlConnection(connectionString))
+            {
+                connectionToDatabase.Open();
 
+                string query = "SELECT * FROM software WHERE name LIKE @search";
+                using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
+                {
+                    command.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        searchResults.Load(reader);
+                    }
+                }
+            }
+            return searchResults;
+        }
 
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
@@ -112,8 +132,7 @@ namespace Software_Engineering_Project_New
                 command.Parameters.AddWithValue("Username", username);
 
                 SqlDataAdapter sda = new SqlDataAdapter(command);
-
-
+                
                 sda.Fill(dt);
             }
 
@@ -148,6 +167,7 @@ namespace Software_Engineering_Project_New
 
             return null;
         }
+        
     }
 }
 
