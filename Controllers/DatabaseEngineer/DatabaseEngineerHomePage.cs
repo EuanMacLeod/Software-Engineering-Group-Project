@@ -42,6 +42,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             dt.Columns.Add("File Modified");
             dt.Columns.Add("File Accessed");
             dt.Columns.Add("File Owner");
+            dt.Columns.Add("URL");
 
             string[] files = System.IO.Directory.GetFiles(Constants.UNTAGGED_PDF_FOLDER_PATH);
 
@@ -61,6 +62,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 dr["File Modified"] = info.LastWriteTime;
                 dr["File Accessed"] = info.LastAccessTime;
                 dr["File Owner"] = info.GetAccessControl().GetOwner(typeof(System.Security.Principal.NTAccount));
+                dr["URL"] = info.FullName;
                 dt.Rows.Add(dr);
             }
 
@@ -133,12 +135,44 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             }
         }
 
+        private void copyLastCell()
+        {
+            if (dgvUntaggedPDFViewer.SelectedRows.Count > 0)
+            {
+                // Get the selected row
+                DataGridViewRow selectedRow = dgvUntaggedPDFViewer.SelectedRows[0];
+
+                // Determine the index of the last cell in the selected row
+                int lastCellIndex = selectedRow.Cells.Count - 1;
+
+                // Get the value of the last cell in the selected row
+                string finalCellValue = selectedRow.Cells[lastCellIndex].Value.ToString();
 
 
+                // Copy the value to the clipboard
+                Clipboard.SetText(finalCellValue);
+
+                MessageBox.Show("URL Copied", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No row is selected.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
+            OpenPDF openPDF = new OpenPDF(user);
+            
+            openPDF.Show();
+        }
 
+        private void openPDFButton_Click(object sender, EventArgs e)
+        {
+            copyLastCell();
+        }
 
+        private void dgvSoftwares_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

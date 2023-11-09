@@ -139,30 +139,35 @@ namespace Software_Engineering_Project_New
 
             if (dt.Rows.Count <= 0) return null; //if username not in db, return null
 
-            string hashedPassword = dt.Rows[0]["Password"].ToString();
+     
+            
+            
+                string hashedPassword = dt.Rows[0]["Password"].ToString();
+                if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword)) //checks entered password is same as stored password
+                {
+                    //gets data from the datatable
+                    int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
+                    string name = dt.Rows[0]["Name"].ToString();
+                    string email = dt.Rows[0]["Email"].ToString();
+                    //string username = dt.Rows[0]["Name"].ToString();
+                    string contactNumber = dt.Rows[0]["Contact Number"].ToString();
+                    int? roleID = dt.Rows[0].Field<int?>("roleID");
+                    int? managerID = dt.Rows[0].Field<int?>("ManagerID");
 
-            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword)) //checks entered password is same as stored password
-            {
-                //gets data from the datatable
-                int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
-                string name = dt.Rows[0]["Name"].ToString();
-                string email = dt.Rows[0]["Email"].ToString();
-                //string username = dt.Rows[0]["Name"].ToString();
-                string contactNumber = dt.Rows[0]["Contact Number"].ToString();
-                int? roleID = dt.Rows[0].Field<int?>("roleID");
-                int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+                    User user = new User(
+                        id,
+                        name,
+                        email,
+                        contactNumber,
+                        username,
+                        managerID,
+                        roleID
+                    );
+                    return user;
+                }
 
-                User user = new User(
-                    id,
-                    name,
-                    email,
-                    contactNumber,
-                    username,
-                    managerID,
-                    roleID
-                );
-                return user;
-            }
+            
+            
 
             return null;
         }
