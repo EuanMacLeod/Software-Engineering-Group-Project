@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer;
 using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
@@ -39,6 +40,9 @@ namespace Software_Engineering_Project_New
 
                         break;
                     case (int)Roles.DatabaseEngineer:
+                        DatabaseEngineerHomePage databaseEngineerHomePage = new DatabaseEngineerHomePage(user);
+                        databaseEngineerHomePage.Show();
+                        Hide();
 
                         break;
                     case (int)Roles.SoftwareSalesman:
