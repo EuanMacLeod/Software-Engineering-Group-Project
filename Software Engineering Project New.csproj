@@ -190,6 +190,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="PDFs\Tagged\" />
+    <Folder Include="PDFs\Untagged\" />
     <Folder Include="SQL Databases\" />
   </ItemGroup>
   <ItemGroup>
