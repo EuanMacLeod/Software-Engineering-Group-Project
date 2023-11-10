@@ -41,11 +41,13 @@
             // dgvUntaggedPDFViewer
             // 
             this.dgvUntaggedPDFViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUntaggedPDFViewer.Location = new System.Drawing.Point(1006, 50);
+            this.dgvUntaggedPDFViewer.Location = new System.Drawing.Point(1509, 77);
+            this.dgvUntaggedPDFViewer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvUntaggedPDFViewer.Name = "dgvUntaggedPDFViewer";
             this.dgvUntaggedPDFViewer.ReadOnly = true;
+            this.dgvUntaggedPDFViewer.RowHeadersWidth = 62;
             this.dgvUntaggedPDFViewer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvUntaggedPDFViewer.Size = new System.Drawing.Size(639, 378);
+            this.dgvUntaggedPDFViewer.Size = new System.Drawing.Size(958, 582);
             this.dgvUntaggedPDFViewer.TabIndex = 0;
             this.dgvUntaggedPDFViewer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUntaggedPDFViewer_CellContentClick);
             this.dgvUntaggedPDFViewer.SelectionChanged += new System.EventHandler(this.dgvUntaggedPDFViewer_SelectionChanged);
@@ -53,11 +55,13 @@
             // dgvSoftwares
             // 
             this.dgvSoftwares.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSoftwares.Location = new System.Drawing.Point(12, 50);
+            this.dgvSoftwares.Location = new System.Drawing.Point(18, 77);
+            this.dgvSoftwares.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvSoftwares.Name = "dgvSoftwares";
             this.dgvSoftwares.ReadOnly = true;
+            this.dgvSoftwares.RowHeadersWidth = 62;
             this.dgvSoftwares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSoftwares.Size = new System.Drawing.Size(615, 378);
+            this.dgvSoftwares.Size = new System.Drawing.Size(922, 582);
             this.dgvSoftwares.TabIndex = 1;
             this.dgvSoftwares.SelectionChanged += new System.EventHandler(this.dgvSoftwares_SelectionChanged);
             // 
@@ -65,17 +69,19 @@
             // 
             this.SelectedPDFLabel.AutoSize = true;
             this.SelectedPDFLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedPDFLabel.Location = new System.Drawing.Point(1000, 445);
+            this.SelectedPDFLabel.Location = new System.Drawing.Point(1500, 685);
+            this.SelectedPDFLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SelectedPDFLabel.Name = "SelectedPDFLabel";
-            this.SelectedPDFLabel.Size = new System.Drawing.Size(190, 31);
+            this.SelectedPDFLabel.Size = new System.Drawing.Size(285, 47);
             this.SelectedPDFLabel.TabIndex = 2;
             this.SelectedPDFLabel.Text = "Selected PDF:";
             // 
             // openPDFButton
             // 
-            this.openPDFButton.Location = new System.Drawing.Point(1006, 539);
+            this.openPDFButton.Location = new System.Drawing.Point(1509, 829);
+            this.openPDFButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.openPDFButton.Name = "openPDFButton";
-            this.openPDFButton.Size = new System.Drawing.Size(117, 23);
+            this.openPDFButton.Size = new System.Drawing.Size(176, 35);
             this.openPDFButton.TabIndex = 3;
             this.openPDFButton.Text = "Open Selected PDF";
             this.openPDFButton.UseVisualStyleBackColor = true;
@@ -84,33 +90,37 @@
             // 
             this.SelectedSoftwareLabel.AutoSize = true;
             this.SelectedSoftwareLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedSoftwareLabel.Location = new System.Drawing.Point(12, 445);
+            this.SelectedSoftwareLabel.Location = new System.Drawing.Point(18, 685);
+            this.SelectedSoftwareLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SelectedSoftwareLabel.Name = "SelectedSoftwareLabel";
-            this.SelectedSoftwareLabel.Size = new System.Drawing.Size(243, 31);
+            this.SelectedSoftwareLabel.Size = new System.Drawing.Size(365, 47);
             this.SelectedSoftwareLabel.TabIndex = 4;
             this.SelectedSoftwareLabel.Text = "Selected Software:";
             // 
             // TagButton
             // 
             this.TagButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TagButton.Location = new System.Drawing.Point(712, 332);
+            this.TagButton.Location = new System.Drawing.Point(1068, 511);
+            this.TagButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.TagButton.Name = "TagButton";
-            this.TagButton.Size = new System.Drawing.Size(216, 96);
+            this.TagButton.Size = new System.Drawing.Size(324, 148);
             this.TagButton.TabIndex = 5;
             this.TagButton.Text = "<= Tag PDF => To Software";
             this.TagButton.UseVisualStyleBackColor = true;
+            this.TagButton.Click += new System.EventHandler(this.tagButton_clicked);
             // 
             // DatabaseEngineerHomePage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1657, 832);
+            this.ClientSize = new System.Drawing.Size(2260, 1280);
             this.Controls.Add(this.TagButton);
             this.Controls.Add(this.SelectedSoftwareLabel);
             this.Controls.Add(this.openPDFButton);
             this.Controls.Add(this.SelectedPDFLabel);
             this.Controls.Add(this.dgvSoftwares);
             this.Controls.Add(this.dgvUntaggedPDFViewer);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DatabaseEngineerHomePage";
             this.Text = "DatabaseEngineerHomePage";
             this.Load += new System.EventHandler(this.DatabaseEngineerHomePage_Load);

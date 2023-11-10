@@ -52,10 +52,11 @@ namespace Software_Engineering_Project_New
             return ds;
         }
 
-        public void newChange()
+        public DataTable getDataTable(string sqlQuery)
         {
-
+            return getDataSet(sqlQuery).Tables[0];
         }
+
 
         //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)

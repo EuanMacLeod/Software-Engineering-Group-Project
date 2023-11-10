@@ -134,6 +134,65 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         }
 
 
+        public void tagButton_clicked(object sender, EventArgs e)
+        {
+
+            if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
+            {
+                MessageBox.Show("Software Already Has An Attached PDF");
+            }
+
+            DialogResult dr = MessageBox.Show("You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString() +"\nTo:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString(), "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                //todo move selected document from untagged to tagged
+                //todo update software table with new document
+                
+            }
+
+            /*
+            if (dgvUntaggedPDFViewer.SelectedRows.Count == 1 && dgvSoftwares.SelectedRows.Count == 1)
+            {
+                string pdfName = dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
+                string softwareName = dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString();
+
+                string pdfPath = Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName;
+                string softwarePath = Constants.SOFTWARE_FOLDER_PATH + softwareName;
+
+                string taggedPDFPath = Constants.TAGGED_PDF_FOLDER_PATH + pdfName;
+
+                if (File.Exists(taggedPDFPath))
+                {
+                    MessageBox.Show("Tagged PDF already exists");
+                    return;
+                }
+
+                if (!File.Exists(pdfPath))
+                {
+                    MessageBox.Show("PDF does not exist");
+                    return;
+                }
+
+                if (!File.Exists(softwarePath))
+                {
+                    MessageBox.Show("Software does not exist");
+                    return;
+                }
+
+                File.Copy(pdfPath, taggedPDFPath);
+                File.AppendAllText(taggedPDFPath, softwareName);
+
+                MessageBox.Show("Tagged PDF created successfully");
+                populatePDFDgv(generatePDFDataTable());
+            }
+            else
+            {
+                MessageBox.Show("Please select one PDF and one Software");
+            }
+            */
+        }
+
+
 
 
 
