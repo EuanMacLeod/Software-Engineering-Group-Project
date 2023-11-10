@@ -52,6 +52,11 @@ namespace Software_Engineering_Project_New
             return ds;
         }
 
+        public void newChange()
+        {
+
+        }
+
         //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)
         {
