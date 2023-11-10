@@ -63,6 +63,7 @@
             this.dgvSoftwares.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSoftwares.Size = new System.Drawing.Size(922, 582);
             this.dgvSoftwares.TabIndex = 1;
+            this.dgvSoftwares.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSoftwares_CellContentClick);
             this.dgvSoftwares.SelectionChanged += new System.EventHandler(this.dgvSoftwares_SelectionChanged);
             // 
             // SelectedPDFLabel
@@ -85,6 +86,7 @@
             this.openPDFButton.TabIndex = 3;
             this.openPDFButton.Text = "Open Selected PDF";
             this.openPDFButton.UseVisualStyleBackColor = true;
+            this.openPDFButton.Click += new System.EventHandler(this.openPDFButton_Click);
             // 
             // SelectedSoftwareLabel
             // 

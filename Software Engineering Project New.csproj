@@ -89,6 +89,12 @@
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\OpenPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\OpenPDF.Designer.cs">
+      <DependentUpon>OpenPDF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Launcher.cs" />
     <Compile Include="Controllers\Login\LoginPage.cs">
       <SubType>Form</SubType>
@@ -127,6 +133,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.resx">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\OpenPDF.resx">
+      <DependentUpon>OpenPDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Login\LoginPage.resx">
       <DependentUpon>LoginPage.cs</DependentUpon>
