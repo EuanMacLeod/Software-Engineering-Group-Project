@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 {
-    
+
     public partial class DatabaseEngineerHomePage : Form
     {
         private User user;
@@ -98,6 +98,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             {
                 dgvUntaggedPDFViewer.SelectedRows[0].Selected = false;
             }
+
             updateSelectedPDFLabel();
         }
 
@@ -105,7 +106,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             if (dgvUntaggedPDFViewer.SelectedRows.Count == 1)
             {
-                SelectedPDFLabel.Text = "Selected PDF:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
+                SelectedPDFLabel.Text =
+                    "Selected PDF:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
             }
             else
             {
@@ -120,6 +122,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             {
                 dgvSoftwares.SelectedRows[0].Selected = false;
             }
+
             updateSelectedSoftwareLabel();
         }
 
@@ -127,7 +130,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             if (dgvSoftwares.SelectedRows.Count == 1)
             {
-                SelectedSoftwareLabel.Text = "Selected Software:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString();
+                SelectedSoftwareLabel.Text =
+                    "Selected Software:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString();
             }
             else
             {
@@ -148,8 +152,28 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 // Get the value of the last cell in the selected row
                 string finalCellValue = selectedRow.Cells[lastCellIndex].Value.ToString();
 
-        public void tagButton_clicked(object sender, EventArgs e)
+
+                // Copy the value to the clipboard
+                Clipboard.SetText(finalCellValue);
+
+                MessageBox.Show("URL Copied", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No row is selected.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+
+            OpenPDF openPDF = new OpenPDF(user);
+
+            openPDF.Show();
+        }
+    
+
+
+    public void tagButton_clicked(object sender, EventArgs e)
         {
+
 
             if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
             {
@@ -208,21 +232,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
 
 
-                // Copy the value to the clipboard
-                Clipboard.SetText(finalCellValue);
 
-                MessageBox.Show("URL Copied", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("No row is selected.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-
-            OpenPDF openPDF = new OpenPDF(user);
-            
-            openPDF.Show();
-        }
 
         private void openPDFButton_Click(object sender, EventArgs e)
         {
