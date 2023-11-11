@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Helper_Classes;
 
 namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 {
@@ -25,8 +26,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         private void DatabaseEngineerHomePage_Load(object sender, EventArgs e)
         {
             populatePDFDgv(generatePDFDataTable());
-            populateSoftwaresDgv(generateDataSetFromQuery(Constants.SELECTALLSOFTWARES));
-
+            populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection().getDataTable(Constants.SELECTALLSOFTWARES));
 
         }
 
@@ -70,14 +70,10 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         }
 
-        private DataSet generateDataSetFromQuery(string sqlQuery)
-        {
-            return DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
-        }
 
-        private void populateSoftwaresDgv(DataSet ds)
+        private void populateSoftwaresDgv(DataTable dt)
         {
-            dgvSoftwares.DataSource = ds.Tables[0];
+            dgvSoftwares.DataSource = dt;
         }
 
 
@@ -86,14 +82,10 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             dgvUntaggedPDFViewer.DataSource = dt;
         }
 
-        private void dgvUntaggedPDFViewer_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MessageBox.Show(e.ToString());
-        }
-
 
         private void dgvUntaggedPDFViewer_SelectionChanged(object sender, EventArgs e)
         {
+            //ensures that only one row of the PDF dgv can be selected at a time
             if (dgvUntaggedPDFViewer.SelectedRows.Count > 1)
             {
                 dgvUntaggedPDFViewer.SelectedRows[0].Selected = false;
@@ -104,6 +96,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void updateSelectedPDFLabel()
         {
+            //updates the label to show the selected PDF
             if (dgvUntaggedPDFViewer.SelectedRows.Count == 1)
             {
                 SelectedPDFLabel.Text =
@@ -118,6 +111,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void dgvSoftwares_SelectionChanged(object sender, EventArgs e)
         {
+            //ensures that only one row of the Softwares dgv can be selected at a time
             if (dgvSoftwares.SelectedRows.Count > 1)
             {
                 dgvSoftwares.SelectedRows[0].Selected = false;
@@ -128,6 +122,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void updateSelectedSoftwareLabel()
         {
+            //updates the label to show the selected Software
             if (dgvSoftwares.SelectedRows.Count == 1)
             {
                 SelectedSoftwareLabel.Text =
@@ -139,6 +134,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             }
         }
 
+
+        
         private void copyLastCell()
         {
             if (dgvUntaggedPDFViewer.SelectedRows.Count > 0)
@@ -168,66 +165,64 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
             openPDF.Show();
         }
-    
 
-
-    public void tagButton_clicked(object sender, EventArgs e)
+        public void movePdf()
         {
-
-
-            if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
-            {
-                MessageBox.Show("Software Already Has An Attached PDF");
-            }
-
-            DialogResult dr = MessageBox.Show("You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString() +"\nTo:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString(), "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                //todo move selected document from untagged to tagged
-                //todo update software table with new document
-                
-            }
-
-            /*
+            //checks that only one row is selected from each dgv
             if (dgvUntaggedPDFViewer.SelectedRows.Count == 1 && dgvSoftwares.SelectedRows.Count == 1)
             {
                 string pdfName = dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
-                string softwareName = dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString();
+                
+                string untaggedPDFPath = System.IO.Path.Combine(Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName);
+                string taggedPDFPath = System.IO.Path.Combine(Constants.TAGGED_PDF_FOLDER_PATH + pdfName);
 
-                string pdfPath = Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName;
-                string softwarePath = Constants.SOFTWARE_FOLDER_PATH + softwareName;
-
-                string taggedPDFPath = Constants.TAGGED_PDF_FOLDER_PATH + pdfName;
-
-                if (File.Exists(taggedPDFPath))
+                try
                 {
-                    MessageBox.Show("Tagged PDF already exists");
-                    return;
-                }
+                    //Checks if destination file already exists and deletes it if so
+                    if (File.Exists(taggedPDFPath))
+                    {
+                        File.Delete(taggedPDFPath);
+                    }
 
-                if (!File.Exists(pdfPath))
+                    //Moves the file
+                    File.Move(untaggedPDFPath, taggedPDFPath);
+                }
+                catch (Exception e)
                 {
-                    MessageBox.Show("PDF does not exist");
-                    return;
+                    Console.WriteLine("The process failed: {0}", e.ToString());
                 }
-
-                if (!File.Exists(softwarePath))
-                {
-                    MessageBox.Show("Software does not exist");
-                    return;
-                }
-
-                File.Copy(pdfPath, taggedPDFPath);
-                File.AppendAllText(taggedPDFPath, softwareName);
-
-                MessageBox.Show("Tagged PDF created successfully");
-                populatePDFDgv(generatePDFDataTable());
             }
             else
             {
                 MessageBox.Show("Please select one PDF and one Software");
             }
-            */
+
+        }
+
+
+
+
+        public void tagButton_clicked(object sender, EventArgs e)
+        {
+
+            //Checks if the selected software already has a PDF attached
+            if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
+            {
+                MessageBox.Show("Software Already Has An Attached PDF");
+                return;
+            }
+
+            //asks the user to confirm that the document being tagged to the software is correct
+            DialogResult dr = MessageBox.Show("You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString() +"\nTo:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString(), "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                //todo move selected document from untagged to tagged
+                movePdf();
+                populatePDFDgv(generatePDFDataTable());
+
+                //todo update software table with new document
+            }
+
         }
 
 
@@ -236,7 +231,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void openPDFButton_Click(object sender, EventArgs e)
         {
-            copyLastCell();
+            //send the filepath of the selected PDF to the webpage opener so it can be viewed
+            webpageOpener.openWepage(dgvUntaggedPDFViewer.SelectedRows[0].Cells[7].Value.ToString());
         }
 
         private void dgvSoftwares_CellContentClick(object sender, DataGridViewCellEventArgs e)

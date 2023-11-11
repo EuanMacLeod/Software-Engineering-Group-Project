@@ -82,7 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Constants.cs" />
+    <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +95,7 @@
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper Classes\WebpageOpener.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Controllers\Login\LoginPage.cs">
       <SubType>Form</SubType>
@@ -114,18 +115,18 @@
     <Compile Include="Products\ProductView.Designer.cs">
       <DependentUpon>ProductView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs" />
-    <Compile Include="UI Testing\DatabaseTesting.cs">
+    <Compile Include="Helper Classes\Roles.cs" />
+    <Compile Include="Controllers\UI Testing\DatabaseTesting.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI Testing\DatabaseTesting.Designer.cs">
+    <Compile Include="Controllers\UI Testing\DatabaseTesting.Designer.cs">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </Compile>
-    <Compile Include="DBConnections.cs" />
-    <Compile Include="HomePage.cs">
+    <Compile Include="Helper Classes\DBConnections.cs" />
+    <Compile Include="Controllers\Homepage\HomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HomePage.Designer.cs">
+    <Compile Include="Controllers\Homepage\HomePage.Designer.cs">
       <DependentUpon>HomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -146,10 +147,10 @@
     <EmbeddedResource Include="Products\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI Testing\DatabaseTesting.resx">
+    <EmbeddedResource Include="Controllers\UI Testing\DatabaseTesting.resx">
       <DependentUpon>DatabaseTesting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomePage.resx">
+    <EmbeddedResource Include="Controllers\Homepage\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -53,9 +53,9 @@
 
         public static string SELECT_EMPLOYEE_WITH_USERNAME = "SELECT * FROM Employees WHERE Username = @Username";
 
-        public static string UNTAGGED_PDF_FOLDER_PATH = "..\\..\\PDFs\\Untagged";
+        public static string UNTAGGED_PDF_FOLDER_PATH = @"..\..\PDFs\Untagged\";
 
-        public static string TAGGED_PDF_FOLDER_PATH = "..\\..\\PDFs\\Tagged";
+        public static string TAGGED_PDF_FOLDER_PATH = @"..\..\PDFs\Tagged\";
 
         //public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
         //Constants.INSERTPerson, name, age);

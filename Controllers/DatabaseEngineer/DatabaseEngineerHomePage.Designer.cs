@@ -49,7 +49,6 @@
             this.dgvUntaggedPDFViewer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUntaggedPDFViewer.Size = new System.Drawing.Size(958, 582);
             this.dgvUntaggedPDFViewer.TabIndex = 0;
-            this.dgvUntaggedPDFViewer.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUntaggedPDFViewer_CellContentClick);
             this.dgvUntaggedPDFViewer.SelectionChanged += new System.EventHandler(this.dgvUntaggedPDFViewer_SelectionChanged);
             // 
             // dgvSoftwares
