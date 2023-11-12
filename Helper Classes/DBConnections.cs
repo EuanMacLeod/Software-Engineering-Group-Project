@@ -7,6 +7,9 @@ using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Software_Engineering_Project_New
 {
@@ -45,7 +48,7 @@ namespace Software_Engineering_Project_New
                 //fills dataset with contents of db
                 da.Fill(ds);
 
-                ///close connection to db
+                //close connection to db
                 connectionToDatabase.Close();
             }
 
@@ -100,6 +103,29 @@ namespace Software_Engineering_Project_New
             }
             return searchResults;
         }
+
+        public void updateSoftware(int softwareID, string pdfFilePath)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                command.CommandText = "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
+                command.Parameters.AddWithValue("@SoftwareID", softwareID);
+                command.Parameters.AddWithValue("@pdfFilePath", pdfFilePath);
+
+                sqlcon.Open();
+
+                command.ExecuteNonQuery();
+            }
+
+
+        }
+
+
+
+
 
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
