@@ -232,8 +232,16 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void openAttachedPDFButton_Click(object sender, EventArgs e)
         {
-            //send the filepath of the selected PDF to the webpage opener so it can be viewed
-            webpageOpener.openWepage(dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString());
+            
+            if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() == "")
+            {
+                MessageBox.Show("Software Does Not Have An Attached PDF");
+            }
+            else
+            {
+                //send the filepath of the selected PDF to the webpage opener so it can be viewed
+                webpageOpener.openWepage(dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString());
+            }
         }
 
         private void dgvSoftwares_CellContentClick(object sender, DataGridViewCellEventArgs e)

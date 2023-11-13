@@ -36,6 +36,8 @@
             this.TagButton = new System.Windows.Forms.Button();
             this.attachedPDFLabel = new System.Windows.Forms.Label();
             this.openAttachedPDFButton = new System.Windows.Forms.Button();
+            this.SoftwareDgvLabel = new System.Windows.Forms.Label();
+            this.pdfDgvLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUntaggedPDFViewer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSoftwares)).BeginInit();
             this.SuspendLayout();
@@ -134,12 +136,34 @@
             this.openAttachedPDFButton.UseVisualStyleBackColor = true;
             this.openAttachedPDFButton.Click += new System.EventHandler(this.openAttachedPDFButton_Click);
             // 
+            // SoftwareDgvLabel
+            // 
+            this.SoftwareDgvLabel.AutoSize = true;
+            this.SoftwareDgvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoftwareDgvLabel.Location = new System.Drawing.Point(18, 26);
+            this.SoftwareDgvLabel.Name = "SoftwareDgvLabel";
+            this.SoftwareDgvLabel.Size = new System.Drawing.Size(209, 46);
+            this.SoftwareDgvLabel.TabIndex = 8;
+            this.SoftwareDgvLabel.Text = "Softwares:";
+            // 
+            // pdfDgvLabel
+            // 
+            this.pdfDgvLabel.AutoSize = true;
+            this.pdfDgvLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pdfDgvLabel.Location = new System.Drawing.Point(1500, 26);
+            this.pdfDgvLabel.Name = "pdfDgvLabel";
+            this.pdfDgvLabel.Size = new System.Drawing.Size(302, 46);
+            this.pdfDgvLabel.TabIndex = 9;
+            this.pdfDgvLabel.Text = "Unsorted PDF\'s";
+            // 
             // DatabaseEngineerHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.pdfDgvLabel);
+            this.Controls.Add(this.SoftwareDgvLabel);
             this.Controls.Add(this.openAttachedPDFButton);
             this.Controls.Add(this.attachedPDFLabel);
             this.Controls.Add(this.TagButton);
@@ -169,5 +193,7 @@
         private System.Windows.Forms.Button TagButton;
         private System.Windows.Forms.Label attachedPDFLabel;
         private System.Windows.Forms.Button openAttachedPDFButton;
+        private System.Windows.Forms.Label SoftwareDgvLabel;
+        private System.Windows.Forms.Label pdfDgvLabel;
     }
 }
