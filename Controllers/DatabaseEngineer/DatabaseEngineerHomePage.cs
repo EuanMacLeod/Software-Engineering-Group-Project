@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Helper_Classes;
 
@@ -21,6 +22,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             InitializeComponent();
             this.user = pUser;
+            this.WindowState = FormWindowState.Maximized;
+            this.MinimumSize = this.Size;
+            this.MaximumSize = this.Size;
         }
 
         private void DatabaseEngineerHomePage_Load(object sender, EventArgs e)
@@ -183,29 +187,15 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         public void movePdf(string source, string destination)
         {
-            //checks that only one row is selected from each dgv
-            if (dgvUntaggedPDFViewer.SelectedRows.Count == 1 && dgvSoftwares.SelectedRows.Count == 1)
+            //Checks if destination file already exists and deletes it if so
+            if (File.Exists(destination))
             {
-                try
-                {
-                    //Checks if destination file already exists and deletes it if so
-                    if (File.Exists(destination))
-                    {
-                        File.Delete(destination);
-                    }
+                File.Delete(destination);
+            }
 
-                    //Moves the file
-                    File.Move(source, destination);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("The process failed: {0}", e.ToString());
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please select one PDF and one Software");
-            }
+            //Moves the file
+            File.Move(source, destination);
+
         }
 
         public void attachPDF(string pdfFilePath)
@@ -218,6 +208,12 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         public void tagButton_clicked(object sender, EventArgs e)
         {
 
+            //checks that only one row is selected from each dgv
+            if (dgvUntaggedPDFViewer.SelectedRows.Count != 1 || dgvSoftwares.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Please Select 1 software and 1 pdf");
+                return;
+            }
             //Checks if the selected software already has a PDF attached
             if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
             {
@@ -234,15 +230,27 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
                 string untaggedPDFPath = System.IO.Path.Combine(Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName);
                 string taggedPDFPath = System.IO.Path.Combine(Constants.TAGGED_PDF_FOLDER_PATH + pdfName);
-                
-                movePdf(untaggedPDFPath, taggedPDFPath);
+
+
+                try
+                {
+                    //this using block ensure that both the file is moved and that the database is updated, if either fail then the changes are rolled back
+                    using (TransactionScope transaction = new TransactionScope())
+                    {
+                        movePdf(untaggedPDFPath, taggedPDFPath);
+
+                        DBConnections.getInstanceOfDBConnection().updateSoftware(
+                            Convert.ToInt32(dgvSoftwares.SelectedRows[0].Cells[0].Value.ToString()), taggedPDFPath);
+
+                        transaction.Complete();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: " + ex.Message);
+                }
+
                 populatePDFDgv(generatePDFDataTable());
-
-                //todo update software table with new document
-                //attachPDF(taggedPDFPath);
-
-                DBConnections.getInstanceOfDBConnection().updateSoftware(Convert.ToInt32(dgvSoftwares.SelectedRows[0].Cells[0].Value.ToString()), taggedPDFPath);
-
                 populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection().getDataTable(Constants.SELECTALLSOFTWARES));
             }
 
