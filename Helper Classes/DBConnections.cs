@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Software_Engineering_Project_New
 {
@@ -101,6 +93,7 @@ namespace Software_Engineering_Project_New
                     }
                 }
             }
+
             return searchResults;
         }
 
@@ -111,7 +104,8 @@ namespace Software_Engineering_Project_New
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
                 //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
-                command.CommandText = "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
+                command.CommandText =
+                    "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
                 command.Parameters.AddWithValue("@SoftwareID", softwareID);
                 command.Parameters.AddWithValue("@pdfFilePath", pdfFilePath);
 
@@ -119,12 +113,7 @@ namespace Software_Engineering_Project_New
 
                 command.ExecuteNonQuery();
             }
-
-
         }
-
-
-
 
 
         //
@@ -150,7 +139,6 @@ namespace Software_Engineering_Project_New
         //returns a user class if employee exists, else returns null
         public User getUserFromDB(string username, string password)
         {
-
             DataTable dt = new DataTable();
 
             //searching DB for user with provided username and populates a datatable with the results
@@ -164,18 +152,17 @@ namespace Software_Engineering_Project_New
                 command.Parameters.AddWithValue("Username", username);
 
                 SqlDataAdapter sda = new SqlDataAdapter(command);
-                
+
                 sda.Fill(dt);
             }
 
 
             if (dt.Rows.Count <= 0) return null; //if username not in db, return null
 
-     
-            
-            
+
             string hashedPassword = dt.Rows[0]["Password"].ToString();
-            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword)) //checks entered password is same as stored password
+            if (BCrypt.Net.BCrypt.EnhancedVerify(password,
+                    hashedPassword)) //checks entered password is same as stored password
             {
                 //gets data from the datatable
                 int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
@@ -194,16 +181,13 @@ namespace Software_Engineering_Project_New
                     username,
                     managerID,
                     roleID
-                    );
+                );
                 return user;
             }
 
-            
-            
 
             return null;
         }
-        
     }
 }
 

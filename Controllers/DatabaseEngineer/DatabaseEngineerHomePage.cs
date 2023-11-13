@@ -1,37 +1,30 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Security.Principal;
 using System.Transactions;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Helper_Classes;
 
 namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 {
-
     public partial class DatabaseEngineerHomePage : Form
     {
-        private User user;
+        private readonly User user;
 
         public DatabaseEngineerHomePage(User pUser)
         {
             InitializeComponent();
-            this.user = pUser;
-            this.WindowState = FormWindowState.Maximized;
-            this.MinimumSize = this.Size;
-            this.MaximumSize = this.Size;
+            user = pUser;
+            WindowState = FormWindowState.Maximized;
+            MinimumSize = Size;
+            MaximumSize = Size;
         }
 
         private void DatabaseEngineerHomePage_Load(object sender, EventArgs e)
         {
             populatePDFDgv(generatePDFDataTable());
             populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection().getDataTable(Constants.SELECTALLSOFTWARES));
-
         }
 
 
@@ -46,9 +39,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             dt.Columns.Add("File Modified");
             dt.Columns.Add("File Accessed");
             dt.Columns.Add("File Owner");
-            dt.Columns.Add("URL");
+            dt.Columns.Add("File Path");
 
-            string[] files = System.IO.Directory.GetFiles(Constants.UNTAGGED_PDF_FOLDER_PATH);
+            string[] files = Directory.GetFiles(Constants.UNTAGGED_PDF_FOLDER_PATH);
 
             foreach (string file in files)
             {
@@ -65,13 +58,12 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 dr["File Created"] = info.CreationTime;
                 dr["File Modified"] = info.LastWriteTime;
                 dr["File Accessed"] = info.LastAccessTime;
-                dr["File Owner"] = info.GetAccessControl().GetOwner(typeof(System.Security.Principal.NTAccount));
-                dr["URL"] = info.FullName;
+                dr["File Owner"] = info.GetAccessControl().GetOwner(typeof(NTAccount));
+                dr["File Path"] = info.FullName;
                 dt.Rows.Add(dr);
             }
 
             return dt;
-
         }
 
 
@@ -90,10 +82,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         private void dgvUntaggedPDFViewer_SelectionChanged(object sender, EventArgs e)
         {
             //ensures that only one row of the PDF dgv can be selected at a time
-            if (dgvUntaggedPDFViewer.SelectedRows.Count > 1)
-            {
-                dgvUntaggedPDFViewer.SelectedRows[0].Selected = false;
-            }
+            if (dgvUntaggedPDFViewer.SelectedRows.Count > 1) dgvUntaggedPDFViewer.SelectedRows[0].Selected = false;
 
             updateSelectedPDFLabel();
         }
@@ -102,24 +91,17 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             //updates the label to show the selected PDF
             if (dgvUntaggedPDFViewer.SelectedRows.Count == 1)
-            {
                 SelectedPDFLabel.Text =
-                    "Selected PDF:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
-            }
+                    "Selected PDF:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value;
             else
-            {
                 SelectedPDFLabel.Text = "Selected PDF: ";
-            }
         }
 
 
         private void dgvSoftwares_SelectionChanged(object sender, EventArgs e)
         {
             //ensures that only one row of the Softwares dgv can be selected at a time
-            if (dgvSoftwares.SelectedRows.Count > 1)
-            {
-                dgvSoftwares.SelectedRows[0].Selected = false;
-            }
+            if (dgvSoftwares.SelectedRows.Count > 1) dgvSoftwares.SelectedRows[0].Selected = false;
 
             updateSelectedSoftwareLabel();
             updateAttachedPDFLabel();
@@ -129,32 +111,24 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             //updates the label to show the selected Software
             if (dgvSoftwares.SelectedRows.Count == 1)
-            {
                 SelectedSoftwareLabel.Text =
-                    "Selected Software:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString();
-            }
+                    "Selected Software:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value;
             else
-            {
                 SelectedSoftwareLabel.Text = "Selected Software: ";
-            }
         }
 
         private void updateAttachedPDFLabel()
         {
-                        //updates the label to show the selected Software
+            //updates the label to show the selected Software
             if (dgvSoftwares.SelectedRows.Count == 1)
-            {
                 attachedPDFLabel.Text =
-                    "Attached PDF:\n" + dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString().Replace(Constants.TAGGED_PDF_FOLDER_PATH, "");
-            }
+                    "Attached PDF:\n" + dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString()
+                        .Replace(Constants.TAGGED_PDF_FOLDER_PATH, "");
             else
-            {
                 attachedPDFLabel.Text = "Attached PDF: ";
-            }
         }
 
 
-        
         private void copyLastCell()
         {
             if (dgvUntaggedPDFViewer.SelectedRows.Count > 0)
@@ -188,32 +162,22 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         public void movePdf(string source, string destination)
         {
             //Checks if destination file already exists and deletes it if so
-            if (File.Exists(destination))
-            {
-                File.Delete(destination);
-            }
+            if (File.Exists(destination)) File.Delete(destination);
 
             //Moves the file
             File.Move(source, destination);
-
         }
-
-        public void attachPDF(string pdfFilePath)
-        {
-            string updateCommand = "UPDATE Softwares SET PDF = @PDF WHERE SoftwareID = @SoftwareID";
-        }
-
 
 
         public void tagButton_clicked(object sender, EventArgs e)
         {
-
             //checks that only one row is selected from each dgv
             if (dgvUntaggedPDFViewer.SelectedRows.Count != 1 || dgvSoftwares.SelectedRows.Count != 1)
             {
                 MessageBox.Show("Please Select 1 software and 1 pdf");
                 return;
             }
+
             //Checks if the selected software already has a PDF attached
             if (dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString() != "")
             {
@@ -222,14 +186,17 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             }
 
             //asks the user to confirm that the document being tagged to the software is correct
-            DialogResult dr = MessageBox.Show("You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString() +"\nTo:\n" + dgvSoftwares.SelectedRows[0].Cells[2].Value.ToString(), "confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show(
+                "You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value + "\nTo:\n" +
+                dgvSoftwares.SelectedRows[0].Cells[2].Value, "confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 //todo move selected document from untagged to tagged
                 string pdfName = dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
 
-                string untaggedPDFPath = System.IO.Path.Combine(Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName);
-                string taggedPDFPath = System.IO.Path.Combine(Constants.TAGGED_PDF_FOLDER_PATH + pdfName);
+                string untaggedPDFPath = Path.Combine(Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName);
+                string taggedPDFPath = Path.Combine(Constants.TAGGED_PDF_FOLDER_PATH + pdfName);
 
 
                 try
@@ -251,13 +218,10 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 }
 
                 populatePDFDgv(generatePDFDataTable());
-                populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection().getDataTable(Constants.SELECTALLSOFTWARES));
+                populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection()
+                    .getDataTable(Constants.SELECTALLSOFTWARES));
             }
-
         }
-
-
-
 
 
         private void openPDFButton_Click(object sender, EventArgs e)
@@ -274,7 +238,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void dgvSoftwares_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
     }
 }
