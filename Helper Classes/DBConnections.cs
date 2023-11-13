@@ -15,6 +15,7 @@ namespace Software_Engineering_Project_New
 
         private DBConnections()
         {
+            //connectionString = Settings.Default.CitisoftConnectionString;
             connectionString = Settings.Default.CitisoftConnectionString;
         }
 
