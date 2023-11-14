@@ -13,30 +13,45 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
 using System.Threading;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Software_Engineering_Project_New
 {
     public partial class SoftwareSales : Form
     {
         int count;
+        User user;
 
-        public SoftwareSales()
+
+        public SoftwareSales(User puser)
         {
             InitializeComponent();
+            user = puser;
 
         }
 
-       
+
 
         private void SoftwareSales_Load(object sender, EventArgs e)
         {
+            getData();
+            panel2.Height = 23;
+
+        }
+
+        private void getData()
+        {
+
+            userLoggedInLabel.Text = user.Name;
+
             // TODO: This line of code loads data into the 'citisoftDataSet.Softwares' table. You can move, or remove it, as needed.
             this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+
 
             if (this.citisoftDataSet.Softwares.Rows.Count > 0)
             {
 
-                
+
                 var Nextrow = this.citisoftDataSet.Softwares.Rows[count];
 
                 softwareNameTextBox.Text = Nextrow["Name"].ToString();
@@ -63,10 +78,7 @@ namespace Software_Engineering_Project_New
                 softwareDescriptionTextBox4.Text = Nextrow["Description"].ToString();
 
 
-
             }
-
-
         }
 
         private void DisplayRowInDataGridView(DataGridView dataGridView, DataTable softwareTable, int rowIndex)
@@ -82,6 +94,81 @@ namespace Software_Engineering_Project_New
         private void nextPagebutton_Click(object sender, EventArgs e)
         {
             count = count + 4;
+            getData();
+            
+        }
+
+        private void PreviousPageButton_Click(object sender, EventArgs e)
+        {
+            if (count > 4)
+            {
+                count = 0;
+                getData();
+            }
+        }
+
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (panel2.Height == 187)
+            {
+                panel2.Height = 23;
+
+            }
+
+            else
+            {
+                panel2.Height = 187;
+            }
+        }
+
+        
+
+        private void FilterButton_Click_1(object sender, EventArgs e)
+        {
+            if (panel2.Height == 187)
+            {
+                panel2.Height = 23;
+
+            }
+
+            else
+            {
+                panel2.Height = 187;
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            string sqlQuery = "SELECT Name, Description FROM software WHERE cloud_native = true";
+            
+
+
+
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                bool cloudNative = true;
+            }
+
+            if (checkBox2.Checked)
+            {
+                bool checkbox2 = true;
+            }
+
+            if (checkBox3.Checked)
+            {
+                bool checkbox3 = true;
+            }
+
+            if (checkBox4.Checked)
+            {
+                bool checkbox4 = true;
+            }
+
         }
     }
 }

@@ -77,6 +77,8 @@ namespace Software_Engineering_Project_New
             }
         }
 
+        
+
         public User veryfyLogin(string username, string password)
         {
             SqlConnection sqlcon = new SqlConnection(connectionString);
@@ -116,7 +118,7 @@ namespace Software_Engineering_Project_New
                     roleID,
                     managerID
                     );
-                MessageBox.Show("Hai");
+                //MessageBox.Show("Hai");
                 return user;
 
 
