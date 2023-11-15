@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
+using System.Net.Mail;
 
 namespace Software_Engineering_Project_New
 {
@@ -13,7 +14,23 @@ namespace Software_Engineering_Project_New
         {
             InitializeComponent();
         }
+        private bool IsNumeric(string value)
+        {
+            return long.TryParse(value, out _);
+        }
 
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var mailAddress = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
 
         private void button_submit_Click(object sender, EventArgs e)
         {
@@ -33,13 +50,21 @@ namespace Software_Engineering_Project_New
             {
                 MessageBox.Show("User Already Exists");
             }
+
+            else if (!IsNumeric(txt_ContactNumber.Text.Trim()) || txt_ContactNumber.Text.Trim().Length < 11)                {
+                    MessageBox.Show("Contact Number should be numeric and at least 11 digits");
+                }
+            else if (!IsValidEmail(txt_email.Text.Trim()))
+            {
+                MessageBox.Show("Please enter a valid email address");
+            }
+            
             else
             {
                 int RoleID = radioButton1.Checked ? 3 : 4;
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
                 //MessageBox.Show(passwordHash);
-
 
                 DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
                     txt_firstname.Text.Trim(),
@@ -49,9 +74,8 @@ namespace Software_Engineering_Project_New
                     txt_email.Text.Trim(),
                     RoleID
                 );
-
+                
                 MessageBox.Show("Registration Successful");
-
                 HomePage homePage = new HomePage();
                 homePage.Show();
                 Hide();
