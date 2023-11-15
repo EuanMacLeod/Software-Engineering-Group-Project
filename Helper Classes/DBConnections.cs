@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Software_Engineering_Project_New
 {
@@ -20,6 +15,7 @@ namespace Software_Engineering_Project_New
 
         private DBConnections()
         {
+            //connectionString = Settings.Default.CitisoftConnectionString;
             connectionString = Settings.Default.CitisoftConnectionString;
         }
 
@@ -45,12 +41,18 @@ namespace Software_Engineering_Project_New
                 //fills dataset with contents of db
                 da.Fill(ds);
 
-                ///close connection to db
+                //close connection to db
                 connectionToDatabase.Close();
             }
 
             return ds;
         }
+
+        public DataTable getDataTable(string sqlQuery)
+        {
+            return getDataSet(sqlQuery).Tables[0];
+        }
+
 
         //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)
@@ -92,8 +94,28 @@ namespace Software_Engineering_Project_New
                     }
                 }
             }
+
             return searchResults;
         }
+
+        public void updateSoftware(int softwareID, string pdfFilePath)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                command.CommandText =
+                    "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
+                command.Parameters.AddWithValue("@SoftwareID", softwareID);
+                command.Parameters.AddWithValue("@pdfFilePath", pdfFilePath);
+
+                sqlcon.Open();
+
+                command.ExecuteNonQuery();
+            }
+        }
+
 
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
@@ -136,7 +158,6 @@ namespace Software_Engineering_Project_New
         //returns a user class if employee exists, else returns null
         public User getUserFromDB(string username, string password)
         {
-
             DataTable dt = new DataTable();
 
             //searching DB for user with provided username and populates a datatable with the results
@@ -150,16 +171,17 @@ namespace Software_Engineering_Project_New
                 command.Parameters.AddWithValue("Username", username);
 
                 SqlDataAdapter sda = new SqlDataAdapter(command);
-                
+
                 sda.Fill(dt);
             }
 
 
             if (dt.Rows.Count <= 0) return null; //if username not in db, return null
 
-            string hashedPassword = dt.Rows[0]["Password"].ToString();
 
-            if (BCrypt.Net.BCrypt.EnhancedVerify(password, hashedPassword)) //checks entered password is same as stored password
+            string hashedPassword = dt.Rows[0]["Password"].ToString();
+            if (BCrypt.Net.BCrypt.EnhancedVerify(password,
+                    hashedPassword)) //checks entered password is same as stored password
             {
                 //gets data from the datatable
                 int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
@@ -182,9 +204,9 @@ namespace Software_Engineering_Project_New
                 return user;
             }
 
+
             return null;
         }
-        
     }
 }
 

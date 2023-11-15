@@ -9,7 +9,6 @@ namespace Software_Engineering_Project_New
     {
         //String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
 
-        private string ConnectionString = Settings.Default.CitisoftDBConnection;
 
         public LoginPage()
         {

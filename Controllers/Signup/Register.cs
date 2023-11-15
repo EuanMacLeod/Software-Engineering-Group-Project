@@ -8,7 +8,6 @@ namespace Software_Engineering_Project_New
     public partial class Register : Form
     {
         //String connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
-        private string connectionString = Settings.Default.CitisoftDBConnection;
 
         public Register()
         {
