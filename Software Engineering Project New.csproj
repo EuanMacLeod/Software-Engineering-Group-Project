@@ -83,12 +83,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper Classes\Constants.cs" />
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.Designer.cs">
+      <DependentUpon>DatabaseEngineerPdfTaggingPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\OpenPDF.cs">
       <SubType>Form</SubType>
@@ -135,6 +141,9 @@
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.resx">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.resx">
+      <DependentUpon>DatabaseEngineerPdfTaggingPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\OpenPDF.resx">
       <DependentUpon>OpenPDF.cs</DependentUpon>
