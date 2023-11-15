@@ -136,6 +136,24 @@ namespace Software_Engineering_Project_New
                 sqlcmd.ExecuteNonQuery();
             }
         }
+        
+        public void UpdateEmployeeInDB(int employeeID, string name, string contactNumber, string username, string password, string email)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                sqlcon.Open();
+                SqlCommand sqlcmd = new SqlCommand("EmployeesUpdate", sqlcon); // Assuming you have a stored procedure for updating employees.
+                sqlcmd.CommandType = CommandType.StoredProcedure;
+                sqlcmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                sqlcmd.Parameters.AddWithValue("@Name", name);
+                sqlcmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                sqlcmd.Parameters.AddWithValue("@Username", username);
+                sqlcmd.Parameters.AddWithValue("@Password", password);
+                sqlcmd.Parameters.AddWithValue("@Email", email);
+                sqlcmd.ExecuteNonQuery();
+            }
+        }
+
 
         //returns a user class if employee exists, else returns null
         public User getUserFromDB(string username, string password)
