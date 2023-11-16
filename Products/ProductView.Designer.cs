@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.citisoftDataSet = new Software_Engineering_Project_New.CitisoftDataSet();
-            this.softwaresBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.softwaresTableAdapter = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
             this.softwareIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.vendorIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +39,13 @@
             this.avaliableProfessionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cloudServicesAvaliableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.documentLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.softwaresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.citisoftDataSet = new Software_Engineering_Project_New.CitisoftDataSet();
+            this.softwaresTableAdapter = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
             this.button_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -74,20 +74,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(776, 321);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // citisoftDataSet
-            // 
-            this.citisoftDataSet.DataSetName = "CitisoftDataSet";
-            this.citisoftDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // softwaresBindingSource
-            // 
-            this.softwaresBindingSource.DataMember = "Softwares";
-            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
-            // 
-            // softwaresTableAdapter
-            // 
-            this.softwaresTableAdapter.ClearBeforeFill = true;
             // 
             // softwareIDDataGridViewTextBoxColumn
             // 
@@ -162,6 +148,20 @@
             this.documentLinkDataGridViewTextBoxColumn.Name = "documentLinkDataGridViewTextBoxColumn";
             this.documentLinkDataGridViewTextBoxColumn.Width = 125;
             // 
+            // softwaresBindingSource
+            // 
+            this.softwaresBindingSource.DataMember = "Softwares";
+            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
+            // 
+            // citisoftDataSet
+            // 
+            this.citisoftDataSet.DataSetName = "CitisoftDataSet";
+            this.citisoftDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // softwaresTableAdapter
+            // 
+            this.softwaresTableAdapter.ClearBeforeFill = true;
+            // 
             // button_exit
             // 
             this.button_exit.Location = new System.Drawing.Point(114, 375);
@@ -172,19 +172,19 @@
             this.button_exit.UseVisualStyleBackColor = true;
             this.button_exit.Click += new System.EventHandler(this.button_exit_Click);
             // 
-            // PDFDB
+            // ProductView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button_exit);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "PDFDB";
+            this.Name = "ProductView";
             this.Text = "PDFDB";
             this.Load += new System.EventHandler(this.PDFDB_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
