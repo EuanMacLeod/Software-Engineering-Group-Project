@@ -26,16 +26,19 @@ namespace Software_Engineering_Project_New
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
         }
-        
-        private void UpdateDisplayedSoftwareInfo()
+        private void DisplaySearchResults(DataTable searchResults)
         {
+            // Clear existing displayed information
+            ClearSoftwareInfoTextBoxes();
+
+            // Display search results
             for (int i = 0; i < 4; i++)
             {
-                int rowIndex = count + i;
+                int rowIndex = i;
 
-                if (rowIndex < this.citisoftDataSet.Softwares.Rows.Count)
+                if (rowIndex < searchResults.Rows.Count)
                 {
-                    DataRow row = this.citisoftDataSet.Softwares.Rows[rowIndex];
+                    DataRow row = searchResults.Rows[rowIndex];
                     SetSoftwareInfoTextBoxes(i + 1, row);
                 }
                 else
@@ -47,10 +50,41 @@ namespace Software_Engineering_Project_New
             }
         }
 
+
+        private void UpdateDisplayedSoftwareInfo()
+        {
+            /*if (!string.IsNullOrEmpty(searchTextBox.Text))
+            {
+                // Use the search results if available
+                DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchTextBox.Text);
+                DisplaySearchResults(searchResults);
+            }
+            else
+            {*/
+                for (int i = 0; i < 4; i++)
+                {
+                    int rowIndex = count + i;
+
+                    if (rowIndex < this.citisoftDataSet.Softwares.Rows.Count)
+                    {
+                        DataRow row = this.citisoftDataSet.Softwares.Rows[rowIndex];
+                        SetSoftwareInfoTextBoxes(i + 1, row);
+                    }
+                    else
+                    {
+                        // Clear any remaining text boxes if there are no more rows
+                        ClearSoftwareInfoTextBoxes(i + 1);
+                        break;
+                    }
+                }
+            //}
+        }
+        
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
             TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
-            TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
+            TextBox descriptionTextBox =
+                (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
 
             if (nameTextBox != null && descriptionTextBox != null)
             {
@@ -64,7 +98,8 @@ namespace Software_Engineering_Project_New
             for (int i = startFrom; i <= 4; i++)
             {
                 TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
-                TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
+                TextBox descriptionTextBox =
+                    (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
 
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
@@ -77,9 +112,9 @@ namespace Software_Engineering_Project_New
             count = count + 4;
             UpdateDisplayedSoftwareInfo();
         }
-
+        
+        
     }
-    
 }
 //alex code:
 
@@ -90,8 +125,6 @@ namespace Software_Engineering_Project_New
 
     if (this.citisoftDataSet.Softwares.Rows.Count > 0)
     {
-
-
         var Nextrow = this.citisoftDataSet.Softwares.Rows[count];
 
         softwareNameTextBox.Text = Nextrow["Name"].ToString();
@@ -106,20 +139,13 @@ namespace Software_Engineering_Project_New
         count = count + 1;
         Nextrow = this.citisoftDataSet.Softwares.Rows[count];
 
-
         softwareNameTextBox3.Text = Nextrow["Name"].ToString();
         softwareDescriptionTextBox3.Text = Nextrow["Description"].ToString();
-
+        
         count = count + 1;
         Nextrow = this.citisoftDataSet.Softwares.Rows[count];
 
-
         softwareNameTextBox4.Text = Nextrow["Name"].ToString();
         softwareDescriptionTextBox4.Text = Nextrow["Description"].ToString();
-
-
-
     }
-
-
 }*/

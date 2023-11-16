@@ -61,8 +61,6 @@ namespace Software_Engineering_Project_New
             {
                 //open connection to db
                 connectionToDatabase.Open();
-
-
                 SqlDataAdapter da = new SqlDataAdapter(sqlQuery, connectionToDatabase);
 
                 //fills dataset with contents of db
@@ -70,9 +68,7 @@ namespace Software_Engineering_Project_New
 
                 ///close connection to db
                 connectionToDatabase.Close();
-
             }
-
             return ds;
         }
 
@@ -90,12 +86,8 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Password", password);
                 sqlcmd.Parameters.AddWithValue("@Email", email);
                 sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
-
-
                 //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
                 sqlcmd.ExecuteNonQuery();
-
-
             }
         }
 
@@ -110,15 +102,8 @@ namespace Software_Engineering_Project_New
 
             DataTable dt = new DataTable();
             sda.Fill(dt);
-
-
-            
-
-
             if (dt.Rows.Count > 0)
             {
-
-
                 //double otherNumber = dt.Rows[i].Field<double>("DoubleColumn");
 
                 int id = Convert.ToInt32(dt.Rows[0]["EmployeeID"]);
@@ -140,21 +125,13 @@ namespace Software_Engineering_Project_New
                     );
                 MessageBox.Show("Hai");
                 return user;
-
-
             }
             else
             {
                 return null;
             }
-
         }
-
-
-
-
-
-
+        
     }
 }
 
