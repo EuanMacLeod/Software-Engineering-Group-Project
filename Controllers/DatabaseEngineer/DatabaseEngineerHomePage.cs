@@ -14,12 +14,21 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
     {
         private User user;
 
+        private void showPFP()
+        {
+            if (user.isAdmin != 0)
+            {
+                adminPfp.Visible = true; adminPfp.Enabled = true;
+            }
+        }
+
         public DatabaseEngineerHomePage(User pUser)
         {
             InitializeComponent();
             this.user = pUser;
             welcomeUserLabel.Text = "Welcome " + user.Name;
 
+            showPFP();
            
         }
 

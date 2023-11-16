@@ -41,7 +41,6 @@
             this.txt_conpassword = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
-            this.box_admin = new System.Windows.Forms.CheckBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
@@ -165,18 +164,6 @@
             this.label_email.TabIndex = 12;
             this.label_email.Text = "Email";
             // 
-            // box_admin
-            // 
-            this.box_admin.AutoSize = true;
-            this.box_admin.Location = new System.Drawing.Point(587, 129);
-            this.box_admin.Margin = new System.Windows.Forms.Padding(4);
-            this.box_admin.Name = "box_admin";
-            this.box_admin.Size = new System.Drawing.Size(122, 20);
-            this.box_admin.TabIndex = 13;
-            this.box_admin.Text = "Apply for admin";
-            this.box_admin.UseVisualStyleBackColor = true;
-            this.box_admin.CheckedChanged += new System.EventHandler(this.box_admin_CheckedChanged);
-            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -210,7 +197,6 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.box_admin);
             this.Controls.Add(this.label_email);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_conpassword);
@@ -247,7 +233,6 @@
         private System.Windows.Forms.TextBox txt_conpassword;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label label_email;
-        private System.Windows.Forms.CheckBox box_admin;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
     }

@@ -30,6 +30,27 @@ namespace Software_Engineering_Project_New
                 return false;
             }
         }
+        private int verifyAdmin(String email)
+        {
+            try
+            {
+                string adminEmail = "admin@citisoft.com";
+
+                if (adminEmail.Equals(email))
+                {
+                    return 1; // Admin email matches the provided email
+                }
+                else
+                {
+                    return 0; // Admin email does not match the provided email
+                }
+            }
+            catch (FormatException)
+            {
+                // Handle the format exception if needed
+                return 0; // For simplicity, return false in case of a format exception
+            }
+        }
 
         private void button_submit_Click(object sender, EventArgs e)
         {
@@ -61,9 +82,10 @@ namespace Software_Engineering_Project_New
             else
             {
                 int RoleID = radioButton1.Checked ? 3 : 4;
+
+                int isAdmin = verifyAdmin(txt_email.Text.Trim());
                 
-                int isAdmin = box_admin.Checked ? 1 : 0;
-                Convert.ToInt32(isAdmin);
+
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
                 //MessageBox.Show(passwordHash);
