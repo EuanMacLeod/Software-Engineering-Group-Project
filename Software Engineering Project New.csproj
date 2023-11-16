@@ -83,10 +83,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\DatabaseEngineer\adminTools.cs">
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controllers\DatabaseEngineer\adminTools.Designer.cs">
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.Designer.cs">
       <DependentUpon>adminTools.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
@@ -94,6 +94,12 @@
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.Designer.cs">
+      <DependentUpon>roleIdChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.cs">
@@ -145,6 +151,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\adminTools.resx">
+      <DependentUpon>adminTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.resx">
+      <DependentUpon>roleIdChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.resx">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
     </EmbeddedResource>

@@ -12,9 +12,16 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 {
     public partial class adminTools : Form
     {
-        public adminTools()
+        private readonly User user;
+        public adminTools(User user)
         {
             InitializeComponent();
+            this.user = user;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new roleIdChange(user).Show();
         }
     }
 }

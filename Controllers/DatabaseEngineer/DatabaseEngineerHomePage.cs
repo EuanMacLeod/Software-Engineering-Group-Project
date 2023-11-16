@@ -14,11 +14,13 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
     {
         private User user;
 
-        private void showPFP()
+        private void showAdmin()
         {
-            if (user.RoleId != 4 )
+            if (user.RoleId != (int)Roles.DatabaseEngineer)
             {
                 adminPfp.Visible = true; adminPfp.Enabled = true;
+                bttn_adminTools.Visible = true;
+                label1.Visible = true;
             }
         }
 
@@ -27,8 +29,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             InitializeComponent();
             this.user = pUser;
             welcomeUserLabel.Text = "Welcome " + user.Name;
+            
 
-            showPFP();
+            showAdmin();
            
         }
 
@@ -51,7 +54,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             // initialise and show admin tools window
 
-            new adminTools().Show();
+            new adminTools(user).Show();
         }
     }
 }

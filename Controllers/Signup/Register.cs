@@ -30,8 +30,11 @@ namespace Software_Engineering_Project_New
                 return false;
             }
         }
+
+
         private int verifyAdmin(String email)
         {
+            
             try
             {
                 string adminEmail = "admin@citisoft.com";
@@ -54,6 +57,7 @@ namespace Software_Engineering_Project_New
 
         private void button_submit_Click(object sender, EventArgs e)
         {
+            int RoleID;
             if (txt_username.Text == "" || txt_password.Text == "")
             {
                 MessageBox.Show("All Fields Are Mandatory");
@@ -81,25 +85,13 @@ namespace Software_Engineering_Project_New
             
             else
             {
+                
+                RoleID = radioButton1.Checked ? 3 : 4;
 
-                int RoleID = radioButton1.Checked ? 3 : 4;
-
-
-
-                if (verifyAdmin(txt_email.Text.Trim()) != 1)
+                if(verifyAdmin(txt_email.Text.Trim()) == 1)
                 {
                     RoleID = 1;
-
                 }
-                
-                
-                    
-
-                    
-                    
-                
-
-
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
                 //MessageBox.Show(passwordHash);
