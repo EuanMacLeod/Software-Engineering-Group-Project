@@ -168,7 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion

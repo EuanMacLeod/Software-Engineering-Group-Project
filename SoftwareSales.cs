@@ -3,7 +3,6 @@ using System.Data;
 using System.Windows.Forms;
 using System.Linq;
 
-
 namespace Software_Engineering_Project_New
 {
     public partial class SoftwareSales : Form
@@ -19,10 +18,9 @@ namespace Software_Engineering_Project_New
         private void InitializeData()
         {
             this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            DisplaySoftwareInformation();
         }
 
-        private void DisplaySoftwareInformation()
+        public void SoftwareSales_Load(object sender, EventArgs e)
         {
             ClearSoftwareInfoTextBoxes();
 
@@ -64,15 +62,17 @@ namespace Software_Engineering_Project_New
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
             }
+            
         }
 
 
         private void nextPagebutton_Click(object sender, EventArgs e)
         {
             count = count + 4;
-            DisplaySoftwareInformation();
         }
+
     }
+    
 }
 //alex code:
 

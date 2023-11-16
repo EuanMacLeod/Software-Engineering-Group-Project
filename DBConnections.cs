@@ -28,6 +28,28 @@ namespace Software_Engineering_Project_New
         {
             return _instance ?? (_instance = new DBConnections());
         }
+        
+        public DataTable Search(string search)
+        {
+            DataTable searchResults = new DataTable();
+
+            using (SqlConnection connectionToDatabase = new SqlConnection(connectionString))
+            {
+                connectionToDatabase.Open();
+
+                string query = "SELECT * FROM software WHERE name LIKE @search";
+                using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
+                {
+                    command.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        searchResults.Load(reader);
+                    }
+                }
+            }
+            return searchResults;
+        }
 
         
         //accepts sql query and returns dataset of results from DB
