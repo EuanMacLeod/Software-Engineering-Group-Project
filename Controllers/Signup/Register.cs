@@ -61,6 +61,9 @@ namespace Software_Engineering_Project_New
             else
             {
                 int RoleID = radioButton1.Checked ? 3 : 4;
+                
+                int isAdmin = box_admin.Checked ? 1 : 0;
+                Convert.ToInt32(isAdmin);
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
                 //MessageBox.Show(passwordHash);
@@ -71,61 +74,23 @@ namespace Software_Engineering_Project_New
                     txt_username.Text.Trim(),
                     passwordHash,
                     txt_email.Text.Trim(),
-                    RoleID
+                    RoleID,
+                    isAdmin
+                    
                 );
-                
+                /*
+                if (isAdmin == 1)
+                {
+                    DBConnections.getInstanceOfDBConnection().createGod(isAdmin);
+                }
+                */
                 MessageBox.Show("Registration Successful");
-                HomePage homePage = new HomePage();
-                homePage.Show();
+
+                new HomePage().Show();
                 Hide();
 
 
-                // bellow code moved to DBConnections ~Euan
-                /*
-                using (SqlConnection sqlcon = new SqlConnection(connectionString))
-                {
-                    sqlcon.Open();
-                    SqlCommand sqlcmd = new SqlCommand("EmployeesAdd", sqlcon);
-                    sqlcmd.CommandType = CommandType.StoredProcedure;
-                    sqlcmd.Parameters.AddWithValue("@Name", txt_firstname.Text.Trim());
-                    sqlcmd.Parameters.AddWithValue("@ContactNumber", txt_ContactNumber.Text.Trim());
-                    sqlcmd.Parameters.AddWithValue("@Username", txt_username.Text.Trim());
-                    sqlcmd.Parameters.AddWithValue("@Password", txt_password.Text.Trim());
-                    sqlcmd.Parameters.AddWithValue("@Email", txt_email.Text.Trim());
-                    if (radioButton1.Checked)
-                    {
-                        sqlcmd.Parameters.AddWithValue("@RoleID", 3);
-                    }
-                    else
-                    {
-                        sqlcmd.Parameters.AddWithValue("@RoleID", 4);
-                    }
-
-                    //  sqlcmd.Parameters.AddWithValue("@RoleID", txt_roleid);
-                    sqlcmd.ExecuteNonQuery();
-                }
-                */
-
-
-                /*
-                  char c = txt_email.Text.ToCharArray()[0];
-                  String admin = "@Citisoft.com";
-                  char[] adminChar = admin.ToCharArray();
-                  char[] emailChar = txt_email.Text.ToCharArray();
-
-                  for (int i = 0; i < adminChar.Length; i++)
-                  {
-                      int j = 0;
-                      if (adminChar[i] == emailChar[i])
-                      {
-                          ++j;
-                          if (j == adminChar.Length)
-                          {
-                              sqlcmd.Parameters.AddWithValue("@admin", box_admin);
-                          }
-                      }
-                  }
-                 */
+                
             }
         }
 
@@ -139,6 +104,11 @@ namespace Software_Engineering_Project_New
         {
             int roleid;
             if (radioButton2.Checked) roleid = 4;
+        }
+
+        private void box_admin_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

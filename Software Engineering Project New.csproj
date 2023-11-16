@@ -83,6 +83,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\adminTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\adminTools.Designer.cs">
+      <DependentUpon>adminTools.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="CitisoftDataSet.xsc">
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
@@ -215,6 +222,7 @@
     <Folder Include="SQL Databases\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AdminProfliePicture.png" />
     <Content Include="Citisoft.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

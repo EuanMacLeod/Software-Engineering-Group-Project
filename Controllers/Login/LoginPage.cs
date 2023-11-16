@@ -7,9 +7,7 @@ namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
-        //String ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""C:\Users\Luca\Documents\GitHub\Software-Engineering-Group-Project\SQL Databases\Citisoft.mdf"";Integrated Security=True;Connect Timeout=30";
-
-
+        
         public LoginPage()
         {
             InitializeComponent();
@@ -34,6 +32,7 @@ namespace Software_Engineering_Project_New
                         break;
                     case (int)Roles.Admin:
                         //Load into new pages here
+
                         break;
                     case (int)Roles.Manager:
 

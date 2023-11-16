@@ -19,6 +19,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             InitializeComponent();
             this.user = pUser;
             welcomeUserLabel.Text = "Welcome " + user.Name;
+
+           
         }
 
 
@@ -36,13 +38,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             Hide();
         }
 
+        private void bttn_adminTools_Click(object sender, EventArgs e)
+        {
+            // initialise and show admin tools window
 
-
-
-
-
-
-
-
+            new adminTools().Show();
+        }
     }
 }
