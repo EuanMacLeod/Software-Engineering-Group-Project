@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminTools;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,6 +23,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         private void button1_Click(object sender, EventArgs e)
         {
             new roleIdChange(user).Show();
+        }
+
+        private void bttn_recovery_click(Object sender, EventArgs e)
+        {
+            new accountRecovery(user).Show();
         }
     }
 }

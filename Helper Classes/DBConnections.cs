@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.Net.Configuration;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
 
@@ -109,6 +110,34 @@ namespace Software_Engineering_Project_New
                     {
                         Console.WriteLine($"No user found with username: {usernameToSearch}");
                         return 0;
+                    }
+                }
+            }
+        }
+
+        public void accountRecovery(int employeeId, String NewPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string updateQuery = "UPDATE Employees SET Password = @NewPassword WHERE EmployeeID = @EmployeeID";
+
+                using (SqlCommand command = new SqlCommand(updateQuery,connection))
+                {
+
+                    
+                    command.Parameters.AddWithValue("@NewPassword", NewPassword);
+                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("New password has been set");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"No user found with UserID: " + employeeId);
                     }
                 }
             }

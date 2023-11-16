@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.bttn_recovery = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -41,11 +43,33 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(311, 82);
+            this.button2.Name = "bttn_useful";
+            this.button2.Size = new System.Drawing.Size(222, 179);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "funn clicky button";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // bttn_recovery
+            // 
+            this.bttn_recovery.Location = new System.Drawing.Point(580, 82);
+            this.bttn_recovery.Name = "bttn_recovery";
+            this.bttn_recovery.Size = new System.Drawing.Size(222, 179);
+            this.bttn_recovery.TabIndex = 0;
+            this.bttn_recovery.Text = "Account Recovery";
+            this.bttn_recovery.UseVisualStyleBackColor = true;
+            this.bttn_recovery.Click += new System.EventHandler(this.bttn_recovery_click);
+            // 
             // adminTools
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.bttn_recovery);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "adminTools";
             this.Text = "Ù";
@@ -56,5 +80,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button bttn_recovery;
     }
 }
