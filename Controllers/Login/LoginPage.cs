@@ -32,6 +32,8 @@ namespace Software_Engineering_Project_New
                         break;
                     case (int)Roles.Admin:
                         //Load into new pages here
+                        new DatabaseEngineerHomePage(user).Show();
+                        Hide();
 
                         break;
                     case (int)Roles.Manager:

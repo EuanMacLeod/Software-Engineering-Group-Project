@@ -16,7 +16,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void showPFP()
         {
-            if (user.isAdmin != 0)
+            if (user.RoleId != 4 )
             {
                 adminPfp.Visible = true; adminPfp.Enabled = true;
             }

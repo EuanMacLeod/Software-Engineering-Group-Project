@@ -81,10 +81,24 @@ namespace Software_Engineering_Project_New
             
             else
             {
+
                 int RoleID = radioButton1.Checked ? 3 : 4;
 
-                int isAdmin = verifyAdmin(txt_email.Text.Trim());
+
+
+                if (verifyAdmin(txt_email.Text.Trim()) != 1)
+                {
+                    RoleID = 1;
+
+                }
                 
+                
+                    
+
+                    
+                    
+                
+
 
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
@@ -96,9 +110,8 @@ namespace Software_Engineering_Project_New
                     txt_username.Text.Trim(),
                     passwordHash,
                     txt_email.Text.Trim(),
-                    RoleID,
-                    isAdmin
-                    
+                    RoleID
+
                 );
                 /*
                 if (isAdmin == 1)

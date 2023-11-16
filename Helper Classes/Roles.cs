@@ -2,6 +2,7 @@
 {
     internal enum Roles
     {
+        
         Admin = 1,
         Manager = 2,
         SoftwareSalesman = 3,

@@ -123,7 +123,7 @@ namespace Software_Engineering_Project_New
 
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
-            int roleID, int isAdmin)
+            int roleID)
         {
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
@@ -136,7 +136,7 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Password", password);
                 sqlcmd.Parameters.AddWithValue("@Email", email);
                 sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
-                sqlcmd.Parameters.AddWithValue("@isAdmin", isAdmin);
+                
 
                 sqlcmd.ExecuteNonQuery();
                 ;
@@ -198,7 +198,7 @@ namespace Software_Engineering_Project_New
                 string contactNumber = dt.Rows[0]["Contact Number"].ToString();
                 int? roleID = dt.Rows[0].Field<int?>("roleID");
                 int? managerID = dt.Rows[0].Field<int?>("ManagerID");
-                int isAdmin = dt.Rows[0].Field<int>("isAdmin");
+                
 
                 User user = new User(
                     id,
@@ -207,8 +207,8 @@ namespace Software_Engineering_Project_New
                     contactNumber,
                     username,
                     managerID,
-                    roleID,
-                    isAdmin
+                    roleID
+                    
                 );
                 return user;
             }

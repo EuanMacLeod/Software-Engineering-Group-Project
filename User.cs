@@ -11,8 +11,7 @@ namespace Software_Engineering_Project_New
                     string pContactNumber,
                     string pUsername, 
                     int? pManagerId, 
-                    int? pRoleId, 
-                    int pisAdmin)
+                    int? pRoleId)
         {
             Id = pId;
             Name = pName;
@@ -21,7 +20,7 @@ namespace Software_Engineering_Project_New
             Username = pUsername;
             ManagerId = pManagerId;
             RoleId = pRoleId;
-            isAdmin = pisAdmin;
+            
         }
 
 
@@ -38,6 +37,6 @@ namespace Software_Engineering_Project_New
         public int? ManagerId { get; }
 
         public int? RoleId { get; }
-        public int isAdmin { get; }  
+         
     }
 }
