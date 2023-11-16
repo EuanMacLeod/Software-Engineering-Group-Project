@@ -26,46 +26,30 @@ namespace Software_Engineering_Project_New
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
         }
-        private void DisplaySearchResults(DataTable searchResults)
+        
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            // Clear existing displayed information
-            ClearSoftwareInfoTextBoxes();
+            // this line is commented till the front end work done
+            //string searchString = searchTextBox.Text;
+           // DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
 
-            // Display search results
-            for (int i = 0; i < 4; i++)
-            {
-                int rowIndex = i;
-
-                if (rowIndex < searchResults.Rows.Count)
-                {
-                    DataRow row = searchResults.Rows[rowIndex];
-                    SetSoftwareInfoTextBoxes(i + 1, row);
-                }
-                else
-                {
-                    // Clear any remaining text boxes if there are no more rows
-                    ClearSoftwareInfoTextBoxes(i + 1);
-                    break;
-                }
-            }
+            // Display search results or handle them as needed
+          //  DisplaySearchResults(searchResults);
         }
-
-
-        private void UpdateDisplayedSoftwareInfo()
+        
+        private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
-            /*if (!string.IsNullOrEmpty(searchTextBox.Text))
-            {
-                // Use the search results if available
-                DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchTextBox.Text);
-                DisplaySearchResults(searchResults);
-            }
-            else
-            {*/
                 for (int i = 0; i < 4; i++)
                 {
                     int rowIndex = count + i;
+                    
+                    if (data != null && rowIndex < data.Rows.Count)
+                    {
+                        DataRow row = data.Rows[rowIndex];
+                        SetSoftwareInfoTextBoxes(i + 1, row);
+                    }
 
-                    if (rowIndex < this.citisoftDataSet.Softwares.Rows.Count)
+                    else if (rowIndex < this.citisoftDataSet.Softwares.Rows.Count)
                     {
                         DataRow row = this.citisoftDataSet.Softwares.Rows[rowIndex];
                         SetSoftwareInfoTextBoxes(i + 1, row);
