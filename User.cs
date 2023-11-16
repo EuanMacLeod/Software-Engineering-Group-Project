@@ -1,9 +1,17 @@
-﻿namespace Software_Engineering_Project_New
+﻿using System;
+
+namespace Software_Engineering_Project_New
 {
     public class User
     {
 
-        public User(int pId, string pName, string pEmail, string pContactNumber, string pUsername, int? pManagerId, int? pRoleId)
+        public User(int pId, 
+                    string pName,
+                    string pEmail,
+                    string pContactNumber,
+                    string pUsername, 
+                    int? pManagerId, 
+                    int? pRoleId)
         {
             Id = pId;
             Name = pName;
@@ -12,6 +20,7 @@
             Username = pUsername;
             ManagerId = pManagerId;
             RoleId = pRoleId;
+            
         }
 
 
@@ -28,5 +37,6 @@
         public int? ManagerId { get; }
 
         public int? RoleId { get; }
+         
     }
 }

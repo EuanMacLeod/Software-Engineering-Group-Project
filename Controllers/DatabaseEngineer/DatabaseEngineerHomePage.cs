@@ -14,11 +14,25 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
     {
         private User user;
 
+        private void showAdmin()
+        {
+            if (user.RoleId != (int)Roles.DatabaseEngineer)
+            {
+                adminPfp.Visible = true; adminPfp.Enabled = true;
+                bttn_adminTools.Visible = true;
+                label1.Visible = true;
+            }
+        }
+
         public DatabaseEngineerHomePage(User pUser)
         {
             InitializeComponent();
             this.user = pUser;
             welcomeUserLabel.Text = "Welcome " + user.Name;
+            
+
+            showAdmin();
+           
         }
 
 
@@ -36,13 +50,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             Hide();
         }
 
+        private void bttn_adminTools_Click(object sender, EventArgs e)
+        {
+            // initialise and show admin tools window
 
-
-
-
-
-
-
-
+            new adminTools(user).Show();
+        }
     }
 }

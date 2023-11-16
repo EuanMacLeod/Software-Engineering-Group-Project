@@ -83,11 +83,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.Designer.cs">
+      <DependentUpon>accountRecovery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.Designer.cs">
+      <DependentUpon>adminTools.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.Designer.cs">
+      <DependentUpon>roleIdChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.cs">
@@ -139,6 +157,15 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.resx">
+      <DependentUpon>accountRecovery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\adminTools.resx">
+      <DependentUpon>adminTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.resx">
+      <DependentUpon>roleIdChange.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.resx">
       <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,6 +198,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="CitisoftDataSet.xsc">
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
@@ -215,6 +243,7 @@
     <Folder Include="SQL Databases\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AdminProfliePicture.png" />
     <Content Include="Citisoft.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

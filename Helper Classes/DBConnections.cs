@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.SqlTypes;
+using System.Net.Configuration;
+using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
@@ -75,6 +78,134 @@ namespace Software_Engineering_Project_New
             return count >= 1;
         }
 
+        public int getUserID(String user)
+        {
+            string usernameToSearch = user;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                
+
+                // Construct the SQL query with a parameterized query to avoid SQL injection
+                string sqlQuery = "SELECT EmployeeID FROM Employees WHERE Username = @Username";
+
+                using (SqlCommand command = new SqlCommand(sqlQuery, connection))
+                {
+                    // Add parameters to the query
+                    command.Parameters.AddWithValue("@Username", usernameToSearch);
+
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        int userId = Convert.ToInt32(result);
+                        Console.WriteLine($"UserID for {usernameToSearch}: {userId}");
+
+                        return userId;
+
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine($"No user found with username: {usernameToSearch}");
+                        return 0;
+                    }
+                }
+            }
+        }
+
+        public void accountRecovery(int employeeId, String NewPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string updateQuery = "UPDATE Employees SET Password = @NewPassword WHERE EmployeeID = @EmployeeID";
+
+                using (SqlCommand command = new SqlCommand(updateQuery,connection))
+                {
+
+                    
+                    command.Parameters.AddWithValue("@NewPassword", NewPassword);
+                    command.Parameters.AddWithValue("@EmployeeID", employeeId);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    connection.Close();
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("New password has been set");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"No user found with UserID: " + employeeId);
+                    }
+                }
+            }
+        }
+
+        public void updateRoleID(int EmployeeID, int newRole)
+        {
+            int EmployeesIdToUpdate = EmployeeID; // Replace with the actual UserID you want to update
+            int newRoleId = newRole; // Replace with the new RoleID value
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                // Construct the SQL update query
+                string updateQuery = "UPDATE Employees SET RoleID = @NewRoleID WHERE EmployeeID = @EmployeeID";
+
+                using (SqlCommand command = new SqlCommand(updateQuery, connection))
+                {
+                    // Add parameters to the query
+                    command.Parameters.AddWithValue("@NewRoleID", newRoleId);
+                    command.Parameters.AddWithValue("@EmployeeID", EmployeesIdToUpdate);
+
+                    // Execute the update query
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    connection.Close();
+
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine($"RoleID updated successfully for UserID {EmployeesIdToUpdate}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"No user found with UserID {EmployeesIdToUpdate}");
+                    }
+                }
+            }
+        }
+
+
+        // int adj is for the value it will be updated too
+        public void roleIdChange(int roleID, String Email, String Username)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+               
+
+                bool exists = doesUserExist(Username, Email);
+
+                if (exists)
+                {
+                    int EmployeeID;
+                    EmployeeID = getUserID(Username);
+
+                    MessageBox.Show(EmployeeID.ToString());
+                    updateRoleID(EmployeeID, roleID);
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Inavlid username and email");
+
+
+                }
+            }
+        }
+
         public DataTable Search(string search)
         {
             DataTable searchResults = new DataTable();
@@ -116,6 +247,10 @@ namespace Software_Engineering_Project_New
             }
         }
 
+        
+
+
+
 
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
@@ -132,9 +267,12 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Password", password);
                 sqlcmd.Parameters.AddWithValue("@Email", email);
                 sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
+                
 
                 sqlcmd.ExecuteNonQuery();
+                
             }
+           
         }
         
         public void UpdateEmployeeInDB(int employeeID, string name, string contactNumber, string username, string password, string email)
@@ -191,6 +329,7 @@ namespace Software_Engineering_Project_New
                 string contactNumber = dt.Rows[0]["Contact Number"].ToString();
                 int? roleID = dt.Rows[0].Field<int?>("roleID");
                 int? managerID = dt.Rows[0].Field<int?>("ManagerID");
+                
 
                 User user = new User(
                     id,
@@ -200,6 +339,7 @@ namespace Software_Engineering_Project_New
                     username,
                     managerID,
                     roleID
+                    
                 );
                 return user;
             }
