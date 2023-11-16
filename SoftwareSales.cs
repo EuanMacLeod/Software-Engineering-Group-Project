@@ -18,12 +18,17 @@ namespace Software_Engineering_Project_New
         private void InitializeData()
         {
             this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            UpdateDisplayedSoftwareInfo();
         }
 
         public void SoftwareSales_Load(object sender, EventArgs e)
         {
             ClearSoftwareInfoTextBoxes();
-
+            UpdateDisplayedSoftwareInfo();
+        }
+        
+        private void UpdateDisplayedSoftwareInfo()
+        {
             for (int i = 0; i < 4; i++)
             {
                 int rowIndex = count + i;
@@ -35,6 +40,8 @@ namespace Software_Engineering_Project_New
                 }
                 else
                 {
+                    // Clear any remaining text boxes if there are no more rows
+                    ClearSoftwareInfoTextBoxes(i + 1);
                     break;
                 }
             }
@@ -52,9 +59,9 @@ namespace Software_Engineering_Project_New
             }
         }
 
-        private void ClearSoftwareInfoTextBoxes()
+        private void ClearSoftwareInfoTextBoxes(int startFrom = 1)
         {
-            for (int i = 1; i <= 4; i++)
+            for (int i = startFrom; i <= 4; i++)
             {
                 TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
                 TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
@@ -62,13 +69,13 @@ namespace Software_Engineering_Project_New
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
             }
-            
         }
 
 
         private void nextPagebutton_Click(object sender, EventArgs e)
         {
             count = count + 4;
+            UpdateDisplayedSoftwareInfo();
         }
 
     }

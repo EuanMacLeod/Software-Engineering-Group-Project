@@ -43,7 +43,6 @@
             this.softwareDescriptionTextBox4 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox4 = new System.Windows.Forms.TextBox();
             this.nextPagebutton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
             this.SuspendLayout();
