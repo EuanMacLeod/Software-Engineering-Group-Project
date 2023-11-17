@@ -12,6 +12,8 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
 {
     public partial class ApproveUser : Form
     {
+        private int? selectedRoleId;
+
         public ApproveUser()
         {
             InitializeComponent();
@@ -54,6 +56,42 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             if (UsersAwaitingApprovalDgv.SelectedRows.Count > 1) UsersAwaitingApprovalDgv.SelectedRows[0].Selected = false;
 
             updateSelectedEmployeeLabel();
+        }
+
+        private void AdminRadioButton_Clicked(object sender, EventArgs e)
+        {
+            selectedRoleId = (int)Roles.Admin;
+        }
+
+        private void ManagerRadioButton_Clicked(object sender, EventArgs e)
+        {
+            selectedRoleId = (int)Roles.Manager;
+        }
+        private void SalesmanRadioButton_Clicked(object sender, EventArgs e)
+        {
+            selectedRoleId = (int)Roles.SoftwareSalesman;
+        }
+        private void DatabaseEngineerRadioButton_Clicked(object sender, EventArgs e)
+        {
+            selectedRoleId = (int)Roles.DatabaseEngineer;
+        }
+
+        private void ApproveUserButton_Clicked(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show(
+                "You Are Approving:\n" + UsersAwaitingApprovalDgv.SelectedRows[0].Cells[1].Value + "\nWith The Role Of:\n" +
+                selectedRoleId, "confirm", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                MessageBox.Show("Waow");
+            }
+
+        }
+
+        private void RejectUserButton_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }
