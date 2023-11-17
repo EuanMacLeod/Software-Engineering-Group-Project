@@ -51,12 +51,15 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.FilterButton = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.ApplyButton = new System.Windows.Forms.Button();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.FilterButton = new System.Windows.Forms.Button();
+            this.RatingButton1 = new System.Windows.Forms.RadioButton();
+            this.RatingButton2 = new System.Windows.Forms.RadioButton();
+            this.RatingButton3 = new System.Windows.Forms.RadioButton();
+            this.RatingButton4 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -231,18 +234,62 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.RatingButton4);
+            this.panel2.Controls.Add(this.RatingButton3);
+            this.panel2.Controls.Add(this.RatingButton2);
+            this.panel2.Controls.Add(this.RatingButton1);
             this.panel2.Controls.Add(this.ApplyButton);
-            this.panel2.Controls.Add(this.checkBox4);
             this.panel2.Controls.Add(this.checkBox3);
             this.panel2.Controls.Add(this.checkBox2);
             this.panel2.Controls.Add(this.checkBox1);
             this.panel2.Controls.Add(this.FilterButton);
-            this.panel2.Location = new System.Drawing.Point(538, 15);
+            this.panel2.Location = new System.Drawing.Point(529, 15);
             this.panel2.MaximumSize = new System.Drawing.Size(159, 187);
             this.panel2.MinimumSize = new System.Drawing.Size(159, 23);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(159, 187);
             this.panel2.TabIndex = 25;
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Location = new System.Drawing.Point(4, 159);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.ApplyButton.TabIndex = 5;
+            this.ApplyButton.Text = "Apply";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(6, 110);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(80, 17);
+            this.checkBox3.TabIndex = 3;
+            this.checkBox3.Text = "checkBox3";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(6, 86);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(80, 17);
+            this.checkBox2.TabIndex = 2;
+            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(6, 63);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(87, 17);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "Cloud Native";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // FilterButton
             // 
@@ -255,56 +302,53 @@
             this.FilterButton.UseVisualStyleBackColor = true;
             this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click_1);
             // 
-            // checkBox1
+            // RatingButton1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(4, 26);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 17);
-            this.checkBox1.TabIndex = 1;
-            this.checkBox1.Text = "Cloud Native";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.RatingButton1.AutoSize = true;
+            this.RatingButton1.Location = new System.Drawing.Point(6, 25);
+            this.RatingButton1.Name = "RatingButton1";
+            this.RatingButton1.Size = new System.Drawing.Size(31, 17);
+            this.RatingButton1.TabIndex = 6;
+            this.RatingButton1.TabStop = true;
+            this.RatingButton1.Text = "1";
+            this.RatingButton1.UseVisualStyleBackColor = true;
+            this.RatingButton1.CheckedChanged += new System.EventHandler(this.RatingButton1_CheckedChanged);
             // 
-            // checkBox2
+            // RatingButton2
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(3, 49);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 2;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.RatingButton2.AutoSize = true;
+            this.RatingButton2.Location = new System.Drawing.Point(43, 25);
+            this.RatingButton2.Name = "RatingButton2";
+            this.RatingButton2.Size = new System.Drawing.Size(31, 17);
+            this.RatingButton2.TabIndex = 7;
+            this.RatingButton2.TabStop = true;
+            this.RatingButton2.Text = "2";
+            this.RatingButton2.UseVisualStyleBackColor = true;
+            this.RatingButton2.CheckedChanged += new System.EventHandler(this.RatingButton2_CheckedChanged);
             // 
-            // checkBox3
+            // RatingButton3
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(3, 72);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 3;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.RatingButton3.AutoSize = true;
+            this.RatingButton3.Location = new System.Drawing.Point(80, 25);
+            this.RatingButton3.Name = "RatingButton3";
+            this.RatingButton3.Size = new System.Drawing.Size(31, 17);
+            this.RatingButton3.TabIndex = 8;
+            this.RatingButton3.TabStop = true;
+            this.RatingButton3.Text = "3";
+            this.RatingButton3.UseVisualStyleBackColor = true;
+            this.RatingButton3.CheckedChanged += new System.EventHandler(this.RatingButton3_CheckedChanged);
             // 
-            // checkBox4
+            // RatingButton4
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(3, 95);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(80, 17);
-            this.checkBox4.TabIndex = 4;
-            this.checkBox4.Text = "checkBox4";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // ApplyButton
-            // 
-            this.ApplyButton.Location = new System.Drawing.Point(4, 159);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(75, 23);
-            this.ApplyButton.TabIndex = 5;
-            this.ApplyButton.Text = "Apply";
-            this.ApplyButton.UseVisualStyleBackColor = true;
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            this.RatingButton4.AutoSize = true;
+            this.RatingButton4.Location = new System.Drawing.Point(117, 25);
+            this.RatingButton4.Name = "RatingButton4";
+            this.RatingButton4.Size = new System.Drawing.Size(31, 17);
+            this.RatingButton4.TabIndex = 9;
+            this.RatingButton4.TabStop = true;
+            this.RatingButton4.Text = "4";
+            this.RatingButton4.UseVisualStyleBackColor = true;
+            this.RatingButton4.CheckedChanged += new System.EventHandler(this.RatingButton4_CheckedChanged);
             // 
             // SoftwareSales
             // 
@@ -370,11 +414,14 @@
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button FilterButton;
         private System.Windows.Forms.Button ApplyButton;
+        private System.Windows.Forms.RadioButton RatingButton4;
+        private System.Windows.Forms.RadioButton RatingButton3;
+        private System.Windows.Forms.RadioButton RatingButton2;
+        private System.Windows.Forms.RadioButton RatingButton1;
     }
 }

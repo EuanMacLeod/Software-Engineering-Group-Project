@@ -141,8 +141,9 @@ namespace Software_Engineering_Project_New
         {
             this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
             string sqlQuery = "SELECT Name, Description FROM software WHERE cloud_native = true";
-            
 
+            DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+            
 
 
         }
@@ -154,20 +155,45 @@ namespace Software_Engineering_Project_New
                 bool cloudNative = true;
             }
 
-            if (checkBox2.Checked)
+            if (RatingButton1.Checked)
             {
-                bool checkbox2 = true;
+                bool starRating1 = true;
             }
 
-            if (checkBox3.Checked)
+            if (RatingButton2.Checked)
             {
-                bool checkbox3 = true;
+                bool starRating2 = true;
             }
 
-            if (checkBox4.Checked)
+            if (RatingButton3.Checked)
             {
-                bool checkbox4 = true;
+                bool starRating3 = true;
             }
+
+            if (RatingButton4.Checked)
+            {
+                bool starRating4 = true;
+            }
+
+        }
+
+        private void RatingButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RatingButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RatingButton3_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RatingButton4_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
     }
