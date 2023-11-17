@@ -21,7 +21,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
 
         private void populateDgv(DataTable dt)
         {
-            usersAwatingApproval.DataSource = dt;
+            UsersAwaitingApprovalDgv.DataSource = dt;
         }
 
         private DataTable generateDataTable()
@@ -29,6 +29,31 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             DataTable dt = DBConnections.getInstanceOfDBConnection().getDataTable("SELECT * FROM Employees WHERE RoleID IS NULL");
 
             return dt;
+        }
+
+
+
+        private void updateSelectedEmployeeLabel()
+        {
+            //updates the label to show the selected PDF
+            if (UsersAwaitingApprovalDgv.SelectedRows.Count == 1)
+            {
+                SelectedEmployeeLabel.Text =
+                    "Selected Employee:\n" + UsersAwaitingApprovalDgv.SelectedRows[0].Cells[1].Value;
+            }
+            else
+            {
+                SelectedEmployeeLabel.Text = "Selected Employee: ";
+            }
+        }
+
+
+        private void UsersAwaitingApprovalDgv_SelectionChanged(object sender, EventArgs e)
+        {
+            //ensures that only one row of the Softwares dgv can be selected at a time
+            if (UsersAwaitingApprovalDgv.SelectedRows.Count > 1) UsersAwaitingApprovalDgv.SelectedRows[0].Selected = false;
+
+            updateSelectedEmployeeLabel();
         }
     }
 }

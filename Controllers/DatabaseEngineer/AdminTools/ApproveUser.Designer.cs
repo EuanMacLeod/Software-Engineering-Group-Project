@@ -28,34 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.usersAwatingApproval = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.usersAwatingApproval)).BeginInit();
+            this.UsersAwaitingApprovalDgv = new System.Windows.Forms.DataGridView();
+            this.SelectedEmployeeLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersAwaitingApprovalDgv)).BeginInit();
             this.SuspendLayout();
             // 
-            // usersAwatingApproval
+            // UsersAwaitingApprovalDgv
             // 
-            this.usersAwatingApproval.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersAwatingApproval.Location = new System.Drawing.Point(0, 0);
-            this.usersAwatingApproval.Name = "usersAwatingApproval";
-            this.usersAwatingApproval.RowHeadersWidth = 62;
-            this.usersAwatingApproval.Size = new System.Drawing.Size(1322, 566);
-            this.usersAwatingApproval.TabIndex = 0;
+            this.UsersAwaitingApprovalDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UsersAwaitingApprovalDgv.Location = new System.Drawing.Point(0, 0);
+            this.UsersAwaitingApprovalDgv.Name = "UsersAwaitingApprovalDgv";
+            this.UsersAwaitingApprovalDgv.ReadOnly = true;
+            this.UsersAwaitingApprovalDgv.RowHeadersWidth = 62;
+            this.UsersAwaitingApprovalDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.UsersAwaitingApprovalDgv.Size = new System.Drawing.Size(1322, 566);
+            this.UsersAwaitingApprovalDgv.TabIndex = 0;
+            this.UsersAwaitingApprovalDgv.SelectionChanged += new System.EventHandler(this.UsersAwaitingApprovalDgv_SelectionChanged);
+            // 
+            // SelectedEmployeeLabel
+            // 
+            this.SelectedEmployeeLabel.AutoSize = true;
+            this.SelectedEmployeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedEmployeeLabel.Location = new System.Drawing.Point(12, 569);
+            this.SelectedEmployeeLabel.Name = "SelectedEmployeeLabel";
+            this.SelectedEmployeeLabel.Size = new System.Drawing.Size(376, 46);
+            this.SelectedEmployeeLabel.TabIndex = 1;
+            this.SelectedEmployeeLabel.Text = "Selected Employee:";
             // 
             // ApproveUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1523, 800);
-            this.Controls.Add(this.usersAwatingApproval);
+            this.Controls.Add(this.SelectedEmployeeLabel);
+            this.Controls.Add(this.UsersAwaitingApprovalDgv);
             this.Name = "ApproveUser";
             this.Text = "ApproveUser";
-            ((System.ComponentModel.ISupportInitialize)(this.usersAwatingApproval)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UsersAwaitingApprovalDgv)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView usersAwatingApproval;
+        private System.Windows.Forms.DataGridView UsersAwaitingApprovalDgv;
+        private System.Windows.Forms.Label SelectedEmployeeLabel;
     }
 }
