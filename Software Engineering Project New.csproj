@@ -95,6 +95,12 @@
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.Designer.cs">
       <DependentUpon>adminTools.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\ApproveUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\AdminTools\ApproveUser.Designer.cs">
+      <DependentUpon>ApproveUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +168,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\adminTools.resx">
       <DependentUpon>adminTools.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\ApproveUser.resx">
+      <DependentUpon>ApproveUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.resx">
       <DependentUpon>roleIdChange.cs</DependentUpon>
