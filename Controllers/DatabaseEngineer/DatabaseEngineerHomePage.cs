@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Software_Engineering_Project_New.Helper_Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,9 +19,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             if (user.RoleId != (int)Roles.DatabaseEngineer)
             {
-                adminPfp.Visible = true; adminPfp.Enabled = true;
+                Citisoft_logo.Visible = true; Citisoft_logo.Enabled = true;
                 bttn_adminTools.Visible = true;
-                label1.Visible = true;
+                
             }
         }
 
@@ -55,6 +56,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             // initialise and show admin tools window
 
             new adminTools(user).Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Sales(user).Show();
         }
     }
 }

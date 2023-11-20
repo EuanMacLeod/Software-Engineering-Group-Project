@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer;
+using Software_Engineering_Project_New.Helper_Classes;
 using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
@@ -46,6 +47,7 @@ namespace Software_Engineering_Project_New
 
                         break;
                     case (int)Roles.SoftwareSalesman:
+                        new Sales(user).Show();
 
                         break;
                 }
