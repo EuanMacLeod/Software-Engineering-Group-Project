@@ -35,10 +35,13 @@
             this.DatabaseEngineerRadioButton = new System.Windows.Forms.RadioButton();
             this.AdminRadioButton = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.ApproveButton = new System.Windows.Forms.Button();
-            this.RejectUser = new System.Windows.Forms.Button();
+            this.ConfirmButton = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.RejectRadioButton = new System.Windows.Forms.RadioButton();
+            this.ApproveRadioButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.UsersAwaitingApprovalDgv)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // UsersAwaitingApprovalDgv
@@ -121,40 +124,64 @@
             this.groupBox1.Controls.Add(this.AdminRadioButton);
             this.groupBox1.Controls.Add(this.ManagerRadioButton);
             this.groupBox1.Controls.Add(this.SalesmanRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(974, 590);
+            this.groupBox1.Location = new System.Drawing.Point(614, 569);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(297, 352);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // ApproveButton
+            // ConfirmButton
             // 
-            this.ApproveButton.Location = new System.Drawing.Point(1308, 590);
-            this.ApproveButton.Name = "ApproveButton";
-            this.ApproveButton.Size = new System.Drawing.Size(285, 122);
-            this.ApproveButton.TabIndex = 7;
-            this.ApproveButton.Text = "Approve User";
-            this.ApproveButton.UseVisualStyleBackColor = true;
-            this.ApproveButton.Click += new System.EventHandler(this.ApproveUserButton_Clicked);
+            this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmButton.Location = new System.Drawing.Point(1308, 590);
+            this.ConfirmButton.Name = "ConfirmButton";
+            this.ConfirmButton.Size = new System.Drawing.Size(285, 122);
+            this.ConfirmButton.TabIndex = 7;
+            this.ConfirmButton.Text = "Confirm";
+            this.ConfirmButton.UseVisualStyleBackColor = true;
+            this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Clicked);
             // 
-            // RejectUser
+            // panel1
             // 
-            this.RejectUser.Location = new System.Drawing.Point(1308, 815);
-            this.RejectUser.Name = "RejectUser";
-            this.RejectUser.Size = new System.Drawing.Size(285, 122);
-            this.RejectUser.TabIndex = 8;
-            this.RejectUser.Text = "Reject User";
-            this.RejectUser.UseVisualStyleBackColor = true;
-            this.RejectUser.Click += new System.EventHandler(this.RejectUserButton_Clicked);
+            this.panel1.Controls.Add(this.RejectRadioButton);
+            this.panel1.Controls.Add(this.ApproveRadioButton);
+            this.panel1.Location = new System.Drawing.Point(937, 590);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(272, 218);
+            this.panel1.TabIndex = 6;
+            // 
+            // RejectRadioButton
+            // 
+            this.RejectRadioButton.AutoSize = true;
+            this.RejectRadioButton.Checked = true;
+            this.RejectRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RejectRadioButton.Location = new System.Drawing.Point(3, 64);
+            this.RejectRadioButton.Name = "RejectRadioButton";
+            this.RejectRadioButton.Size = new System.Drawing.Size(107, 33);
+            this.RejectRadioButton.TabIndex = 1;
+            this.RejectRadioButton.TabStop = true;
+            this.RejectRadioButton.Text = "Reject";
+            this.RejectRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ApproveRadioButton
+            // 
+            this.ApproveRadioButton.AutoSize = true;
+            this.ApproveRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ApproveRadioButton.Location = new System.Drawing.Point(3, 16);
+            this.ApproveRadioButton.Name = "ApproveRadioButton";
+            this.ApproveRadioButton.Size = new System.Drawing.Size(128, 33);
+            this.ApproveRadioButton.TabIndex = 0;
+            this.ApproveRadioButton.Text = "Approve";
+            this.ApproveRadioButton.UseVisualStyleBackColor = true;
             // 
             // ApproveUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1665, 1026);
-            this.Controls.Add(this.RejectUser);
-            this.Controls.Add(this.ApproveButton);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SelectedEmployeeLabel);
             this.Controls.Add(this.UsersAwaitingApprovalDgv);
@@ -163,6 +190,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.UsersAwaitingApprovalDgv)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -177,7 +206,9 @@
         private System.Windows.Forms.RadioButton DatabaseEngineerRadioButton;
         private System.Windows.Forms.RadioButton AdminRadioButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button ApproveButton;
-        private System.Windows.Forms.Button RejectUser;
+        private System.Windows.Forms.Button ConfirmButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton ApproveRadioButton;
+        private System.Windows.Forms.RadioButton RejectRadioButton;
     }
 }

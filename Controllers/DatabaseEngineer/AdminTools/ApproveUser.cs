@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Software_Engineering_Project_New.Helper_Classes;
 
 namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminTools
 {
     public partial class ApproveUser : Form
     {
-        private int? selectedRoleId;
+        private int selectedRoleId = 0;
 
         public ApproveUser()
         {
@@ -76,22 +77,107 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             selectedRoleId = (int)Roles.DatabaseEngineer;
         }
 
-        private void ApproveUserButton_Clicked(object sender, EventArgs e)
+        private void ConfirmButton_Clicked(object sender, EventArgs e)
         {
+            if (UsersAwaitingApprovalDgv.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Please select one user to approve");
+                return;
+            }
+
+            if (selectedRoleId == 0)
+            {
+                MessageBox.Show("Please select a role for the user");
+                return;
+            }
+
+
             DialogResult dr = MessageBox.Show(
-                "You Are Approving:\n" + UsersAwaitingApprovalDgv.SelectedRows[0].Cells[1].Value + "\nWith The Role Of:\n" +
-                selectedRoleId, "confirm", MessageBoxButtons.YesNo,
+                "Is all the selected information is correct?.",
+                "confirm",
+                MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+
             if (dr == DialogResult.Yes)
             {
                 MessageBox.Show("Waow");
+                
+                try
+                {
+                    int selectedUserId = (int)UsersAwaitingApprovalDgv.SelectedRows[0].Cells[0].Value;
+                    if (ApproveRadioButton.Checked)
+                    {
+                        DBConnections.getInstanceOfDBConnection().updateRoleID(selectedUserId, selectedRoleId);
+                        MessageBox.Show("User Has Been Accepted");
+                    }
+                    else
+                    {
+                        DBConnections.getInstanceOfDBConnection().deleteEmployee(selectedUserId);
+                        MessageBox.Show("User Has Been Rejected");
+                    }
+                    
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error Whilst Confirming Employee", "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+
+                dr = MessageBox.Show(
+                    "Would you like to send an email to inform the user?",
+                    "confirm",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    string recipient = UsersAwaitingApprovalDgv.SelectedRows[0].Cells[2].Value.ToString();
+                    string subject = "Citisoft Employee Account";
+                    string body = ApproveRadioButton.Checked ? "Your account has been approved, you may now log in." : "Your account has been rejected.";
+                    EmailService.getInstanceOfEmailService().sendEmail(recipient, subject, body);
+                }
+
+                populateDgv(generateDataTable());
             }
 
         }
 
         private void RejectUserButton_Clicked(object sender, EventArgs e)
         {
+            if (UsersAwaitingApprovalDgv.SelectedRows.Count != 1)
+            {
+                MessageBox.Show("Please select one user to approve");
+                return;
+            }
 
+            DialogResult dr = MessageBox.Show(
+                "You Are Rejecting:\n" + UsersAwaitingApprovalDgv.SelectedRows[0].Cells[1].Value,
+                "confirm",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
+            {
+                try
+                {
+                    int selectedUserId = (int)UsersAwaitingApprovalDgv.SelectedRows[0].Cells[0].Value;
+
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        "Error Rejecting Employee", "Error",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    populateDgv(generateDataTable());
+                }
+            }
         }
     }
 }

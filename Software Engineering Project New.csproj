@@ -126,6 +126,7 @@
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper Classes\EmailService.cs" />
     <Compile Include="Helper Classes\WebpageOpener.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Controllers\Login\LoginPage.cs">
