@@ -126,6 +126,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                         MessageBoxIcon.Error);
                 }
 
+                /*
                 dr = MessageBox.Show(
                     "Would you like to send an email to inform the user?",
                     "confirm",
@@ -138,45 +139,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                     string body = ApproveRadioButton.Checked ? "Your account has been approved, you may now log in." : "Your account has been rejected.";
                     EmailService.getInstanceOfEmailService().sendEmail(recipient, subject, body);
                 }
+                */
 
                 populateDgv(generateDataTable());
-            }
-
-        }
-
-        private void RejectUserButton_Clicked(object sender, EventArgs e)
-        {
-            if (UsersAwaitingApprovalDgv.SelectedRows.Count != 1)
-            {
-                MessageBox.Show("Please select one user to approve");
-                return;
-            }
-
-            DialogResult dr = MessageBox.Show(
-                "You Are Rejecting:\n" + UsersAwaitingApprovalDgv.SelectedRows[0].Cells[1].Value,
-                "confirm",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                try
-                {
-                    int selectedUserId = (int)UsersAwaitingApprovalDgv.SelectedRows[0].Cells[0].Value;
-
-
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(
-                        "Error Rejecting Employee", "Error",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
-                }
-                finally
-                {
-                    populateDgv(generateDataTable());
-                }
             }
         }
     }

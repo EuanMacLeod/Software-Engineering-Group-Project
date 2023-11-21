@@ -38,7 +38,7 @@ namespace Software_Engineering_Project_New.Helper_Classes
             mail.Subject = subject;
             mail.Body = body;
 
-            SmtpServer.Port = 587;
+            SmtpServer.Port = 465;
             SmtpServer.Credentials = new System.Net.NetworkCredential(username, password);
             SmtpServer.EnableSsl = true;
 
