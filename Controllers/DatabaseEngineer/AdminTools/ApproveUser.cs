@@ -126,7 +126,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                         MessageBoxIcon.Error);
                 }
 
-                /*
+                
                 dr = MessageBox.Show(
                     "Would you like to send an email to inform the user?",
                     "confirm",
@@ -139,7 +139,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                     string body = ApproveRadioButton.Checked ? "Your account has been approved, you may now log in." : "Your account has been rejected.";
                     EmailService.getInstanceOfEmailService().sendEmail(recipient, subject, body);
                 }
-                */
+                
 
                 populateDgv(generateDataTable());
             }

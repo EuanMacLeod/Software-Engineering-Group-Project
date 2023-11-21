@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
@@ -30,15 +31,16 @@ namespace Software_Engineering_Project_New.Helper_Classes
 
         public void sendEmail(string recipient, string subject, string body)
         {
+            
             System.Net.Mail.MailMessage mail = new System.Net.Mail.MailMessage();
             System.Net.Mail.SmtpClient SmtpServer = new System.Net.Mail.SmtpClient("smtp.gmail.com");
 
-            mail.From = new System.Net.Mail.MailAddress(username);
+            mail.From = new MailAddress(username);
             mail.To.Add(recipient);
             mail.Subject = subject;
             mail.Body = body;
 
-            SmtpServer.Port = 465;
+            SmtpServer.Port = 587;
             SmtpServer.Credentials = new System.Net.NetworkCredential(username, password);
             SmtpServer.EnableSsl = true;
 

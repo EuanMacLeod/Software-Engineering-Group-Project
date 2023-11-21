@@ -45,7 +45,7 @@ namespace Software_Engineering_Project_New.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("MOD003263")]
+        [global::System.Configuration.DefaultSettingValueAttribute("hxdwolcglprnvspv")]
         public string EmailPassword {
             get {
                 return ((string)(this["EmailPassword"]));
