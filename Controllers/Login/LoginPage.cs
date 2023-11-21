@@ -32,8 +32,18 @@ namespace Software_Engineering_Project_New
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
                         break;
                     case (int)Roles.Admin:
+                        DialogResult result = MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            new Sales(user).Show();
+                        }
+                        else
+                        {
+                            new DatabaseEngineerHomePage(user).Show();
+                        }
+                        
                         //Load into new pages here
-                        new DatabaseEngineerHomePage(user).Show();
+                        
                         Hide();
 
                         break;
@@ -53,33 +63,6 @@ namespace Software_Engineering_Project_New
                 }
 
 
-            //code bellow has been moved to DBConnections.cs ~Euan
-            /*
-            String username, user_password;
-            username = txt_username.Text;
-            user_password = txt_password.Text;
-
-            SqlConnection sqlcon = new SqlConnection(ConnectionString);
-            String querry = "SELECT * FROM Employees WHERE Username = '" + txt_username.Text + "' AND Password = '" + txt_password.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
-
-            DataTable dtable = new DataTable();
-            sda.Fill(dtable);
-
-            if (dtable.Rows.Count > 0)
-            {
-                username = txt_username.Text;
-                user_password = txt_password.Text;
-                txt_password.Clear();
-                txt_username.Clear();
-                MessageBox.Show("Win");
-
-            }
-            else
-            {
-                MessageBox.Show("Not good news");
-            }
-            */
         }
 
         private void button_switchboard_Click(object sender, EventArgs e)
@@ -95,6 +78,11 @@ namespace Software_Engineering_Project_New
             Register register = new Register();
             register.Show();
             Hide();
+        }
+
+        private void LoginPage_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

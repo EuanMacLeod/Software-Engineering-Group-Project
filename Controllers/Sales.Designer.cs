@@ -33,9 +33,6 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfDemoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.documentLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.softwaresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.citisoft_Softwares = new Software_Engineering_Project_New.Citisoft_Softwares();
             this.softwaresTableAdapter = new Software_Engineering_Project_New.Citisoft_SoftwaresTableAdapters.SoftwaresTableAdapter();
@@ -45,13 +42,22 @@
             this.CN_cross = new System.Windows.Forms.PictureBox();
             this.LTS_tick = new System.Windows.Forms.PictureBox();
             this.CN_tick = new System.Windows.Forms.PictureBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lbl_desc = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_name = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bttn_down = new System.Windows.Forms.Button();
+            this.bttn_web = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.bttn_up = new System.Windows.Forms.Button();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.additionalInformationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfDemoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.avaliableProfessionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.documentLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.citisoft_Softwares)).BeginInit();
@@ -86,7 +92,11 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.additionalInformationDataGridViewTextBoxColumn,
             this.dateOfDemoDataGridViewTextBoxColumn,
+            this.avaliableProfessionalDataGridViewCheckBoxColumn,
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn,
             this.documentLinkDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.softwaresBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(452, 32);
@@ -97,34 +107,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(428, 440);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateOfDemoDataGridViewTextBoxColumn
-            // 
-            this.dateOfDemoDataGridViewTextBoxColumn.DataPropertyName = "Date of Demo";
-            this.dateOfDemoDataGridViewTextBoxColumn.HeaderText = "Date of Demo";
-            this.dateOfDemoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateOfDemoDataGridViewTextBoxColumn.Name = "dateOfDemoDataGridViewTextBoxColumn";
-            this.dateOfDemoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dateOfDemoDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // documentLinkDataGridViewTextBoxColumn
-            // 
-            this.documentLinkDataGridViewTextBoxColumn.DataPropertyName = "Document Link";
-            this.documentLinkDataGridViewTextBoxColumn.HeaderText = "Document Link";
-            this.documentLinkDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.documentLinkDataGridViewTextBoxColumn.Name = "documentLinkDataGridViewTextBoxColumn";
-            this.documentLinkDataGridViewTextBoxColumn.ReadOnly = true;
-            this.documentLinkDataGridViewTextBoxColumn.Width = 125;
             // 
             // softwaresBindingSource
             // 
@@ -204,14 +186,14 @@
             this.CN_tick.TabStop = false;
             this.CN_tick.Visible = false;
             // 
-            // label4
+            // lbl_desc
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(38, 365);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 16);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "(Description Here)";
+            this.lbl_desc.AutoSize = true;
+            this.lbl_desc.Location = new System.Drawing.Point(38, 365);
+            this.lbl_desc.Name = "lbl_desc";
+            this.lbl_desc.Size = new System.Drawing.Size(116, 16);
+            this.lbl_desc.TabIndex = 10;
+            this.lbl_desc.Text = "(Description Here)";
             // 
             // button1
             // 
@@ -249,37 +231,125 @@
             this.lbl_name.Size = new System.Drawing.Size(85, 16);
             this.lbl_name.TabIndex = 14;
             this.lbl_name.Text = "(Name Here)";
+            this.lbl_name.Visible = false;
             // 
-            // button3
+            // bttn_down
             // 
-            this.button3.Location = new System.Drawing.Point(511, 492);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "up";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bttn_down.Location = new System.Drawing.Point(511, 521);
+            this.bttn_down.Name = "bttn_down";
+            this.bttn_down.Size = new System.Drawing.Size(75, 23);
+            this.bttn_down.TabIndex = 16;
+            this.bttn_down.Text = "down";
+            this.bttn_down.UseVisualStyleBackColor = true;
+            this.bttn_down.Click += new System.EventHandler(this.bttn_down_Click);
             // 
-            // button4
+            // bttn_web
             // 
-            this.button4.Location = new System.Drawing.Point(511, 521);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "down";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bttn_web.Location = new System.Drawing.Point(618, 491);
+            this.bttn_web.Name = "bttn_web";
+            this.bttn_web.Size = new System.Drawing.Size(91, 53);
+            this.bttn_web.TabIndex = 17;
+            this.bttn_web.Text = "Open Document";
+            this.bttn_web.UseVisualStyleBackColor = true;
+            this.bttn_web.Click += new System.EventHandler(this.bttn_web_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(756, 492);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(124, 66);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // bttn_up
+            // 
+            this.bttn_up.Location = new System.Drawing.Point(511, 492);
+            this.bttn_up.Name = "bttn_up";
+            this.bttn_up.Size = new System.Drawing.Size(75, 23);
+            this.bttn_up.TabIndex = 20;
+            this.bttn_up.Text = "up";
+            this.bttn_up.UseVisualStyleBackColor = true;
+            this.bttn_up.Click += new System.EventHandler(this.bttn_up_Click);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // additionalInformationDataGridViewTextBoxColumn
+            // 
+            this.additionalInformationDataGridViewTextBoxColumn.DataPropertyName = "Additional Information";
+            this.additionalInformationDataGridViewTextBoxColumn.HeaderText = "Additional Information";
+            this.additionalInformationDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.additionalInformationDataGridViewTextBoxColumn.Name = "additionalInformationDataGridViewTextBoxColumn";
+            this.additionalInformationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.additionalInformationDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateOfDemoDataGridViewTextBoxColumn
+            // 
+            this.dateOfDemoDataGridViewTextBoxColumn.DataPropertyName = "Date of Demo";
+            this.dateOfDemoDataGridViewTextBoxColumn.HeaderText = "Date of Demo";
+            this.dateOfDemoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateOfDemoDataGridViewTextBoxColumn.Name = "dateOfDemoDataGridViewTextBoxColumn";
+            this.dateOfDemoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateOfDemoDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // avaliableProfessionalDataGridViewCheckBoxColumn
+            // 
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.DataPropertyName = "Avaliable Professional";
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.HeaderText = "Avaliable Professional";
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.Name = "avaliableProfessionalDataGridViewCheckBoxColumn";
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.avaliableProfessionalDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // cloudServicesAvaliableDataGridViewCheckBoxColumn
+            // 
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.DataPropertyName = "Cloud Services Avaliable";
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.HeaderText = "Cloud Services Avaliable";
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.MinimumWidth = 6;
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.Name = "cloudServicesAvaliableDataGridViewCheckBoxColumn";
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.ReadOnly = true;
+            this.cloudServicesAvaliableDataGridViewCheckBoxColumn.Width = 125;
+            // 
+            // documentLinkDataGridViewTextBoxColumn
+            // 
+            this.documentLinkDataGridViewTextBoxColumn.DataPropertyName = "Document Link";
+            this.documentLinkDataGridViewTextBoxColumn.HeaderText = "Document Link";
+            this.documentLinkDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.documentLinkDataGridViewTextBoxColumn.Name = "documentLinkDataGridViewTextBoxColumn";
+            this.documentLinkDataGridViewTextBoxColumn.ReadOnly = true;
+            this.documentLinkDataGridViewTextBoxColumn.Width = 125;
             // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(929, 609);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.bttn_up);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.bttn_web);
+            this.Controls.Add(this.bttn_down);
             this.Controls.Add(this.lbl_name);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lbl_desc);
             this.Controls.Add(this.CN_tick);
             this.Controls.Add(this.LTS_tick);
             this.Controls.Add(this.CN_cross);
@@ -312,21 +382,27 @@
         private Citisoft_Softwares citisoft_Softwares;
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private Citisoft_SoftwaresTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfDemoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentLinkDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox LTS_cross;
         private System.Windows.Forms.PictureBox CN_cross;
         private System.Windows.Forms.PictureBox LTS_tick;
         private System.Windows.Forms.PictureBox CN_tick;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbl_desc;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_name;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button bttn_down;
+        private System.Windows.Forms.Button bttn_web;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button bttn_up;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn additionalInformationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfDemoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn avaliableProfessionalDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn cloudServicesAvaliableDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentLinkDataGridViewTextBoxColumn;
     }
 }
