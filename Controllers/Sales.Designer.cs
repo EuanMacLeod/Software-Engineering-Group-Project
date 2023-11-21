@@ -52,7 +52,7 @@
             this.button6 = new System.Windows.Forms.Button();
             this.bttn_up = new System.Windows.Forms.Button();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.additionalInformationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfDemoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.avaliableProfessionalDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -92,19 +92,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
+            this.Description,
             this.additionalInformationDataGridViewTextBoxColumn,
             this.dateOfDemoDataGridViewTextBoxColumn,
             this.avaliableProfessionalDataGridViewCheckBoxColumn,
             this.cloudServicesAvaliableDataGridViewCheckBoxColumn,
             this.documentLinkDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.softwaresBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(452, 32);
+            this.dataGridView1.Location = new System.Drawing.Point(439, 22);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(428, 440);
+            this.dataGridView1.Size = new System.Drawing.Size(432, 440);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -282,14 +282,14 @@
             this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             this.nameDataGridViewTextBoxColumn.Width = 125;
             // 
-            // descriptionDataGridViewTextBoxColumn
+            // Description
             // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descriptionDataGridViewTextBoxColumn.Width = 125;
+            this.Description.DataPropertyName = "Description";
+            this.Description.HeaderText = "Description";
+            this.Description.MinimumWidth = 6;
+            this.Description.Name = "Description";
+            this.Description.ReadOnly = true;
+            this.Description.Width = 125;
             // 
             // additionalInformationDataGridViewTextBoxColumn
             // 
@@ -398,7 +398,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button bttn_up;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn additionalInformationDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfDemoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn avaliableProfessionalDataGridViewCheckBoxColumn;

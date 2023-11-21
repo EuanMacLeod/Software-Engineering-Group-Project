@@ -32,6 +32,20 @@ namespace Software_Engineering_Project_New.Helper_Classes
 
 
         }
+
+        private void showImageLTS()
+        {
+            if (!dataGridView1.SelectedRows[0].Cells[7].Equals(true))
+            {
+                LTS_tick.Visible = true;
+            }
+            else
+            {
+                LTS_cross.Visible = true;
+            }
+            
+        }
+
         private void updateSelectedPDFLabel()
         {
             //updates the label to show the selected PDF
@@ -152,6 +166,8 @@ namespace Software_Engineering_Project_New.Helper_Classes
             }
             updateLabelName();
             updateLabelDesc();
+            CheckCheckBoxValueLTS(4);
+            CheckCheckBoxValueCN(5);
 
         }
 
@@ -164,8 +180,63 @@ namespace Software_Engineering_Project_New.Helper_Classes
             }
             updateLabelName();
             updateLabelDesc();
+            CheckCheckBoxValueLTS(4);
+            CheckCheckBoxValueCN(5);
+        }
+
+        private void CheckCheckBoxValueLTS(int cell)
+        {
+            // Get the index of the row you want to check
+            int rowIndex = 0; // Change this to the desired row index
+
+            //creates bool. (parse)DGV.selectedRow[0].Cells[desieredCellToCheck].Value
+            bool ischecked = (bool)dataGridView1.SelectedRows[rowIndex].Cells[cell].Value;
+
+            // Now you can use the value of isChecked as needed
+            if (ischecked)
+            {
+                // Checkbox is checked
+                LTS_tick.Visible = true;
+                LTS_cross.Visible = false;
+            }
+            else
+            {
+                // Checkbox is not checked
+                LTS_cross.Visible = true;
+                LTS_tick.Visible = false;
+            }
+
+
+
 
         }
+        private void CheckCheckBoxValueCN(int cell)
+        {
+            // Get the index of the row you want to check
+            int rowIndex = 0; // Change this to the desired row index
+
+            //creates bool. (parse)DGV.selectedRow[0].Cells[desieredCellToCheck].Value
+            bool ischecked = (bool)dataGridView1.SelectedRows[rowIndex].Cells[cell].Value;
+
+            // Now you can use the value of isChecked as needed
+            if (ischecked)
+            {
+                // Checkbox is checked
+                CN_tick.Visible = true;
+                CN_cross.Visible = false;
+            }
+            else
+            {
+                // Checkbox is not checked
+                CN_cross.Visible = true;
+                CN_tick.Visible = false;
+            }
+
+
+
+
+        }
+
 
         private void bttn_refresh_Click(object sender, EventArgs e)
         {
@@ -177,18 +248,18 @@ namespace Software_Engineering_Project_New.Helper_Classes
             //updates the label to show the selected PDF
             if (dataGridView1.SelectedRows.Count == 1)
                 lbl_name.Text =
-                    "Selected PDF:\n" + dataGridView1.SelectedRows[0].Cells[0].Value;
+                    "Selected :\n" + dataGridView1.SelectedRows[0].Cells[0].Value;
             else
-                lbl_name.Text = "Selected PDF: ";
+                lbl_name.Text = "Selected : Error";
         }
         private void updateLabelDesc()
         {
             //updates the label to show the selected PDF
             if (dataGridView1.SelectedRows.Count == 1)
                 lbl_desc.Text =
-                    "Selected PDF:\n" + dataGridView1.SelectedRows[0].Cells[1].Value;
+                    "Selected :\n" + dataGridView1.SelectedRows[0].Cells[1].Value;
             else
-                lbl_desc.Text = "Selected PDF: ";
+                lbl_desc.Text = "Selected : error";
         }
     }
     
