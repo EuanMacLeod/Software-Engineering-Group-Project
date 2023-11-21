@@ -124,6 +124,13 @@ namespace Software_Engineering_Project_New
             }
         }
 
+
+        private void backButton_Clicked(object sender, EventArgs e)
+        {
+            new HomePage().Show();
+            Close();
+        }
+
         /*
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {

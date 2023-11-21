@@ -84,7 +84,7 @@ namespace Software_Engineering_Project_New
         {
             HomePage homePage = new HomePage();
             homePage.Show();
-            Hide();
+            Close();
         }
 
         private void button_register_Click(object sender, EventArgs e)
@@ -92,7 +92,7 @@ namespace Software_Engineering_Project_New
         {
             Register register = new Register();
             register.Show();
-            Hide();
+            Close();
         }
     }
 }

@@ -41,59 +41,65 @@
             this.txt_conpassword = new System.Windows.Forms.TextBox();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.label_email = new System.Windows.Forms.Label();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label_firstname
             // 
             this.label_firstname.AutoSize = true;
-            this.label_firstname.Location = new System.Drawing.Point(126, 111);
+            this.label_firstname.Location = new System.Drawing.Point(84, 72);
+            this.label_firstname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_firstname.Name = "label_firstname";
-            this.label_firstname.Size = new System.Drawing.Size(80, 20);
+            this.label_firstname.Size = new System.Drawing.Size(54, 13);
             this.label_firstname.TabIndex = 0;
             this.label_firstname.Text = "Full Name";
             // 
             // label_lastname
             // 
             this.label_lastname.AutoSize = true;
-            this.label_lastname.Location = new System.Drawing.Point(126, 149);
+            this.label_lastname.Location = new System.Drawing.Point(84, 97);
+            this.label_lastname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_lastname.Name = "label_lastname";
-            this.label_lastname.Size = new System.Drawing.Size(125, 20);
+            this.label_lastname.Size = new System.Drawing.Size(84, 13);
             this.label_lastname.TabIndex = 1;
             this.label_lastname.Text = "Contact Number";
             // 
             // label_username
             // 
             this.label_username.AutoSize = true;
-            this.label_username.Location = new System.Drawing.Point(126, 228);
+            this.label_username.Location = new System.Drawing.Point(84, 148);
+            this.label_username.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_username.Name = "label_username";
-            this.label_username.Size = new System.Drawing.Size(83, 20);
+            this.label_username.Size = new System.Drawing.Size(55, 13);
             this.label_username.TabIndex = 2;
             this.label_username.Text = "Username";
             // 
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(126, 280);
+            this.label_password.Location = new System.Drawing.Point(84, 182);
+            this.label_password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_password.Name = "label_password";
-            this.label_password.Size = new System.Drawing.Size(78, 20);
+            this.label_password.Size = new System.Drawing.Size(53, 13);
             this.label_password.TabIndex = 3;
             this.label_password.Text = "Password";
             // 
             // label_conpassword
             // 
             this.label_conpassword.AutoSize = true;
-            this.label_conpassword.Location = new System.Drawing.Point(126, 329);
+            this.label_conpassword.Location = new System.Drawing.Point(84, 214);
+            this.label_conpassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_conpassword.Name = "label_conpassword";
-            this.label_conpassword.Size = new System.Drawing.Size(137, 20);
+            this.label_conpassword.Size = new System.Drawing.Size(91, 13);
             this.label_conpassword.TabIndex = 4;
             this.label_conpassword.Text = "Confirm Password";
             // 
             // button_submit
             // 
-            this.button_submit.Location = new System.Drawing.Point(372, 398);
-            this.button_submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_submit.Location = new System.Drawing.Point(248, 259);
+            this.button_submit.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.button_submit.Name = "button_submit";
-            this.button_submit.Size = new System.Drawing.Size(130, 65);
+            this.button_submit.Size = new System.Drawing.Size(87, 42);
             this.button_submit.TabIndex = 5;
             this.button_submit.Text = "Submit";
             this.button_submit.UseVisualStyleBackColor = true;
@@ -101,74 +107,87 @@
             // 
             // txt_firstname
             // 
-            this.txt_firstname.Location = new System.Drawing.Point(270, 111);
-            this.txt_firstname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_firstname.Location = new System.Drawing.Point(180, 72);
+            this.txt_firstname.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_firstname.MaxLength = 30;
             this.txt_firstname.Name = "txt_firstname";
-            this.txt_firstname.Size = new System.Drawing.Size(331, 26);
+            this.txt_firstname.Size = new System.Drawing.Size(222, 20);
             this.txt_firstname.TabIndex = 6;
             // 
             // txt_ContactNumber
             // 
-            this.txt_ContactNumber.Location = new System.Drawing.Point(270, 145);
-            this.txt_ContactNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_ContactNumber.Location = new System.Drawing.Point(180, 94);
+            this.txt_ContactNumber.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_ContactNumber.MaxLength = 20;
             this.txt_ContactNumber.Name = "txt_ContactNumber";
-            this.txt_ContactNumber.Size = new System.Drawing.Size(331, 26);
+            this.txt_ContactNumber.Size = new System.Drawing.Size(222, 20);
             this.txt_ContactNumber.TabIndex = 7;
             // 
             // txt_username
             // 
-            this.txt_username.Location = new System.Drawing.Point(270, 228);
-            this.txt_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_username.Location = new System.Drawing.Point(180, 148);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_username.MaxLength = 30;
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(331, 26);
+            this.txt_username.Size = new System.Drawing.Size(222, 20);
             this.txt_username.TabIndex = 8;
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(270, 280);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_password.Location = new System.Drawing.Point(180, 182);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_password.MaxLength = 30;
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
-            this.txt_password.Size = new System.Drawing.Size(331, 26);
+            this.txt_password.Size = new System.Drawing.Size(222, 20);
             this.txt_password.TabIndex = 9;
             // 
             // txt_conpassword
             // 
-            this.txt_conpassword.Location = new System.Drawing.Point(270, 329);
-            this.txt_conpassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_conpassword.Location = new System.Drawing.Point(180, 214);
+            this.txt_conpassword.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_conpassword.MaxLength = 30;
             this.txt_conpassword.Name = "txt_conpassword";
             this.txt_conpassword.PasswordChar = '*';
-            this.txt_conpassword.Size = new System.Drawing.Size(331, 26);
+            this.txt_conpassword.Size = new System.Drawing.Size(222, 20);
             this.txt_conpassword.TabIndex = 10;
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(270, 180);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_email.Location = new System.Drawing.Point(180, 117);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.txt_email.MaxLength = 30;
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(331, 26);
+            this.txt_email.Size = new System.Drawing.Size(222, 20);
             this.txt_email.TabIndex = 11;
             // 
             // label_email
             // 
             this.label_email.AutoSize = true;
-            this.label_email.Location = new System.Drawing.Point(126, 182);
+            this.label_email.Location = new System.Drawing.Point(84, 118);
+            this.label_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(48, 20);
+            this.label_email.Size = new System.Drawing.Size(32, 13);
             this.label_email.TabIndex = 12;
             this.label_email.Text = "Email";
             // 
+            // backButton
+            // 
+            this.backButton.Location = new System.Drawing.Point(88, 259);
+            this.backButton.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(87, 42);
+            this.backButton.TabIndex = 13;
+            this.backButton.Text = "Back";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Clicked);
+            // 
             // Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 562);
+            this.ClientSize = new System.Drawing.Size(600, 365);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.label_email);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.txt_conpassword);
@@ -182,7 +201,7 @@
             this.Controls.Add(this.label_username);
             this.Controls.Add(this.label_lastname);
             this.Controls.Add(this.label_firstname);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Register";
             this.Text = "Register";
             this.ResumeLayout(false);
@@ -205,5 +224,6 @@
         private System.Windows.Forms.TextBox txt_conpassword;
         private System.Windows.Forms.TextBox txt_email;
         private System.Windows.Forms.Label label_email;
+        private System.Windows.Forms.Button backButton;
     }
 }
