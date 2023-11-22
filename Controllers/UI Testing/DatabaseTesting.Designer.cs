@@ -49,6 +49,7 @@
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Location = new System.Drawing.Point(12, 12);
             this.dgvTest.Name = "dgvTest";
+            this.dgvTest.ReadOnly = true;
             this.dgvTest.Size = new System.Drawing.Size(729, 360);
             this.dgvTest.TabIndex = 0;
             this.dgvTest.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTest_CellContentClick);

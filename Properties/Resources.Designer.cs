@@ -69,5 +69,15 @@ namespace Software_Engineering_Project_New.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AdminProfliePicture {
+            get {
+                object obj = ResourceManager.GetObject("AdminProfliePicture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
