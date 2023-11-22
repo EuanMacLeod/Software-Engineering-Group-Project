@@ -66,18 +66,21 @@ namespace Software_Engineering_Project_New
             {
                 MessageBox.Show("Passwords Don't Match");
             }
+            /*
             else if (radioButton1.Checked == false && radioButton2.Checked == false)
             {
                 MessageBox.Show("Please Choose A Role");
             }
+            */
             else if(DBConnections.getInstanceOfDBConnection().doesUserExist(txt_username.Text.Trim(), txt_email.Text.Trim()))
             {
                 MessageBox.Show("User Already Exists");
             }
 
-            else if (!IsNumeric(txt_ContactNumber.Text.Trim()) || txt_ContactNumber.Text.Trim().Length < 11)                {
+            else if (!IsNumeric(txt_ContactNumber.Text.Trim()) || txt_ContactNumber.Text.Trim().Length < 11)
+            {
                     MessageBox.Show("Contact Number should be numeric and at least 11 digits");
-                }
+            }
             else if (!IsValidEmail(txt_email.Text.Trim()))
             {
                 MessageBox.Show("Please enter a valid email address");
@@ -86,7 +89,7 @@ namespace Software_Engineering_Project_New
             else
             {
                 
-                RoleID = radioButton1.Checked ? 3 : 4;
+                //RoleID = radioButton1.Checked ? 3 : 4;
 
                 if(verifyAdmin(txt_email.Text.Trim()) == 1)
                 {
@@ -102,7 +105,7 @@ namespace Software_Engineering_Project_New
                     txt_username.Text.Trim(),
                     passwordHash,
                     txt_email.Text.Trim(),
-                    RoleID
+                    null
 
                 );
                 /*
@@ -121,6 +124,14 @@ namespace Software_Engineering_Project_New
             }
         }
 
+
+        private void backButton_Clicked(object sender, EventArgs e)
+        {
+            new HomePage().Show();
+            Close();
+        }
+
+        /*
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
             int roleid;
@@ -132,10 +143,12 @@ namespace Software_Engineering_Project_New
             int roleid;
             if (radioButton2.Checked) roleid = 4;
         }
+        
 
         private void box_admin_CheckedChanged(object sender, EventArgs e)
         {
             
         }
+        */
     }
 }

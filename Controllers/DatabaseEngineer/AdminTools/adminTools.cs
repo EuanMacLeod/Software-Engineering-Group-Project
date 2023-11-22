@@ -29,5 +29,10 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             new accountRecovery(user).Show();
         }
+
+        private void approveUsersButton_Clicked(object sender, EventArgs e)
+        {
+            new ApproveUser().Show();
+        }
     }
 }

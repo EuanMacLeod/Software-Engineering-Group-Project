@@ -47,6 +47,9 @@
 
         public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
 
+        public static string UPDATE_EMPLOYEE_ROLE = "UPDATE Employees SET RoleID = @RoleID WHERE EmployeeID = @EmployeeID";
+
+        public static string DELETE_EMPLOYEE = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID";
 
 
         public static string COUNT_PEOPLE_WITH_NAME_OR_EMAIL = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";

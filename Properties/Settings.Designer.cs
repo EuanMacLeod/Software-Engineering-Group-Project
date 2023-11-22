@@ -36,12 +36,19 @@ namespace Software_Engineering_Project_New.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"H:\\My Documents\\Development\\" +
-            "ITP\\working\\Citisoft.mdf\";Integrated Security=True;Connect Timeout=30")]
-        public string CitisoftDBConnection {
+        [global::System.Configuration.DefaultSettingValueAttribute("citisoftemployment@gmail.com")]
+        public string EmailUsername {
             get {
-                return ((string)(this["CitisoftDBConnection"]));
+                return ((string)(this["EmailUsername"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hxdwolcglprnvspv")]
+        public string EmailPassword {
+            get {
+                return ((string)(this["EmailPassword"]));
             }
         }
     }

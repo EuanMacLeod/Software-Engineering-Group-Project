@@ -247,15 +247,30 @@ namespace Software_Engineering_Project_New
             }
         }
 
+        public void deleteEmployee(int employeeID)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
+                command.CommandText = Constants.DELETE_EMPLOYEE;
+                command.Parameters.AddWithValue("@EmployeeID", employeeID);
+
+                sqlcon.Open();
+
+                command.ExecuteNonQuery();
+            }
+        }
         
-
-
-
-
         //
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
-            int roleID)
+            int? roleID)
         {
+            //return _instance ?? (_instance = new DBConnections());
+
+            //param.Value = activity.StaffId ?? (object)DBNull.Value;
+
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
                 sqlcon.Open();
@@ -266,7 +281,7 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Username", username);
                 sqlcmd.Parameters.AddWithValue("@Password", password);
                 sqlcmd.Parameters.AddWithValue("@Email", email);
-                sqlcmd.Parameters.AddWithValue("@RoleID", roleID);
+                sqlcmd.Parameters.AddWithValue("@RoleID", (roleID ?? (object)DBNull.Value)); //if roleID is null, set the parameter to null aswell
                 
 
                 sqlcmd.ExecuteNonQuery();
