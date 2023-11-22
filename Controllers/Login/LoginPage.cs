@@ -46,6 +46,9 @@ namespace Software_Engineering_Project_New
 
                         break;
                     case (int)Roles.SoftwareSalesman:
+                        SoftwareSales SoftwareSales = new SoftwareSales(user);
+                        SoftwareSales.Show();
+                        this.Hide();
 
                         break;
                 }
