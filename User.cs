@@ -7,7 +7,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Software_Engineering_Project_New
 {
-    internal class User
+    public class User
     {
         private int id;
         private String name;
