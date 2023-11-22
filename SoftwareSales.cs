@@ -36,34 +36,35 @@ namespace Software_Engineering_Project_New
             // Display search results or handle them as needed
           //  DisplaySearchResults(searchResults);
         }
-        
+
         private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
-                for (int i = 0; i < 4; i++)
-                {
-                    int rowIndex = count + i;
-                    
-                    if (data != null && rowIndex < data.Rows.Count)
-                    {
-                        DataRow row = data.Rows[rowIndex];
-                        SetSoftwareInfoTextBoxes(i + 1, row);
-                    }
+            // Clear existing displayed information
+            ClearSoftwareInfoTextBoxes();
 
-                    else if (rowIndex < this.citisoftDataSet.Softwares.Rows.Count)
-                    {
-                        DataRow row = this.citisoftDataSet.Softwares.Rows[rowIndex];
-                        SetSoftwareInfoTextBoxes(i + 1, row);
-                    }
-                    else
-                    {
-                        // Clear any remaining text boxes if there are no more rows
-                        ClearSoftwareInfoTextBoxes(i + 1);
-                        break;
-                    }
+            DataTable sourceData = data ?? this.citisoftDataSet.Softwares;
+
+            for (int i = 0; i < 4; i++)
+            {
+                int rowIndex = count + i;
+
+                if (rowIndex < sourceData.Rows.Count)
+                {
+                    DataRow row = sourceData.Rows[rowIndex];
+                    SetSoftwareInfoTextBoxes(i + 1, row);
+
                 }
-            //}
+                else
+                {
+                    // Clear any remaining text boxes if there are no more rows
+                    ClearSoftwareInfoTextBoxes(i + 1);
+                    break;
+                }
+            }
         }
-        
+
+
+
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
             TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();

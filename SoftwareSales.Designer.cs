@@ -33,8 +33,8 @@
             this.softwaresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.softwaresTableAdapter = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
             this.softwaresBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.softwareNameTextBox = new System.Windows.Forms.TextBox();
-            this.softwareDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.softwareNameTextBox1 = new System.Windows.Forms.TextBox();
+            this.softwareDescriptionTextBox1 = new System.Windows.Forms.TextBox();
             this.softwareDescriptionTextBox2 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -43,6 +43,7 @@
             this.softwareDescriptionTextBox4 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox4 = new System.Windows.Forms.TextBox();
             this.nextPagebutton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -66,21 +67,21 @@
             this.softwaresBindingSource1.DataMember = "Softwares";
             this.softwaresBindingSource1.DataSource = this.citisoftDataSet;
             // 
-            // softwareNameTextBox
+            // softwareNameTextBox1
             // 
-            this.softwareNameTextBox.BackColor = System.Drawing.SystemColors.Window;
-            this.softwareNameTextBox.Location = new System.Drawing.Point(97, 68);
-            this.softwareNameTextBox.Name = "softwareNameTextBox";
-            this.softwareNameTextBox.Size = new System.Drawing.Size(168, 20);
-            this.softwareNameTextBox.TabIndex = 5;
+            this.softwareNameTextBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.softwareNameTextBox1.Location = new System.Drawing.Point(97, 68);
+            this.softwareNameTextBox1.Name = "softwareNameTextBox1";
+            this.softwareNameTextBox1.Size = new System.Drawing.Size(168, 20);
+            this.softwareNameTextBox1.TabIndex = 5;
             // 
-            // softwareDescriptionTextBox
+            // softwareDescriptionTextBox1
             // 
-            this.softwareDescriptionTextBox.Location = new System.Drawing.Point(97, 94);
-            this.softwareDescriptionTextBox.Multiline = true;
-            this.softwareDescriptionTextBox.Name = "softwareDescriptionTextBox";
-            this.softwareDescriptionTextBox.Size = new System.Drawing.Size(531, 64);
-            this.softwareDescriptionTextBox.TabIndex = 6;
+            this.softwareDescriptionTextBox1.Location = new System.Drawing.Point(97, 94);
+            this.softwareDescriptionTextBox1.Multiline = true;
+            this.softwareDescriptionTextBox1.Name = "softwareDescriptionTextBox1";
+            this.softwareDescriptionTextBox1.Size = new System.Drawing.Size(531, 64);
+            this.softwareDescriptionTextBox1.TabIndex = 6;
             // 
             // softwareDescriptionTextBox2
             // 
@@ -157,8 +158,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.softwareDescriptionTextBox2);
             this.Controls.Add(this.softwareNameTextBox2);
-            this.Controls.Add(this.softwareDescriptionTextBox);
-            this.Controls.Add(this.softwareNameTextBox);
+            this.Controls.Add(this.softwareDescriptionTextBox1);
+            this.Controls.Add(this.softwareNameTextBox1);
             this.Name = "SoftwareSales";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.SoftwareSales_Load);
@@ -167,6 +168,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion
@@ -174,8 +176,8 @@
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private CitisoftDataSetTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
         private System.Windows.Forms.BindingSource softwaresBindingSource1;
-        private System.Windows.Forms.TextBox softwareNameTextBox;
-        private System.Windows.Forms.TextBox softwareDescriptionTextBox;
+        private System.Windows.Forms.TextBox softwareNameTextBox1;
+        private System.Windows.Forms.TextBox softwareDescriptionTextBox1;
         private System.Windows.Forms.TextBox softwareDescriptionTextBox2;
         private System.Windows.Forms.TextBox softwareNameTextBox2;
         private System.Windows.Forms.TextBox textBox1;
