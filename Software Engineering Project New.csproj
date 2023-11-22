@@ -160,10 +160,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SoftwareSales.cs">
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareSales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SoftwareSales.Designer.cs">
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareSales.Designer.cs">
       <DependentUpon>SoftwareSales.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
@@ -197,9 +197,7 @@
     <EmbeddedResource Include="Controllers\Homepage\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SoftwareSales.resx">
-      <DependentUpon>SoftwareSales.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SoftwareSalesman\SoftwareSales.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
