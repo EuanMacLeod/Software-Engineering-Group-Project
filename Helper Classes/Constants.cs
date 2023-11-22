@@ -1,6 +1,6 @@
 ﻿namespace Software_Engineering_Project_New
 {
-    internal class Constants
+    public class Constants
     {
         //sql queries
 
