@@ -17,7 +17,7 @@ namespace Software_Engineering_Project_New
 
         public SoftwareSales(User pUser)
         {
-            this.user = puser;
+            this.user = pUser;
             InitializeComponent();
             InitializeData();
         }
@@ -105,6 +105,16 @@ namespace Software_Engineering_Project_New
             UpdateDisplayedSoftwareInfo();
         }
 
+        private void PreviousPageButton_Click(object sender, EventArgs e)
+        {
+            if (count > 4)
+            {
+                count = 0;
+                UpdateDisplayedSoftwareInfo();
+            }
+        }
+
+
         private void DisplayRowInDataGridView(DataGridView dataGridView, DataTable softwareTable, int rowIndex)
         {
 
@@ -115,6 +125,7 @@ namespace Software_Engineering_Project_New
 
         }
 
+        /*
         private void nextPagebutton_Click(object sender, EventArgs e)
         {
             count = count + 4;
@@ -130,6 +141,7 @@ namespace Software_Engineering_Project_New
                 getData();
             }
         }
+        */
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
@@ -164,7 +176,7 @@ namespace Software_Engineering_Project_New
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            string sqlQuery = "SELECT Name, Description FROM software WHERE cloud_native = true";
+            string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
 
             DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
 
@@ -286,8 +298,3 @@ namespace Software_Engineering_Project_New
             }
         }
 */
-
-        softwareNameTextBox4.Text = Nextrow["Name"].ToString();
-        softwareDescriptionTextBox4.Text = Nextrow["Description"].ToString();
-    }
-}*/

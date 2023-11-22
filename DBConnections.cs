@@ -20,7 +20,7 @@ namespace Software_Engineering_Project_New
         private DBConnections()
         {
 
-            connectionString = Properties.Settings.Default.CitisoftDBConnection;
+            connectionString = Properties.Settings.Default.CitisoftConnectionString;
 
         }
 
@@ -37,7 +37,7 @@ namespace Software_Engineering_Project_New
             {
                 connectionToDatabase.Open();
 
-                string query = "SELECT * FROM software WHERE name LIKE @search";
+                string query = "SELECT * FROM Softwares WHERE name LIKE @search";
                 using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
                 {
                     command.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));

@@ -39,9 +39,7 @@ namespace Software_Engineering_Project_New
                 //TO DO
                 //LOAD INTO NEW PAGE, PASS USER CLASS INTO NEXT FORM SO USER CAN BE RETAINED
 
-                SoftwareSales SoftwareSales = new SoftwareSales(user);
-                SoftwareSales.Show();
-                this.Hide();
+
 
                 switch (user.RoleID)
                 {
@@ -58,6 +56,9 @@ namespace Software_Engineering_Project_New
 
                         break;
                     case (int)Roles.SoftwareSalesman:
+                        SoftwareSales SoftwareSales = new SoftwareSales(user);
+                        SoftwareSales.Show();
+                        this.Hide();
 
                         break;
                     default:
