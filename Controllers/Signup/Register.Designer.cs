@@ -48,7 +48,8 @@
             // label_firstname
             // 
             this.label_firstname.AutoSize = true;
-            this.label_firstname.Location = new System.Drawing.Point(112, 89);
+            this.label_firstname.Location = new System.Drawing.Point(84, 84);
+            this.label_firstname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_firstname.Name = "label_firstname";
             this.label_firstname.Size = new System.Drawing.Size(68, 16);
             this.label_firstname.TabIndex = 0;
@@ -57,7 +58,8 @@
             // label_lastname
             // 
             this.label_lastname.AutoSize = true;
-            this.label_lastname.Location = new System.Drawing.Point(112, 119);
+            this.label_lastname.Location = new System.Drawing.Point(84, 115);
+            this.label_lastname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_lastname.Name = "label_lastname";
             this.label_lastname.Size = new System.Drawing.Size(103, 16);
             this.label_lastname.TabIndex = 1;
@@ -66,7 +68,8 @@
             // label_username
             // 
             this.label_username.AutoSize = true;
-            this.label_username.Location = new System.Drawing.Point(112, 182);
+            this.label_username.Location = new System.Drawing.Point(86, 184);
+            this.label_username.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_username.Name = "label_username";
             this.label_username.Size = new System.Drawing.Size(70, 16);
             this.label_username.TabIndex = 2;
@@ -75,7 +78,8 @@
             // label_password
             // 
             this.label_password.AutoSize = true;
-            this.label_password.Location = new System.Drawing.Point(112, 224);
+            this.label_password.Location = new System.Drawing.Point(86, 214);
+            this.label_password.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_password.Name = "label_password";
             this.label_password.Size = new System.Drawing.Size(67, 16);
             this.label_password.TabIndex = 3;
@@ -84,7 +88,8 @@
             // label_conpassword
             // 
             this.label_conpassword.AutoSize = true;
-            this.label_conpassword.Location = new System.Drawing.Point(112, 263);
+            this.label_conpassword.Location = new System.Drawing.Point(84, 244);
+            this.label_conpassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_conpassword.Name = "label_conpassword";
             this.label_conpassword.Size = new System.Drawing.Size(115, 16);
             this.label_conpassword.TabIndex = 4;
@@ -92,8 +97,8 @@
             // 
             // button_submit
             // 
-            this.button_submit.Location = new System.Drawing.Point(331, 318);
-            this.button_submit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button_submit.Location = new System.Drawing.Point(249, 291);
+            this.button_submit.Margin = new System.Windows.Forms.Padding(2);
             this.button_submit.Name = "button_submit";
             this.button_submit.Size = new System.Drawing.Size(116, 52);
             this.button_submit.TabIndex = 5;
@@ -103,8 +108,8 @@
             // 
             // txt_firstname
             // 
-            this.txt_firstname.Location = new System.Drawing.Point(240, 89);
-            this.txt_firstname.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_firstname.Location = new System.Drawing.Point(180, 81);
+            this.txt_firstname.Margin = new System.Windows.Forms.Padding(2);
             this.txt_firstname.MaxLength = 30;
             this.txt_firstname.Name = "txt_firstname";
             this.txt_firstname.Size = new System.Drawing.Size(295, 22);
@@ -112,8 +117,8 @@
             // 
             // txt_ContactNumber
             // 
-            this.txt_ContactNumber.Location = new System.Drawing.Point(240, 116);
-            this.txt_ContactNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_ContactNumber.Location = new System.Drawing.Point(180, 115);
+            this.txt_ContactNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txt_ContactNumber.MaxLength = 20;
             this.txt_ContactNumber.Name = "txt_ContactNumber";
             this.txt_ContactNumber.Size = new System.Drawing.Size(295, 22);
@@ -121,8 +126,8 @@
             // 
             // txt_username
             // 
-            this.txt_username.Location = new System.Drawing.Point(240, 182);
-            this.txt_username.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_username.Location = new System.Drawing.Point(180, 180);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(2);
             this.txt_username.MaxLength = 30;
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(295, 22);
@@ -130,8 +135,8 @@
             // 
             // txt_password
             // 
-            this.txt_password.Location = new System.Drawing.Point(240, 224);
-            this.txt_password.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_password.Location = new System.Drawing.Point(180, 214);
+            this.txt_password.Margin = new System.Windows.Forms.Padding(2);
             this.txt_password.MaxLength = 30;
             this.txt_password.Name = "txt_password";
             this.txt_password.Size = new System.Drawing.Size(295, 22);
@@ -139,8 +144,8 @@
             // 
             // txt_conpassword
             // 
-            this.txt_conpassword.Location = new System.Drawing.Point(240, 263);
-            this.txt_conpassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_conpassword.Location = new System.Drawing.Point(180, 244);
+            this.txt_conpassword.Margin = new System.Windows.Forms.Padding(2);
             this.txt_conpassword.MaxLength = 30;
             this.txt_conpassword.Name = "txt_conpassword";
             this.txt_conpassword.Size = new System.Drawing.Size(295, 22);
@@ -148,8 +153,8 @@
             // 
             // txt_email
             // 
-            this.txt_email.Location = new System.Drawing.Point(240, 144);
-            this.txt_email.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txt_email.Location = new System.Drawing.Point(180, 148);
+            this.txt_email.Margin = new System.Windows.Forms.Padding(2);
             this.txt_email.MaxLength = 30;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(295, 22);
@@ -158,7 +163,8 @@
             // label_email
             // 
             this.label_email.AutoSize = true;
-            this.label_email.Location = new System.Drawing.Point(112, 146);
+            this.label_email.Location = new System.Drawing.Point(86, 148);
+            this.label_email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_email.Name = "label_email";
             this.label_email.Size = new System.Drawing.Size(41, 16);
             this.label_email.TabIndex = 12;
@@ -167,8 +173,8 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(587, 222);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton1.Location = new System.Drawing.Point(440, 217);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(141, 20);
             this.radioButton1.TabIndex = 14;
@@ -180,8 +186,8 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(587, 258);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton2.Location = new System.Drawing.Point(440, 247);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(142, 20);
             this.radioButton2.TabIndex = 15;
@@ -210,7 +216,7 @@
             this.Controls.Add(this.label_username);
             this.Controls.Add(this.label_lastname);
             this.Controls.Add(this.label_firstname);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Register";
             this.Text = "Register";
             this.ResumeLayout(false);

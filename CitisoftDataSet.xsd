@@ -4,7 +4,7 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CitisoftConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="CitisoftConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Software_Engineering_Project_New.Properties.Settings.GlobalReference.Default.CitisoftConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="CitisoftConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="CitisoftConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Software_Engineering_Project_New.Properties.Settings.GlobalReference.Default.CitisoftConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SoftwaresTableAdapter" GeneratorDataComponentClassName="SoftwaresTableAdapter" Name="Softwares" UserDataComponentName="SoftwaresTableAdapter">
@@ -100,45 +100,45 @@ SELECT SoftwareID, VendorID, Name, Description, [Additional Information], [Date 
       </DataSource>
     </xs:appinfo>
   </xs:annotation>
-  <xs:element name="CitisoftDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="CitisoftDataSet" msprop:Generator_DataSetName="CitisoftDataSet">
+  <xs:element name="CitisoftDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="CitisoftDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CitisoftDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Softwares" msprop:Generator_RowEvHandlerName="SoftwaresRowChangeEventHandler" msprop:Generator_RowDeletedName="SoftwaresRowDeleted" msprop:Generator_RowDeletingName="SoftwaresRowDeleting" msprop:Generator_RowEvArgName="SoftwaresRowChangeEvent" msprop:Generator_TablePropName="Softwares" msprop:Generator_RowChangedName="SoftwaresRowChanged" msprop:Generator_RowChangingName="SoftwaresRowChanging" msprop:Generator_TableClassName="SoftwaresDataTable" msprop:Generator_RowClassName="SoftwaresRow" msprop:Generator_TableVarName="tableSoftwares" msprop:Generator_UserTableName="Softwares">
+        <xs:element name="Softwares" msprop:Generator_RowClassName="SoftwaresRow" msprop:Generator_RowEvHandlerName="SoftwaresRowChangeEventHandler" msprop:Generator_RowDeletedName="SoftwaresRowDeleted" msprop:Generator_RowDeletingName="SoftwaresRowDeleting" msprop:Generator_RowEvArgName="SoftwaresRowChangeEvent" msprop:Generator_TablePropName="Softwares" msprop:Generator_RowChangedName="SoftwaresRowChanged" msprop:Generator_UserTableName="Softwares" msprop:Generator_RowChangingName="SoftwaresRowChanging" msprop:Generator_TableClassName="SoftwaresDataTable" msprop:Generator_TableVarName="tableSoftwares">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="SoftwareID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnPropNameInRow="SoftwareID" msprop:Generator_ColumnPropNameInTable="SoftwareIDColumn" msprop:Generator_ColumnVarNameInTable="columnSoftwareID" msprop:Generator_UserColumnName="SoftwareID" type="xs:int" />
-              <xs:element name="VendorID" msprop:Generator_ColumnPropNameInRow="VendorID" msprop:Generator_ColumnPropNameInTable="VendorIDColumn" msprop:Generator_ColumnVarNameInTable="columnVendorID" msprop:Generator_UserColumnName="VendorID" type="xs:int" />
-              <xs:element name="Name" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_UserColumnName="Name">
+              <xs:element name="SoftwareID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_UserColumnName="SoftwareID" msprop:Generator_ColumnPropNameInTable="SoftwareIDColumn" msprop:Generator_ColumnPropNameInRow="SoftwareID" msprop:Generator_ColumnVarNameInTable="columnSoftwareID" type="xs:int" />
+              <xs:element name="VendorID" msprop:Generator_UserColumnName="VendorID" msprop:Generator_ColumnPropNameInTable="VendorIDColumn" msprop:Generator_ColumnPropNameInRow="VendorID" msprop:Generator_ColumnVarNameInTable="columnVendorID" type="xs:int" />
+              <xs:element name="Name" msprop:Generator_UserColumnName="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnVarNameInTable="columnName">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Description" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_UserColumnName="Description">
+              <xs:element name="Description" msprop:Generator_UserColumnName="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnVarNameInTable="columnDescription">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="500" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Additional_x0020_Information" msprop:Generator_ColumnPropNameInRow="Additional_Information" msprop:Generator_ColumnPropNameInTable="Additional_InformationColumn" msprop:Generator_ColumnVarNameInTable="columnAdditional_Information" msprop:Generator_UserColumnName="Additional Information" minOccurs="0">
+              <xs:element name="Additional_x0020_Information" msprop:Generator_UserColumnName="Additional Information" msprop:Generator_ColumnPropNameInTable="Additional_InformationColumn" msprop:Generator_ColumnPropNameInRow="Additional_Information" msprop:Generator_ColumnVarNameInTable="columnAdditional_Information" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="1000" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Date_x0020_of_x0020_Demo" msprop:Generator_ColumnPropNameInRow="Date_of_Demo" msprop:Generator_ColumnPropNameInTable="Date_of_DemoColumn" msprop:Generator_ColumnVarNameInTable="columnDate_of_Demo" msprop:Generator_UserColumnName="Date of Demo" minOccurs="0">
+              <xs:element name="Date_x0020_of_x0020_Demo" msprop:Generator_UserColumnName="Date of Demo" msprop:Generator_ColumnPropNameInTable="Date_of_DemoColumn" msprop:Generator_ColumnPropNameInRow="Date_of_Demo" msprop:Generator_ColumnVarNameInTable="columnDate_of_Demo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Avaliable_x0020_Professional" msprop:Generator_ColumnPropNameInRow="Avaliable_Professional" msprop:Generator_ColumnPropNameInTable="Avaliable_ProfessionalColumn" msprop:Generator_ColumnVarNameInTable="columnAvaliable_Professional" msprop:Generator_UserColumnName="Avaliable Professional" type="xs:boolean" />
-              <xs:element name="Cloud_x0020_Services_x0020_Avaliable" msprop:Generator_ColumnPropNameInRow="Cloud_Services_Avaliable" msprop:Generator_ColumnPropNameInTable="Cloud_Services_AvaliableColumn" msprop:Generator_ColumnVarNameInTable="columnCloud_Services_Avaliable" msprop:Generator_UserColumnName="Cloud Services Avaliable" type="xs:boolean" />
-              <xs:element name="Document_x0020_Link" msprop:Generator_ColumnPropNameInRow="Document_Link" msprop:Generator_ColumnPropNameInTable="Document_LinkColumn" msprop:Generator_ColumnVarNameInTable="columnDocument_Link" msprop:Generator_UserColumnName="Document Link" minOccurs="0">
+              <xs:element name="Avaliable_x0020_Professional" msprop:Generator_UserColumnName="Avaliable Professional" msprop:Generator_ColumnPropNameInTable="Avaliable_ProfessionalColumn" msprop:Generator_ColumnPropNameInRow="Avaliable_Professional" msprop:Generator_ColumnVarNameInTable="columnAvaliable_Professional" type="xs:boolean" />
+              <xs:element name="Cloud_x0020_Services_x0020_Avaliable" msprop:Generator_UserColumnName="Cloud Services Avaliable" msprop:Generator_ColumnPropNameInTable="Cloud_Services_AvaliableColumn" msprop:Generator_ColumnPropNameInRow="Cloud_Services_Avaliable" msprop:Generator_ColumnVarNameInTable="columnCloud_Services_Avaliable" type="xs:boolean" />
+              <xs:element name="Document_x0020_Link" msprop:Generator_UserColumnName="Document Link" msprop:Generator_ColumnPropNameInTable="Document_LinkColumn" msprop:Generator_ColumnPropNameInRow="Document_Link" msprop:Generator_ColumnVarNameInTable="columnDocument_Link" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />

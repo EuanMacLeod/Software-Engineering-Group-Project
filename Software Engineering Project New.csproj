@@ -52,6 +52,9 @@
       <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
@@ -70,6 +73,7 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
@@ -95,19 +99,18 @@
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.Designer.cs">
       <DependentUpon>adminTools.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
-      <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.Designer.cs">
       <DependentUpon>roleIdChange.cs</DependentUpon>
     </Compile>
-    <Compile Include="Helper Classes\Constants.cs" />
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerHomePage.Designer.cs">
+      <DependentUpon>DatabaseEngineerHomePage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +123,7 @@
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Helper Classes\WebpageOpener.cs" />
     <Compile Include="Launcher.cs" />
     <Compile Include="Controllers\Login\LoginPage.cs">
@@ -156,6 +160,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareSales.Designer.cs">
+      <DependentUpon>SoftwareSales.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.resx">
       <DependentUpon>accountRecovery.cs</DependentUpon>
@@ -184,12 +194,10 @@
     <EmbeddedResource Include="Products\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\UI Testing\DatabaseTesting.resx">
-      <DependentUpon>DatabaseTesting.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Homepage\HomePage.resx">
       <DependentUpon>HomePage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SoftwareSalesman\SoftwareSales.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -251,6 +259,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Citisoft.mdf</DependentUpon>
     </Content>
+    <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
