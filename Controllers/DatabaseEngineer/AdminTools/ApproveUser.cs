@@ -100,8 +100,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
 
             if (dr == DialogResult.Yes)
             {
-                MessageBox.Show("Waow");
-                
                 try
                 {
                     int selectedUserId = (int)UsersAwaitingApprovalDgv.SelectedRows[0].Cells[0].Value;
