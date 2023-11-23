@@ -167,10 +167,16 @@ namespace Software_Engineering_Project_New
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+            //this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            //string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
 
-            DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           string searchString = SearchBar.Text;
+            
+            
+           DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
+
+           UpdateDisplayedSoftwareInfo(searchResults);
 
 
 
