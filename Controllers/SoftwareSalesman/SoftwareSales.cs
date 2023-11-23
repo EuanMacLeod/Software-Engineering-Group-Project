@@ -34,15 +34,7 @@ namespace Software_Engineering_Project_New
             UpdateDisplayedSoftwareInfo();
         }
         
-        private void searchButton_Click(object sender, EventArgs e)
-        {
-            // this line is commented till the front end work done
-            //string searchString = searchTextBox.Text;
-           // DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
-
-            // Display search results or handle them as needed
-          //  DisplaySearchResults(searchResults);
-        }
+       
 
         private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
@@ -232,6 +224,22 @@ namespace Software_Engineering_Project_New
         {
 
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchString = SearchBar.Text;
+            
+            
+            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
+            
+            UpdateDisplayedSoftwareInfo(searchResults);
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+           UpdateDisplayedSoftwareInfo(); 
+        }
     }
 }
 
@@ -243,58 +251,4 @@ namespace Software_Engineering_Project_New
 
         
     
-
-//alex code:
-
-/*private void SoftwareSales_Load(object sender, EventArgs e)
-{
-    // TODO: This line of code loads data into the 'citisoftDataSet.Softwares' table. You can move, or remove it, as needed.
-    this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-        private void SoftwareSales_Load(object sender, EventArgs e)
-        {
-            getData();
-            panel2.Height = 23;
-
-        }
-
-        private void getData()
-        {
-
-            userLoggedInLabel.Text = user.Name;
-
-            // TODO: This line of code loads data into the 'citisoftDataSet.Softwares' table. You can move, or remove it, as needed.
-            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-
-
-            if (this.citisoftDataSet.Softwares.Rows.Count > 0)
-            {
-
-
-                var Nextrow = this.citisoftDataSet.Softwares.Rows[count];
-
-        softwareNameTextBox.Text = Nextrow["Name"].ToString();
-        softwareDescriptionTextBox.Text = Nextrow["Description"].ToString();
-
-        count = count + 1;
-        Nextrow = this.citisoftDataSet.Softwares.Rows[count];
-
-        softwareNameTextBox2.Text = Nextrow["Name"].ToString();
-        softwareDescriptionTextBox2.Text = Nextrow["Description"].ToString();
-
-        count = count + 1;
-        Nextrow = this.citisoftDataSet.Softwares.Rows[count];
-
-        softwareNameTextBox3.Text = Nextrow["Name"].ToString();
-        softwareDescriptionTextBox3.Text = Nextrow["Description"].ToString();
-        
-        count = count + 1;
-        Nextrow = this.citisoftDataSet.Softwares.Rows[count];
-
-
-                softwareNameTextBox4.Text = Nextrow["Name"].ToString();
-                softwareDescriptionTextBox4.Text = Nextrow["Description"].ToString();
-
-
-            }
-        }
-*/
+// old code was not in use so removed that
