@@ -57,11 +57,34 @@ namespace Software_Engineering_Project_New
 
                         break;
                     case (int)Roles.SoftwareSalesman:
-                        new Sales(user).Show();
+                        SoftwareSales SoftwareSales = new SoftwareSales(user);
+                        SoftwareSales.Show();
+                        this.Hide();
 
                         break;
                 }
 
+
+            //code bellow has been moved to DBConnections.cs ~Euan
+            /*
+            String username, user_password;
+            username = txt_username.Text;
+            user_password = txt_password.Text;
+
+            SqlConnection sqlcon = new SqlConnection(ConnectionString);
+            String querry = "SELECT * FROM Employees WHERE Username = '" + txt_username.Text + "' AND Password = '" + txt_password.Text + "'";
+            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
+
+            DataTable dtable = new DataTable();
+            sda.Fill(dtable);
+
+            if (dtable.Rows.Count > 0)
+            {
+                username = txt_username.Text;
+                user_password = txt_password.Text;
+                txt_password.Clear();
+                txt_username.Clear();
+                MessageBox.Show("Win");
 
         }
 
@@ -69,7 +92,7 @@ namespace Software_Engineering_Project_New
         {
             HomePage homePage = new HomePage();
             homePage.Show();
-            Hide();
+            Close();
         }
 
         private void button_register_Click(object sender, EventArgs e)
@@ -77,7 +100,7 @@ namespace Software_Engineering_Project_New
         {
             Register register = new Register();
             register.Show();
-            Hide();
+            Close();
         }
 
         private void LoginPage_Load(object sender, EventArgs e)

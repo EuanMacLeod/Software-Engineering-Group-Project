@@ -33,5 +33,23 @@ namespace Software_Engineering_Project_New.Properties {
                 return ((string)(this["CitisoftConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("citisoftemployment@gmail.com")]
+        public string EmailUsername {
+            get {
+                return ((string)(this["EmailUsername"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("hxdwolcglprnvspv")]
+        public string EmailPassword {
+            get {
+                return ((string)(this["EmailPassword"]));
+            }
+        }
     }
 }

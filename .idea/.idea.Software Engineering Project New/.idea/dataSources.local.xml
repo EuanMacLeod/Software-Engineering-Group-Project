@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="dataSourceStorageLocal" created-in="RD-232.10203.29">
+  <component name="dataSourceStorageLocal" created-in="RD-232.9921.83">
     <data-source name="Microsoft SQL Server LocalDB (JetBrains)" uuid="bd1681ad-15ee-4ea3-99c8-bdb22d94ea09">
       <database-info product="Microsoft SQL Server" version="15.00.4153" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL_LOCALDB" exact-version="15.0.4153" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
@@ -8,6 +8,22 @@
       </database-info>
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
+      <schema-mapping>
+        <introspection-scope>
+          <node kind="database" qname="@">
+            <node kind="schema" qname="@" />
+          </node>
+        </introspection-scope>
+      </schema-mapping>
+    </data-source>
+    <data-source name="Microsoft SQL Server LocalDB (JetBrains) [2]" uuid="2364f817-43a5-422f-9f16-08a47b31dedb">
+      <database-info product="Microsoft SQL Server" version="15.00.4153" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL_LOCALDB" exact-version="15.0.4153" exact-driver-version="1.0">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <secret-storage>master_key</secret-storage>
+      <auth-provider>no-auth</auth-provider>
       <schema-mapping>
         <introspection-scope>
           <node kind="database" qname="@">
