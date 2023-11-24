@@ -8,7 +8,7 @@ namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
-        
+
         public LoginPage()
         {
             InitializeComponent();
@@ -32,7 +32,8 @@ namespace Software_Engineering_Project_New
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
                         break;
                     case (int)Roles.Admin:
-                        DialogResult result = MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
+                        DialogResult result =
+                            MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
                             new Sales(user).Show();
@@ -41,9 +42,9 @@ namespace Software_Engineering_Project_New
                         {
                             new DatabaseEngineerHomePage(user).Show();
                         }
-                        
+
                         //Load into new pages here
-                        
+
                         Hide();
 
                         break;
@@ -63,9 +64,27 @@ namespace Software_Engineering_Project_New
 
                         break;
                 }
+        }
+
+        private void button_switchboard_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+            Close();
+        }
+
+        private void button_register_Click(object sender, EventArgs e)
+
+        {
+            Register register = new Register();
+            register.Show();
+            Close();
+        }
+    }
+}
 
 
-            //code bellow has been moved to DBConnections.cs ~Euan
+//code bellow has been moved to DBConnections.cs ~Euan
             /*
             String username, user_password;
             username = txt_username.Text;
@@ -88,20 +107,7 @@ namespace Software_Engineering_Project_New
 
         }
 
-        private void button_switchboard_Click(object sender, EventArgs e)
-        {
-            HomePage homePage = new HomePage();
-            homePage.Show();
-            Close();
-        }
 
-        private void button_register_Click(object sender, EventArgs e)
-
-        {
-            Register register = new Register();
-            register.Show();
-            Close();
-        }
 
         private void LoginPage_Load(object sender, EventArgs e)
         {
@@ -109,3 +115,4 @@ namespace Software_Engineering_Project_New
         }
     }
 }
+            */
