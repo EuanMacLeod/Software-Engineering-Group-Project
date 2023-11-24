@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 {
     public partial class DatabaseEngineerHomePage : Form
@@ -41,7 +42,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
-            Hide();
+            Close();
         }
 
         private void button_pdfTagging_Click(object sender, EventArgs e)
@@ -61,6 +62,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         private void button1_Click(object sender, EventArgs e)
         {
             new Sales(user).Show();
+        }
+
+        private void ManageSoftwaresButton_Clicked(object sender, EventArgs e)
+        {
+            new DatabaseEngineerSoftwareManagementPage(user).Show();
         }
     }
 }

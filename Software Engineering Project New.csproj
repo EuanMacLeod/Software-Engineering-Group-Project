@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CitisoftSoftwaresDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CitisoftSoftwaresDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Citisoft_Softwares.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +108,12 @@
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\adminTools.Designer.cs">
       <DependentUpon>adminTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerSoftwareManagementPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\DatabaseEngineer\DatabaseEngineerSoftwareManagementPage.Designer.cs">
+      <DependentUpon>DatabaseEngineerSoftwareManagementPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\roleIdChange.cs">
       <SubType>Form</SubType>
@@ -208,6 +219,9 @@
     <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerPdfTaggingPage.resx">
       <DependentUpon>DatabaseEngineerPdfTaggingPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\DatabaseEngineer\DatabaseEngineerSoftwareManagementPage.resx">
+      <DependentUpon>DatabaseEngineerSoftwareManagementPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controllers\OpenPDF.resx">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </EmbeddedResource>
@@ -242,6 +256,17 @@
     </None>
     <None Include="CitisoftDataSet.xss">
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CitisoftSoftwaresDataSet.xsc">
+      <DependentUpon>CitisoftSoftwaresDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CitisoftSoftwaresDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CitisoftSoftwaresDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CitisoftSoftwaresDataSet.xss">
+      <DependentUpon>CitisoftSoftwaresDataSet.xsd</DependentUpon>
     </None>
     <None Include="Citisoft_Softwares.xsc">
       <DependentUpon>Citisoft_Softwares.xsd</DependentUpon>
