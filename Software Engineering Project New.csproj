@@ -134,10 +134,10 @@
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Sales.cs">
+    <Compile Include="Controllers\Dont Look\Sales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controllers\Sales.Designer.cs">
+    <Compile Include="Controllers\Dont Look\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\EmailService.cs" />
@@ -217,7 +217,7 @@
     <EmbeddedResource Include="Controllers\Signup\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\Sales.resx">
+    <EmbeddedResource Include="Controllers\Dont Look\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductView.resx">

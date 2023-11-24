@@ -60,7 +60,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Sales(user).Show();
+            new SoftwareSales(user).Show();
         }
     }
 }
