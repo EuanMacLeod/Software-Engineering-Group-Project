@@ -66,8 +66,7 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username AND Email= @Email";
-                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_OR_EMAIL;
+                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_AND_EMAIL;
                 command.Parameters.AddWithValue("Username", username);
                 command.Parameters.AddWithValue("@Email", email);
 
