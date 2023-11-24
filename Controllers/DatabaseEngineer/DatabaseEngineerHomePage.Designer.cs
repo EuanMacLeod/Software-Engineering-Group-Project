@@ -28,21 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DatabaseEngineerHomePage));
             this.logoutButton = new System.Windows.Forms.Button();
             this.gotoPdfTaggingPageButton = new System.Windows.Forms.Button();
             this.welcomeUserLabel = new System.Windows.Forms.Label();
             this.bttn_adminTools = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.adminPfp = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.adminPfp)).BeginInit();
+            this.Citisoft_logo = new System.Windows.Forms.PictureBox();
+            this.bttn_sales = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.Citisoft_logo)).BeginInit();
             this.SuspendLayout();
             // 
             // logoutButton
             // 
-            this.logoutButton.Location = new System.Drawing.Point(68, 244);
-            this.logoutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoutButton.Location = new System.Drawing.Point(19, 95);
+            this.logoutButton.Margin = new System.Windows.Forms.Padding(4);
             this.logoutButton.Name = "logoutButton";
-            this.logoutButton.Size = new System.Drawing.Size(171, 80);
+            this.logoutButton.Size = new System.Drawing.Size(167, 80);
             this.logoutButton.TabIndex = 0;
             this.logoutButton.Text = "Log Out";
             this.logoutButton.UseVisualStyleBackColor = true;
@@ -50,8 +51,8 @@
             // 
             // gotoPdfTaggingPageButton
             // 
-            this.gotoPdfTaggingPageButton.Location = new System.Drawing.Point(68, 332);
-            this.gotoPdfTaggingPageButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gotoPdfTaggingPageButton.Location = new System.Drawing.Point(19, 183);
+            this.gotoPdfTaggingPageButton.Margin = new System.Windows.Forms.Padding(4);
             this.gotoPdfTaggingPageButton.Name = "gotoPdfTaggingPageButton";
             this.gotoPdfTaggingPageButton.Size = new System.Drawing.Size(167, 80);
             this.gotoPdfTaggingPageButton.TabIndex = 1;
@@ -71,51 +72,49 @@
             // 
             // bttn_adminTools
             // 
-            this.bttn_adminTools.Location = new System.Drawing.Point(664, 294);
+            this.bttn_adminTools.Location = new System.Drawing.Point(193, 95);
             this.bttn_adminTools.Name = "bttn_adminTools";
-            this.bttn_adminTools.Size = new System.Drawing.Size(231, 176);
+            this.bttn_adminTools.Size = new System.Drawing.Size(166, 80);
             this.bttn_adminTools.TabIndex = 3;
             this.bttn_adminTools.Text = "Admin Tools";
             this.bttn_adminTools.UseVisualStyleBackColor = true;
             this.bttn_adminTools.Visible = false;
             this.bttn_adminTools.Click += new System.EventHandler(this.bttn_adminTools_Click);
             // 
-            // label1
+            // Citisoft_logo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(425, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Admin";
-            this.label1.Visible = false;
+            this.Citisoft_logo.Image = ((System.Drawing.Image)(resources.GetObject("Citisoft_logo.Image")));
+            this.Citisoft_logo.Location = new System.Drawing.Point(375, 71);
+            this.Citisoft_logo.Name = "Citisoft_logo";
+            this.Citisoft_logo.Size = new System.Drawing.Size(189, 192);
+            this.Citisoft_logo.TabIndex = 5;
+            this.Citisoft_logo.TabStop = false;
             // 
-            // adminPfp
+            // bttn_sales
             // 
-            this.adminPfp.Image = global::Software_Engineering_Project_New.Properties.Resources.AdminProfliePicture;
-            this.adminPfp.Location = new System.Drawing.Point(293, 132);
-            this.adminPfp.Name = "adminPfp";
-            this.adminPfp.Size = new System.Drawing.Size(318, 357);
-            this.adminPfp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.adminPfp.TabIndex = 5;
-            this.adminPfp.TabStop = false;
-            this.adminPfp.Visible = false;
+            this.bttn_sales.Location = new System.Drawing.Point(193, 183);
+            this.bttn_sales.Name = "bttn_sales";
+            this.bttn_sales.Size = new System.Drawing.Size(166, 80);
+            this.bttn_sales.TabIndex = 6;
+            this.bttn_sales.Text = "Sales ";
+            this.bttn_sales.UseVisualStyleBackColor = true;
+            this.bttn_sales.Click += new System.EventHandler(this.button1_Click);
             // 
             // DatabaseEngineerHomePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.adminPfp);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(580, 288);
+            this.Controls.Add(this.bttn_sales);
+            this.Controls.Add(this.Citisoft_logo);
             this.Controls.Add(this.bttn_adminTools);
             this.Controls.Add(this.welcomeUserLabel);
             this.Controls.Add(this.gotoPdfTaggingPageButton);
             this.Controls.Add(this.logoutButton);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DatabaseEngineerHomePage";
-            this.Text = "DatabaseEngineerHomePage";
-            ((System.ComponentModel.ISupportInitialize)(this.adminPfp)).EndInit();
+            this.Text = "AdminHomePage";
+            ((System.ComponentModel.ISupportInitialize)(this.Citisoft_logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +126,7 @@
         private System.Windows.Forms.Button gotoPdfTaggingPageButton;
         private System.Windows.Forms.Label welcomeUserLabel;
         private System.Windows.Forms.Button bttn_adminTools;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox adminPfp;
+        private System.Windows.Forms.PictureBox Citisoft_logo;
+        private System.Windows.Forms.Button bttn_sales;
     }
 }

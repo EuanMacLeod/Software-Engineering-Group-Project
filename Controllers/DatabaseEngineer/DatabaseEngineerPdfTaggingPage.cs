@@ -154,9 +154,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             }
 
 
-            OpenPDF openPDF = new OpenPDF(user);
-
-            openPDF.Show();
+            webpageOpener.openWepage(Clipboard.GetText());
         }
 
         public void movePdf(string source, string destination)

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer;
+using Software_Engineering_Project_New.Helper_Classes;
 using Software_Engineering_Project_New.Properties;
 
 namespace Software_Engineering_Project_New
 {
     public partial class LoginPage : Form
     {
-        
+
         public LoginPage()
         {
             InitializeComponent();
@@ -31,8 +32,19 @@ namespace Software_Engineering_Project_New
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
                         break;
                     case (int)Roles.Admin:
+                        DialogResult result =
+                            MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+                            new Sales(user).Show();
+                        }
+                        else
+                        {
+                            new DatabaseEngineerHomePage(user).Show();
+                        }
+
                         //Load into new pages here
-                        new DatabaseEngineerHomePage(user).Show();
+
                         Hide();
 
                         break;
@@ -52,9 +64,27 @@ namespace Software_Engineering_Project_New
 
                         break;
                 }
+        }
+
+        private void button_switchboard_Click(object sender, EventArgs e)
+        {
+            HomePage homePage = new HomePage();
+            homePage.Show();
+            Close();
+        }
+
+        private void button_register_Click(object sender, EventArgs e)
+
+        {
+            Register register = new Register();
+            register.Show();
+            Close();
+        }
+    }
+}
 
 
-            //code bellow has been moved to DBConnections.cs ~Euan
+//code bellow has been moved to DBConnections.cs ~Euan
             /*
             String username, user_password;
             username = txt_username.Text;
@@ -75,27 +105,14 @@ namespace Software_Engineering_Project_New
                 txt_username.Clear();
                 MessageBox.Show("Win");
 
-            }
-            else
-            {
-                MessageBox.Show("Not good news");
-            }
-            */
         }
 
-        private void button_switchboard_Click(object sender, EventArgs e)
-        {
-            HomePage homePage = new HomePage();
-            homePage.Show();
-            Close();
-        }
 
-        private void button_register_Click(object sender, EventArgs e)
 
+        private void LoginPage_Load(object sender, EventArgs e)
         {
-            Register register = new Register();
-            register.Show();
-            Close();
+
         }
     }
 }
+            */

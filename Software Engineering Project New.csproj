@@ -87,6 +87,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Citisoft_Softwares.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Citisoft_Softwares.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +133,12 @@
     </Compile>
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\Sales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\Sales.Designer.cs">
+      <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\EmailService.cs" />
     <Compile Include="Helper Classes\Constants.cs" />
@@ -173,6 +184,11 @@
     <Compile Include="Controllers\SoftwareSalesman\SoftwareSales.Designer.cs">
       <DependentUpon>SoftwareSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="User.cs" />
     <EmbeddedResource Include="Controllers\DatabaseEngineer\AdminTools\accountRecovery.resx">
       <DependentUpon>accountRecovery.cs</DependentUpon>
@@ -201,6 +217,9 @@
     <EmbeddedResource Include="Controllers\Signup\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\Sales.resx">
+      <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
     </EmbeddedResource>
@@ -210,14 +229,9 @@
     <EmbeddedResource Include="Controllers\SoftwareSalesman\SoftwareSales.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="CitisoftDataSet.xsc">
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
     </None>
@@ -228,6 +242,17 @@
     </None>
     <None Include="CitisoftDataSet.xss">
       <DependentUpon>CitisoftDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Citisoft_Softwares.xsc">
+      <DependentUpon>Citisoft_Softwares.xsd</DependentUpon>
+    </None>
+    <None Include="Citisoft_Softwares.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Citisoft_Softwares.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Citisoft_Softwares.xss">
+      <DependentUpon>Citisoft_Softwares.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -261,7 +286,6 @@
     <Folder Include="SQL Databases\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AdminProfliePicture.png" />
     <Content Include="Citisoft.mdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -269,6 +293,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <DependentUpon>Citisoft.mdf</DependentUpon>
     </Content>
+    <Content Include="Pictures\AdminProfliePicture.png" />
+    <Content Include="Pictures\image.png" />
+    <Content Include="Pictures\png_cross.png" />
+    <Content Include="Pictures\png_tick.png" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
