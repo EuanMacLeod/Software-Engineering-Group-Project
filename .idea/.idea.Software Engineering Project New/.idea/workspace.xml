@@ -8,13 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="64e73bc6-9453-44de-b9a1-651923e75d4d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Controllers/UpdateProfile/UpdateProfile.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/UpdateProfile/UpdateProfile.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Controllers/UpdateProfile/UpdateProfile.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Software Engineering Project New/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Software Engineering Project New/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Helper Classes/DBConnections.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Helper Classes/DBConnections.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.resx" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/SoftwareSalesman/SoftwareSales.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/UpdateProfile/UpdateProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/UpdateProfile/UpdateProfile.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Software Engineering Project New.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Software Engineering Project New.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +42,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/update-profile&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/validations&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -98,6 +95,7 @@
       <workItem from="1699391491459" duration="4350000" />
       <workItem from="1700044949580" duration="2096000" />
       <workItem from="1701018356996" duration="8612000" />
+      <workItem from="1701120269432" duration="1271000" />
     </task>
     <servers />
   </component>
