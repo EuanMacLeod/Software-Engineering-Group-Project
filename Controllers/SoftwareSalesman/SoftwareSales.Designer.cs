@@ -44,10 +44,6 @@
             this.nextPagebutton = new System.Windows.Forms.Button();
             this.userLoggedInLabel = new System.Windows.Forms.Label();
             this.PreviousPageButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -63,13 +59,10 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
+            this.softwaresTableAdapter1 = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,7 +95,7 @@
             // 
             // softwareDescriptionTextBox1
             // 
-            this.softwareDescriptionTextBox1.Location = new System.Drawing.Point(194, 181);
+            this.softwareDescriptionTextBox1.Location = new System.Drawing.Point(194, 168);
             this.softwareDescriptionTextBox1.Margin = new System.Windows.Forms.Padding(6);
             this.softwareDescriptionTextBox1.Multiline = true;
             this.softwareDescriptionTextBox1.Name = "softwareDescriptionTextBox1";
@@ -111,7 +104,7 @@
             // 
             // softwareDescriptionTextBox2
             // 
-            this.softwareDescriptionTextBox2.Location = new System.Drawing.Point(234, 335);
+            this.softwareDescriptionTextBox2.Location = new System.Drawing.Point(194, 342);
             this.softwareDescriptionTextBox2.Margin = new System.Windows.Forms.Padding(6);
             this.softwareDescriptionTextBox2.Multiline = true;
             this.softwareDescriptionTextBox2.Name = "softwareDescriptionTextBox2";
@@ -120,7 +113,7 @@
             // 
             // softwareNameTextBox2
             // 
-            this.softwareNameTextBox2.Location = new System.Drawing.Point(234, 285);
+            this.softwareNameTextBox2.Location = new System.Drawing.Point(194, 299);
             this.softwareNameTextBox2.Margin = new System.Windows.Forms.Padding(6);
             this.softwareNameTextBox2.Name = "softwareNameTextBox2";
             this.softwareNameTextBox2.Size = new System.Drawing.Size(332, 31);
@@ -128,7 +121,7 @@
             // 
             // softwareDescriptionTextBox3
             // 
-            this.softwareDescriptionTextBox3.Location = new System.Drawing.Point(234, 521);
+            this.softwareDescriptionTextBox3.Location = new System.Drawing.Point(194, 518);
             this.softwareDescriptionTextBox3.Margin = new System.Windows.Forms.Padding(6);
             this.softwareDescriptionTextBox3.Multiline = true;
             this.softwareDescriptionTextBox3.Name = "softwareDescriptionTextBox3";
@@ -137,7 +130,7 @@
             // 
             // softwareNameTextBox3
             // 
-            this.softwareNameTextBox3.Location = new System.Drawing.Point(234, 471);
+            this.softwareNameTextBox3.Location = new System.Drawing.Point(194, 475);
             this.softwareNameTextBox3.Margin = new System.Windows.Forms.Padding(6);
             this.softwareNameTextBox3.Name = "softwareNameTextBox3";
             this.softwareNameTextBox3.Size = new System.Drawing.Size(332, 31);
@@ -145,7 +138,7 @@
             // 
             // softwareDescriptionTextBox4
             // 
-            this.softwareDescriptionTextBox4.Location = new System.Drawing.Point(234, 710);
+            this.softwareDescriptionTextBox4.Location = new System.Drawing.Point(194, 696);
             this.softwareDescriptionTextBox4.Margin = new System.Windows.Forms.Padding(6);
             this.softwareDescriptionTextBox4.Multiline = true;
             this.softwareDescriptionTextBox4.Name = "softwareDescriptionTextBox4";
@@ -154,7 +147,7 @@
             // 
             // softwareNameTextBox4
             // 
-            this.softwareNameTextBox4.Location = new System.Drawing.Point(234, 660);
+            this.softwareNameTextBox4.Location = new System.Drawing.Point(194, 653);
             this.softwareNameTextBox4.Margin = new System.Windows.Forms.Padding(6);
             this.softwareNameTextBox4.Name = "softwareNameTextBox4";
             this.softwareNameTextBox4.Size = new System.Drawing.Size(332, 31);
@@ -190,50 +183,6 @@
             this.PreviousPageButton.Text = "Previous Page";
             this.PreviousPageButton.UseVisualStyleBackColor = true;
             this.PreviousPageButton.Click += new System.EventHandler(this.PreviousPageButton_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Software_Engineering_Project_New.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(22, 100);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(200, 173);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 17;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Software_Engineering_Project_New.Properties.Resources.logo;
-            this.pictureBox2.Location = new System.Drawing.Point(22, 287);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(200, 173);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Software_Engineering_Project_New.Properties.Resources.logo;
-            this.pictureBox3.Location = new System.Drawing.Point(22, 475);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(200, 173);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Software_Engineering_Project_New.Properties.Resources.logo;
-            this.pictureBox4.Location = new System.Drawing.Point(22, 658);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(200, 173);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 20;
-            this.pictureBox4.TabStop = false;
             // 
             // SearchBar
             // 
@@ -408,6 +357,10 @@
             this.btnProfile.UseVisualStyleBackColor = true;
             this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
+            // softwaresTableAdapter1
+            // 
+            this.softwaresTableAdapter1.ClearBeforeFill = true;
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -420,10 +373,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.SearchBar);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.PreviousPageButton);
             this.Controls.Add(this.userLoggedInLabel);
             this.Controls.Add(this.nextPagebutton);
@@ -442,15 +391,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter
+            softwaresTableAdapter1;
 
         private System.Windows.Forms.Button btnProfile;
 
@@ -474,10 +422,6 @@
         private System.Windows.Forms.Button nextPagebutton;
         private System.Windows.Forms.Label userLoggedInLabel;
         private System.Windows.Forms.Button PreviousPageButton;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.TextBox SearchBar;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Panel panel2;
