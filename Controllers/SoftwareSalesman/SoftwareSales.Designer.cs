@@ -62,6 +62,7 @@
             this.FilterButton = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -80,8 +81,7 @@
             // 
             // softwaresBindingSource
             // 
-            this.softwaresBindingSource.DataMember = "Softwares";
-            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource.RaiseListChangedEvents = false;
             // 
             // softwaresTableAdapter
             // 
@@ -89,8 +89,7 @@
             // 
             // softwaresBindingSource1
             // 
-            this.softwaresBindingSource1.DataMember = "Softwares";
-            this.softwaresBindingSource1.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource1.RaiseListChangedEvents = false;
             // 
             // softwareNameTextBox1
             // 
@@ -399,12 +398,23 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(32, 27);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(126, 44);
+            this.btnProfile.TabIndex = 28;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1600, 906);
+            this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.panel2);
@@ -425,9 +435,9 @@
             this.Controls.Add(this.softwareNameTextBox2);
             this.Controls.Add(this.softwareDescriptionTextBox1);
             this.Controls.Add(this.softwareNameTextBox1);
+            this.Location = new System.Drawing.Point(15, 15);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SoftwareSales";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.SoftwareSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
@@ -442,12 +452,14 @@
             this.PerformLayout();
         }
 
+        private System.Windows.Forms.Button btnProfile;
+
         private System.Windows.Forms.Button btnClear;
 
         private System.Windows.Forms.Button btnSearch;
 
         #endregion
-        private CitisoftDataSet citisoftDataSet;
+        private Software_Engineering_Project_New.CitisoftDataSet citisoftDataSet;
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private CitisoftDataSetTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
         private System.Windows.Forms.BindingSource softwaresBindingSource1;

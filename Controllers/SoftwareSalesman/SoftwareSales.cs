@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 
 namespace Software_Engineering_Project_New
 {
@@ -21,6 +22,12 @@ namespace Software_Engineering_Project_New
             InitializeComponent();
             InitializeData();
         }
+        
+        public void RefreshUserData(User updatedUser)
+        {
+            this.user = updatedUser;
+        }
+        
 
         private void InitializeData()
         {
@@ -246,6 +253,18 @@ namespace Software_Engineering_Project_New
         {
            UpdateDisplayedSoftwareInfo(); 
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            UpdateProfile updateProfile = new UpdateProfile(this);
+            
+            updateProfile.SetUserData(this.user);
+            this.Refresh();
+
+            updateProfile.ShowDialog();
+
+        }
+        
     }
 }
 
