@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
+using System.DirectoryServices;
 using System.Net.Configuration;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
@@ -27,7 +28,7 @@ namespace Software_Engineering_Project_New
             return _instance ?? (_instance = new DBConnections());
         }
 
-
+        
         //accepts sql query and returns dataset of results from DB
         public DataSet getDataSet(string sqlQuery)
         {
@@ -56,6 +57,26 @@ namespace Software_Engineering_Project_New
             return getDataSet(sqlQuery).Tables[0];
         }
 
+        public DataTable getDataTable(SqlCommand command)
+        {
+            DataTable dt = new DataTable();
+
+            using (connectionToDatabase = new SqlConnection(connectionString))
+            {
+                connectionToDatabase.Open();
+
+                command.Connection = connectionToDatabase;
+
+                SqlDataAdapter da = new SqlDataAdapter(command);
+
+                da.Fill(dt);
+
+                connectionToDatabase.Close();
+            }
+
+            return dt;
+        }
+
 
         //returns true if a user with that username or email exists within the database
         public bool doesUserExist(string username, string email)
@@ -77,6 +98,24 @@ namespace Software_Engineering_Project_New
 
             return count >= 1;
         }
+
+        private SqlCommand commandBuilder(string sqlQuery, string[] parameters, string[] values)
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = connectionToDatabase;
+            command.CommandText = sqlQuery;
+
+            for (int i = 0; i < parameters.Length; i++)
+            {
+                if (values[i] == null)
+                {
+                    command.Parameters.AddWithValue(parameters[i], (values[i] ?? (object)DBNull.Value));
+                }
+            }
+
+            return command;
+        }
+
 
         public int getUserID(String user)
         {
@@ -267,9 +306,6 @@ namespace Software_Engineering_Project_New
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
             int? roleID)
         {
-            //return _instance ?? (_instance = new DBConnections());
-
-            //param.Value = activity.StaffId ?? (object)DBNull.Value;
 
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {

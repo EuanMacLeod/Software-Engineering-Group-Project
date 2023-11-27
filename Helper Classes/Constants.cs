@@ -47,6 +47,19 @@
         public static string SELECTALLSOFTWAREBUISNESSAREAS =
             "SELECT s.SoftwareID, s.Name AS Software, b.BusinessArea FROM Softwares s INNER JOIN SoftwareBusinessAreas ON s.SoftwareID = SoftwareBusinessAreas.SoftwareID INNER JOIN BusinessAreas b ON SoftwareBusinessAreas.BusinessAreaID = b.BusinessAreaID";
 
+
+
+        public static string SELECTTYPESOFSOFTWARE =
+            "SELECT t.SoftwareType AS TypeOfSoftware FROM Softwares s INNER JOIN SoftwareTypes ON s.SoftwareID = SoftwareTypes.SoftwareID INNER JOIN TypeOfSoftware t ON SoftwareTypes.TypeID = t.TypeID WHERE s.SoftwareID = ";
+        public static string SELECTSOFTWAREBUISNESSAREAS =
+            "SELECT b.BusinessArea FROM Softwares s INNER JOIN SoftwareBusinessAreas ON s.SoftwareID = SoftwareBusinessAreas.SoftwareID INNER JOIN BusinessAreas b ON SoftwareBusinessAreas.BusinessAreaID = b.BusinessAreaID WHERE s.SoftwareID =";
+        public static string SELECTSOFTWAREMODULES =
+            "SELECT m.Module FROM Softwares s INNER JOIN SoftwareModules m ON s.SoftwareID = m.SoftwareID WHERE s.SoftwareID = ";
+        public static string SELECTSOFTWARECLIENTTYPES =
+            "SELECT c.FinancialServicesClientType AS ClientType FROM Softwares s INNER JOIN SoftwareClientTypes ON s.SoftwareID = SoftwareClientTypes.SoftwareID INNER JOIN FinancialServicesClientTypes c ON SoftwareClientTypes.FinancialServicesClientTypeID = c.FinancialServicesClientTypeID WHERE s.SoftwareID = ";
+
+
+
         public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
 
         public static string UPDATE_EMPLOYEE_ROLE = "UPDATE Employees SET RoleID = @RoleID WHERE EmployeeID = @EmployeeID";

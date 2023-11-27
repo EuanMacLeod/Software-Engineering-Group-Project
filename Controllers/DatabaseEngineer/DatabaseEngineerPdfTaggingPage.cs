@@ -170,7 +170,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         public void tagButton_clicked(object sender, EventArgs e)
         {
             //checks that only one row is selected from each dgv
-            if (dgvUntaggedPDFViewer.SelectedRows.Count != 1 || dgvSoftwares.SelectedRows.Count != 1)
+            if (dgvUntaggedPDFViewer.SelectedRows.Count != 1 || dgvSoftwares.SelectedRows.Count != 1 || dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value == null)
             {
                 MessageBox.Show("Please Select 1 software and 1 pdf");
                 return;
@@ -279,8 +279,15 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
         private void openPDFButton_Click(object sender, EventArgs e)
         {
-            //send the filepath of the selected PDF to the webpage opener so it can be viewed
-            webpageOpener.openWepage(dgvUntaggedPDFViewer.SelectedRows[0].Cells[7].Value.ToString());
+            if (dgvUntaggedPDFViewer.SelectedRows.Count != 1 || dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value == null)
+            {
+                MessageBox.Show("No PDF Selected");
+            }
+            else
+            {
+                //send the filepath of the selected PDF to the webpage opener so it can be viewed
+                webpageOpener.openWepage(dgvUntaggedPDFViewer.SelectedRows[0].Cells[7].Value.ToString());
+            }
         }
 
         private void openAttachedPDFButton_Click(object sender, EventArgs e)
@@ -296,6 +303,12 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 webpageOpener.openWepage(dgvSoftwares.SelectedRows[0].Cells[8].Value.ToString());
             }
         }
+
+        private void ExitButton_clicked(object sender, EventArgs e)
+        {
+            Close();
+        }
+
 
         private void dgvSoftwares_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
