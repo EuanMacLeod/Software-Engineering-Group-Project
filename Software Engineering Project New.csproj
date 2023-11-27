@@ -140,6 +140,12 @@
     <Compile Include="Controllers\Dont Look\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\UpdateProfile\UpdateProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateProfile\UpdateProfile.Designer.cs">
+      <DependentUpon>UpdateProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helper Classes\EmailService.cs" />
     <Compile Include="Helper Classes\Constants.cs" />
     <Compile Include="Helper Classes\WebpageOpener.cs" />
@@ -219,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Dont Look\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\UpdateProfile\UpdateProfile.resx">
+      <DependentUpon>UpdateProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>
