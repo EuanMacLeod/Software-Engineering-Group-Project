@@ -410,6 +410,8 @@ namespace Software_Engineering_Project_New
             // Verify the entered password
             return BCrypt.Net.BCrypt.EnhancedVerify(currentPassword, hashedPassword);
         }
+        
+        
 
     }
 }

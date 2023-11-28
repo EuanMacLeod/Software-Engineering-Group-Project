@@ -60,6 +60,10 @@
             this.btnClear = new System.Windows.Forms.Button();
             this.btnProfile = new System.Windows.Forms.Button();
             this.softwaresTableAdapter1 = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -361,12 +365,52 @@
             // 
             this.softwaresTableAdapter1.ClearBeforeFill = true;
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(545, 135);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(162, 26);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "weblink";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Location = new System.Drawing.Point(545, 302);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(122, 26);
+            this.linkLabel2.TabIndex = 30;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "weblink";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Location = new System.Drawing.Point(535, 485);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(188, 20);
+            this.linkLabel3.TabIndex = 31;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "weblink";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Location = new System.Drawing.Point(537, 657);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(198, 26);
+            this.linkLabel4.TabIndex = 32;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "weblink";
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1600, 906);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
@@ -396,6 +440,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
 
         private Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter
             softwaresTableAdapter1;
