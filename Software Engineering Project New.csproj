@@ -50,6 +50,7 @@
   <ItemGroup>
     <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
       <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net472\BCrypt.Net-Next.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System">
@@ -57,17 +58,21 @@
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -139,6 +144,12 @@
     </Compile>
     <Compile Include="Controllers\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\SoftwareSalesman\SoftwareViewer.Designer.cs">
+      <DependentUpon>SoftwareViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\EmailService.cs" />
     <Compile Include="Helper Classes\Constants.cs" />
@@ -219,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SoftwareSalesman\SoftwareViewer.resx">
+      <DependentUpon>SoftwareViewer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\ProductView.resx">
       <DependentUpon>ProductView.cs</DependentUpon>

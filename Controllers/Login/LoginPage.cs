@@ -82,37 +82,3 @@ namespace Software_Engineering_Project_New
         }
     }
 }
-
-
-//code bellow has been moved to DBConnections.cs ~Euan
-            /*
-            String username, user_password;
-            username = txt_username.Text;
-            user_password = txt_password.Text;
-
-            SqlConnection sqlcon = new SqlConnection(ConnectionString);
-            String querry = "SELECT * FROM Employees WHERE Username = '" + txt_username.Text + "' AND Password = '" + txt_password.Text + "'";
-            SqlDataAdapter sda = new SqlDataAdapter(querry, sqlcon);
-
-            DataTable dtable = new DataTable();
-            sda.Fill(dtable);
-
-            if (dtable.Rows.Count > 0)
-            {
-                username = txt_username.Text;
-                user_password = txt_password.Text;
-                txt_password.Clear();
-                txt_username.Clear();
-                MessageBox.Show("Win");
-
-        }
-
-
-
-        private void LoginPage_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
-            */

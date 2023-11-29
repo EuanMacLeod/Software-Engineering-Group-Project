@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
+using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
 
 namespace Software_Engineering_Project_New
 {
@@ -30,11 +31,15 @@ namespace Software_Engineering_Project_New
 
         public void SoftwareSales_Load(object sender, EventArgs e)
         {
+            userLoggedInLabel.Text = user.Name;
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
+
+            panel2.Height = 23;
+            panel2.Width = 159;
         }
-        
-       
+
+
 
         private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
@@ -117,23 +122,6 @@ namespace Software_Engineering_Project_New
 
         }
 
-        /*
-        private void nextPagebutton_Click(object sender, EventArgs e)
-        {
-            count = count + 4;
-            getData();
-
-        }
-
-        private void PreviousPageButton_Click(object sender, EventArgs e)
-        {
-            if (count > 4)
-            {
-                count = 0;
-                getData();
-            }
-        }
-        */
 
         private void FilterButton_Click(object sender, EventArgs e)
         {
@@ -181,6 +169,24 @@ namespace Software_Engineering_Project_New
             if (checkBox1.Checked)
             {
                 bool cloudNative = true;
+
+                while (cloudNative == true)
+                {
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+                    DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+                }
+
+            }
+
+            if (checkBox2.Checked)
+            {
+                bool isProffesional = true;
+
+                while (isProffesional == true)
+                {
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE  = true";
+                    DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+                }
             }
 
             if (RatingButton1.Checked)
@@ -227,28 +233,87 @@ namespace Software_Engineering_Project_New
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            //SearchBar.Text = "";
             string searchString = SearchBar.Text;
-            
-            
+
+
             DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
-            
+
             UpdateDisplayedSoftwareInfo(searchResults);
 
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-           UpdateDisplayedSoftwareInfo(); 
+            //SearchBar.Text = "";
+            UpdateDisplayedSoftwareInfo();
+
         }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox1.Text;
+            string description = softwareDescriptionTextBox1.Text;
+
+
+            //this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox2.Text;
+            string description = softwareDescriptionTextBox2.Text;
+
+
+            this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox3.Text;
+            string description = softwareDescriptionTextBox3.Text;
+
+
+            this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel5_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox4.Text;
+            string description = softwareDescriptionTextBox4.Text;
+
+
+            this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
     }
 }
 
-
-
-
-
-
-
-        
-    
-// old code was not in use so removed that
