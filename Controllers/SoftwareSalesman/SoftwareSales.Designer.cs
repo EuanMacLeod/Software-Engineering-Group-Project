@@ -343,6 +343,8 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(647, 104);
             this.panel3.TabIndex = 28;
+            this.panel3.Click += new System.EventHandler(this.panel3_Click);
+
             // 
             // pictureBox2
             // 
@@ -381,6 +383,8 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(647, 104);
             this.panel4.TabIndex = 28;
+            this.panel4.Click += new System.EventHandler(this.panel4_Click);
+
             // 
             // pictureBox3
             // 
@@ -419,6 +423,8 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(647, 104);
             this.panel5.TabIndex = 29;
+            this.panel5.Click += new System.EventHandler(this.panel5_Click);
+
             // 
             // pictureBox4
             // 
@@ -453,10 +459,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 471);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.vScrollBar1);
