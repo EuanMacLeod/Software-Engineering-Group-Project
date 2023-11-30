@@ -272,7 +272,7 @@ namespace Software_Engineering_Project_New
             string description = softwareDescriptionTextBox2.Text;
 
 
-            this.Close();
+            //this.Close();
 
             using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
             {
@@ -288,7 +288,7 @@ namespace Software_Engineering_Project_New
             string description = softwareDescriptionTextBox3.Text;
 
 
-            this.Close();
+            //this.Close();
 
             using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
             {
@@ -304,7 +304,7 @@ namespace Software_Engineering_Project_New
             string description = softwareDescriptionTextBox4.Text;
 
 
-            this.Close();
+            //this.Close();
 
             using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
             {
@@ -314,10 +314,6 @@ namespace Software_Engineering_Project_New
             }
         }
 
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
 

@@ -42,6 +42,7 @@
             this.SearchBar = new System.Windows.Forms.TextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.FilterButton = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.RatingButton4 = new System.Windows.Forms.RadioButton();
             this.RatingButton3 = new System.Windows.Forms.RadioButton();
@@ -51,7 +52,6 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.FilterButton = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -102,17 +102,21 @@
             // softwareNameTextBox1
             // 
             this.softwareNameTextBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareNameTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareNameTextBox1.Location = new System.Drawing.Point(112, 7);
             this.softwareNameTextBox1.Name = "softwareNameTextBox1";
+            this.softwareNameTextBox1.ReadOnly = true;
             this.softwareNameTextBox1.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox1.TabIndex = 5;
             // 
             // softwareDescriptionTextBox1
             // 
             this.softwareDescriptionTextBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareDescriptionTextBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareDescriptionTextBox1.Location = new System.Drawing.Point(112, 33);
             this.softwareDescriptionTextBox1.Multiline = true;
             this.softwareDescriptionTextBox1.Name = "softwareDescriptionTextBox1";
+            this.softwareDescriptionTextBox1.ReadOnly = true;
             this.softwareDescriptionTextBox1.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox1.TabIndex = 6;
             // 
@@ -190,6 +194,19 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(159, 187);
             this.panel2.TabIndex = 25;
+            // 
+            // FilterButton
+            // 
+            this.FilterButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.FilterButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.FilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FilterButton.Location = new System.Drawing.Point(0, 0);
+            this.FilterButton.Name = "FilterButton";
+            this.FilterButton.Size = new System.Drawing.Size(159, 23);
+            this.FilterButton.TabIndex = 0;
+            this.FilterButton.Text = "Filter";
+            this.FilterButton.UseVisualStyleBackColor = false;
+            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click_1);
             // 
             // btnClear
             // 
@@ -295,19 +312,6 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // FilterButton
-            // 
-            this.FilterButton.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.FilterButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.FilterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FilterButton.Location = new System.Drawing.Point(0, 0);
-            this.FilterButton.Name = "FilterButton";
-            this.FilterButton.Size = new System.Drawing.Size(159, 23);
-            this.FilterButton.TabIndex = 0;
-            this.FilterButton.Text = "Filter";
-            this.FilterButton.UseVisualStyleBackColor = false;
-            this.FilterButton.Click += new System.EventHandler(this.FilterButton_Click_1);
-            // 
             // btnSearch
             // 
             this.btnSearch.BackColor = System.Drawing.SystemColors.ButtonShadow;
@@ -331,7 +335,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(647, 104);
             this.panel1.TabIndex = 27;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
+            this.panel1.Click += new System.EventHandler(this.panel1_Click);         
             // 
             // panel3
             // 
@@ -344,7 +348,6 @@
             this.panel3.Size = new System.Drawing.Size(647, 104);
             this.panel3.TabIndex = 28;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
-
             // 
             // pictureBox2
             // 
@@ -359,17 +362,21 @@
             // softwareDescriptionTextBox2
             // 
             this.softwareDescriptionTextBox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareDescriptionTextBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareDescriptionTextBox2.Location = new System.Drawing.Point(112, 33);
             this.softwareDescriptionTextBox2.Multiline = true;
             this.softwareDescriptionTextBox2.Name = "softwareDescriptionTextBox2";
+            this.softwareDescriptionTextBox2.ReadOnly = true;
             this.softwareDescriptionTextBox2.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox2.TabIndex = 6;
             // 
             // softwareNameTextBox2
             // 
             this.softwareNameTextBox2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareNameTextBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareNameTextBox2.Location = new System.Drawing.Point(112, 7);
             this.softwareNameTextBox2.Name = "softwareNameTextBox2";
+            this.softwareNameTextBox2.ReadOnly = true;
             this.softwareNameTextBox2.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox2.TabIndex = 5;
             // 
@@ -384,7 +391,6 @@
             this.panel4.Size = new System.Drawing.Size(647, 104);
             this.panel4.TabIndex = 28;
             this.panel4.Click += new System.EventHandler(this.panel4_Click);
-
             // 
             // pictureBox3
             // 
@@ -399,17 +405,21 @@
             // softwareDescriptionTextBox3
             // 
             this.softwareDescriptionTextBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareDescriptionTextBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareDescriptionTextBox3.Location = new System.Drawing.Point(112, 33);
             this.softwareDescriptionTextBox3.Multiline = true;
             this.softwareDescriptionTextBox3.Name = "softwareDescriptionTextBox3";
+            this.softwareDescriptionTextBox3.ReadOnly = true;
             this.softwareDescriptionTextBox3.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox3.TabIndex = 6;
             // 
             // softwareNameTextBox3
             // 
             this.softwareNameTextBox3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareNameTextBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareNameTextBox3.Location = new System.Drawing.Point(112, 7);
             this.softwareNameTextBox3.Name = "softwareNameTextBox3";
+            this.softwareNameTextBox3.ReadOnly = true;
             this.softwareNameTextBox3.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox3.TabIndex = 5;
             // 
@@ -424,7 +434,6 @@
             this.panel5.Size = new System.Drawing.Size(647, 104);
             this.panel5.TabIndex = 29;
             this.panel5.Click += new System.EventHandler(this.panel5_Click);
-
             // 
             // pictureBox4
             // 
@@ -439,17 +448,21 @@
             // softwareDescriptionTextBox4
             // 
             this.softwareDescriptionTextBox4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareDescriptionTextBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareDescriptionTextBox4.Location = new System.Drawing.Point(112, 33);
             this.softwareDescriptionTextBox4.Multiline = true;
             this.softwareDescriptionTextBox4.Name = "softwareDescriptionTextBox4";
+            this.softwareDescriptionTextBox4.ReadOnly = true;
             this.softwareDescriptionTextBox4.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox4.TabIndex = 6;
             // 
             // softwareNameTextBox4
             // 
             this.softwareNameTextBox4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.softwareNameTextBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.softwareNameTextBox4.Location = new System.Drawing.Point(112, 7);
             this.softwareNameTextBox4.Name = "softwareNameTextBox4";
+            this.softwareNameTextBox4.ReadOnly = true;
             this.softwareNameTextBox4.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox4.TabIndex = 5;
             // 
