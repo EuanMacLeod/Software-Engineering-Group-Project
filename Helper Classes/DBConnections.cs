@@ -229,6 +229,31 @@ namespace Software_Engineering_Project_New
             return searchResults;
         }
 
+        public DataTable SearchReviews(string softwareID)
+        {
+            DataTable Results = new DataTable();
+
+            using (SqlConnection connectionToDatabase = new SqlConnection(connectionString))
+            {
+                connectionToDatabase.Open();
+
+                string query = "SELECT * FROM Reviews WHERE SoftwareID LIKE @softwareID";
+                using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
+                {
+                    command.Parameters.Add(new SqlParameter("@softwareID", "%" + softwareID + "%"));
+
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        Results.Load(reader);
+                    }
+                }
+            }
+
+            return Results;
+        }
+
+
+
         public void updateSoftware(int softwareID, string pdfFilePath)
         {
             using (SqlConnection sqlcon = new SqlConnection(connectionString))

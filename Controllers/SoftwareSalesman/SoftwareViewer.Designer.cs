@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.ViewerBackButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -39,18 +38,10 @@
             this.documentLinkLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.ratingLabel = new System.Windows.Forms.Label();
+            this.ratingDateLabel = new System.Windows.Forms.Label();
+            this.reviewComment = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Software_Engineering_Project_New.Properties.Resources.logo;
-            this.pictureBox2.Location = new System.Drawing.Point(580, 47);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(138, 126);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 21;
-            this.pictureBox2.TabStop = false;
             // 
             // ViewerBackButton
             // 
@@ -66,7 +57,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 256);
+            this.label1.Location = new System.Drawing.Point(16, 256);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 16);
             this.label1.TabIndex = 27;
@@ -76,7 +67,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 282);
+            this.label2.Location = new System.Drawing.Point(16, 282);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 28;
@@ -119,7 +110,7 @@
             // 
             this.DemoDateLabel.AutoSize = true;
             this.DemoDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DemoDateLabel.Location = new System.Drawing.Point(113, 256);
+            this.DemoDateLabel.Location = new System.Drawing.Point(117, 256);
             this.DemoDateLabel.Name = "DemoDateLabel";
             this.DemoDateLabel.Size = new System.Drawing.Size(76, 16);
             this.DemoDateLabel.TabIndex = 32;
@@ -129,7 +120,7 @@
             // 
             this.documentLinkLabel.AutoSize = true;
             this.documentLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.documentLinkLabel.Location = new System.Drawing.Point(116, 282);
+            this.documentLinkLabel.Location = new System.Drawing.Point(120, 282);
             this.documentLinkLabel.Name = "documentLinkLabel";
             this.documentLinkLabel.Size = new System.Drawing.Size(91, 16);
             this.documentLinkLabel.TabIndex = 33;
@@ -149,17 +140,51 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 137);
+            this.label4.Location = new System.Drawing.Point(15, 137);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(115, 20);
             this.label4.TabIndex = 35;
             this.label4.Text = "Additional Info:";
+            // 
+            // ratingLabel
+            // 
+            this.ratingLabel.AutoSize = true;
+            this.ratingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingLabel.Location = new System.Drawing.Point(577, 43);
+            this.ratingLabel.Name = "ratingLabel";
+            this.ratingLabel.Size = new System.Drawing.Size(46, 16);
+            this.ratingLabel.TabIndex = 36;
+            this.ratingLabel.Text = "Rating";
+            // 
+            // ratingDateLabel
+            // 
+            this.ratingDateLabel.AutoSize = true;
+            this.ratingDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ratingDateLabel.Location = new System.Drawing.Point(629, 44);
+            this.ratingDateLabel.Name = "ratingDateLabel";
+            this.ratingDateLabel.Size = new System.Drawing.Size(78, 16);
+            this.ratingDateLabel.TabIndex = 37;
+            this.ratingDateLabel.Text = "Rating Date";
+            // 
+            // reviewComment
+            // 
+            this.reviewComment.AutoSize = true;
+            this.reviewComment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reviewComment.Location = new System.Drawing.Point(577, 60);
+            this.reviewComment.MaximumSize = new System.Drawing.Size(204, 86);
+            this.reviewComment.Name = "reviewComment";
+            this.reviewComment.Size = new System.Drawing.Size(64, 16);
+            this.reviewComment.TabIndex = 38;
+            this.reviewComment.Text = "Comment";
             // 
             // SoftwareViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.reviewComment);
+            this.Controls.Add(this.ratingDateLabel);
+            this.Controls.Add(this.ratingLabel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.documentLinkLabel);
@@ -170,19 +195,15 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ViewerBackButton);
-            this.Controls.Add(this.pictureBox2);
             this.Name = "SoftwareViewer";
             this.Text = "SoftwareViewer";
             this.Load += new System.EventHandler(this.SoftwareViewer_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button ViewerBackButton;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -193,5 +214,8 @@
         private System.Windows.Forms.Label documentLinkLabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label ratingLabel;
+        private System.Windows.Forms.Label ratingDateLabel;
+        private System.Windows.Forms.Label reviewComment;
     }
 }
