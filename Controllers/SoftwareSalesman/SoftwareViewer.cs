@@ -96,6 +96,10 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
                     ratingLabel.Text = "No rating";
                 }
             }
+            else
+            {
+                ratingLabel.Text = "N/A";
+            }
 
             if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
             {
@@ -104,8 +108,12 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
                 //shows N/A if empty
                 if (string.IsNullOrEmpty(ratingDateLabel.Text))
                 {
-                    ratingLabel.Text = "N/A";
+                    ratingDateLabel.Text = "";
                 }
+            }
+            else
+            {
+                ratingDateLabel.Text = "N/A";
             }
 
             if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
@@ -117,6 +125,10 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
                 {
                     reviewComment.Text = "No Comment";
                 }
+            }
+            else
+            {
+                reviewComment.Text = "N/A";
             }
 
 
