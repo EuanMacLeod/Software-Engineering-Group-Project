@@ -31,6 +31,8 @@ namespace Software_Engineering_Project_New
 
         public void SoftwareSales_Load(object sender, EventArgs e)
         {
+
+            resultsLabel.Visible = false;
             userLoggedInLabel.Text = user.Name;
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
@@ -71,16 +73,75 @@ namespace Software_Engineering_Project_New
 
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
+            // Find and update Name TextBox and Description TextBox
             TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
-            TextBox descriptionTextBox =
-                (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
+            TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
 
             if (nameTextBox != null && descriptionTextBox != null)
             {
                 nameTextBox.Text = row["Name"].ToString();
                 descriptionTextBox.Text = row["Description"].ToString();
             }
+
+            bool anyTextBoxNotEmpty = false;
+
+            for (int i = 1; i <= 4; i++)
+            {
+                // Check and set visibility for Name TextBox
+                TextBox textBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
+
+                if (textBox != null)
+                {
+                    textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
+
+                    // Check and set visibility for corresponding PictureBox
+                    PictureBox pictureBox = (PictureBox)this.Controls.Find($"pictureBox{i}", true).FirstOrDefault();
+
+                    if (pictureBox != null)
+                    {
+                        pictureBox.Visible = textBox.Visible;
+                    }
+
+                    if (!anyTextBoxNotEmpty && textBox.Visible)
+                    {
+                        anyTextBoxNotEmpty = true;
+                    }
+                }
+            }
+
+            // Check and set visibility for Description TextBoxes
+            for (int i = 1; i <= 4; i++)
+            {
+                TextBox textBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
+
+                if (textBox != null)
+                {
+                    textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
+
+                    if (!anyTextBoxNotEmpty && textBox.Visible)
+                    {
+                        anyTextBoxNotEmpty = true;
+                    }
+                }
+            }
+
+            // Set visibility for Name and Description TextBoxes
+            if (string.IsNullOrEmpty(nameTextBox.Text))
+            {
+                nameTextBox.Visible = false;
+                descriptionTextBox.Visible = false;
+            }
+            else
+            {
+                nameTextBox.Visible = true;
+                descriptionTextBox.Visible = true;
+            }
+
+            // Set visibility for the resultsLabel
+            resultsLabel.Visible = !anyTextBoxNotEmpty;
         }
+
+
 
         private void ClearSoftwareInfoTextBoxes(int startFrom = 1)
         {
@@ -92,8 +153,12 @@ namespace Software_Engineering_Project_New
 
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
+
+
             }
         }
+
+
 
 
         private void nextPagebutton_Click(object sender, EventArgs e)
@@ -104,43 +169,17 @@ namespace Software_Engineering_Project_New
 
         private void PreviousPageButton_Click(object sender, EventArgs e)
         {
-            if (count > 4)
+            if (count > 0)
             {
-                count = 0;
+                count = count - 4;
                 UpdateDisplayedSoftwareInfo();
             }
         }
 
 
-        private void DisplayRowInDataGridView(DataGridView dataGridView, DataTable softwareTable, int rowIndex)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-
-        private void FilterButton_Click(object sender, EventArgs e)
-        {
-            if (panel2.Height == 187)
-            {
-                panel2.Height = 23;
-
-            }
-
-            else
-            {
-                panel2.Height = 187;
-            }
-        }
-
-
-
         private void FilterButton_Click_1(object sender, EventArgs e)
         {
+            //opens filter menu
             if (panel2.Height == 187)
             {
                 panel2.Height = 23;
@@ -233,7 +272,7 @@ namespace Software_Engineering_Project_New
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //SearchBar.Text = "";
+            
             string searchString = SearchBar.Text;
 
 
@@ -245,7 +284,6 @@ namespace Software_Engineering_Project_New
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            //SearchBar.Text = "";
             UpdateDisplayedSoftwareInfo();
 
         }

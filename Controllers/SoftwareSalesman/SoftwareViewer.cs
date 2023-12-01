@@ -24,8 +24,8 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
 
         public void FillTextBox(string name, string description)
         {
-            ViewerNameBox.Text = name;
-            ViewerDescriptionBox.Text = description;
+            SoftwareNameLabel.Text = name;
+            SoftwareDescLabel.Text = description;
         }
 
         private void SoftwareViewer_Load(object sender, EventArgs e)
@@ -35,47 +35,97 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
 
         private void ViewerBackButton_Click(object sender, EventArgs e)
         {
-            //SoftwareSales SoftwareSales = new SoftwareSales(user);
-            //SoftwareSales.Show();
+            //closes menu
             this.Hide();
-        }
+        }       
 
 
 
         public void LoadAdditionalData()
         {
-            string Software = ViewerNameBox.Text;
+            string Software = SoftwareNameLabel.Text;
             DataTable AdditionalData = DBConnections.getInstanceOfDBConnection().Search(Software);
 
+
+            //changes label text
             if (AdditionalData != null && AdditionalData.Rows.Count > 0)
             {
-                textBox1.Text = AdditionalData.Rows[0]["Additional Information"].ToString();
-            }
-            else
-            {
-                textBox1.Text = "N/A";
+                AddInfoLabel.Text = AdditionalData.Rows[0]["Additional Information"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(AddInfoLabel.Text))
+                {
+                    AddInfoLabel.Text = "N/A";
+                }
             }
 
+            //changes label text
             if (AdditionalData != null && AdditionalData.Rows.Count > 0)
             {
-                textBox2.Text = AdditionalData.Rows[0]["Date Of Demo"].ToString();
-            }
-            else
-            {
-                textBox2.Text = "N/A";
+                DemoDateLabel.Text = AdditionalData.Rows[0]["Date Of Demo"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(DemoDateLabel.Text))
+                {
+                    DemoDateLabel.Text = "N/A";
+                }
             }
 
+            //changes label text
             if (AdditionalData != null && AdditionalData.Rows.Count > 0)
             {
-                textBox3.Text = AdditionalData.Rows[0]["Document link"].ToString();
+                documentLinkLabel.Text = AdditionalData.Rows[0]["Document link"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(documentLinkLabel.Text))
+                {
+                    documentLinkLabel.Text = "N/A";
+                }
             }
-            else
+
+            string softwareID = AdditionalData.Rows[0]["SoftwareID"].ToString();
+            DataTable ReviewsInfo = DBConnections.getInstanceOfDBConnection().SearchReviews(softwareID);
+
+            if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
             {
-                textBox3.Text = "N/A";
+                ratingLabel.Text = ReviewsInfo.Rows[0]["Review Score"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(ratingLabel.Text))
+                {
+                    ratingLabel.Text = "No rating";
+                }
             }
+
+            if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
+            {
+                ratingDateLabel.Text = ReviewsInfo.Rows[0]["Date Of Review"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(ratingDateLabel.Text))
+                {
+                    ratingLabel.Text = "N/A";
+                }
+            }
+
+            if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
+            {
+                reviewComment.Text = ReviewsInfo.Rows[0]["Review Text"].ToString();
+
+                //shows N/A if empty
+                if (string.IsNullOrEmpty(reviewComment.Text))
+                {
+                    reviewComment.Text = "No Comment";
+                }
+            }
+
 
         }
 
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
