@@ -83,6 +83,7 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
                 }
             }
 
+            //reviews
             string softwareID = AdditionalData.Rows[0]["SoftwareID"].ToString();
             DataTable ReviewsInfo = DBConnections.getInstanceOfDBConnection().SearchReviews(softwareID);
 
