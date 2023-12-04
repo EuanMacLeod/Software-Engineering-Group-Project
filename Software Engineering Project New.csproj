@@ -143,6 +143,12 @@
     <Compile Include="Controllers\Dont Look\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\SubmitReview\SubmitReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\SubmitReview\SubmitReview.Designer.cs">
+      <DependentUpon>SubmitReview.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\UpdateProfile\UpdateProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\Dont Look\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\SubmitReview\SubmitReview.resx">
+      <DependentUpon>SubmitReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\UpdateProfile\UpdateProfile.resx">
       <DependentUpon>UpdateProfile.cs</DependentUpon>
