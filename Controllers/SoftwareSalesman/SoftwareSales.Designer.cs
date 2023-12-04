@@ -54,6 +54,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.resultsLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.softwareDescriptionTextBox2 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox2 = new System.Windows.Forms.TextBox();
@@ -65,7 +66,11 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.softwareDescriptionTextBox4 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox4 = new System.Windows.Forms.TextBox();
-            this.resultsLabel = new System.Windows.Forms.Label();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.btnProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -87,7 +92,8 @@
             // 
             // softwaresBindingSource
             // 
-            this.softwaresBindingSource.RaiseListChangedEvents = false;
+            this.softwaresBindingSource.DataMember = "Softwares";
+            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
             // 
             // softwaresTableAdapter
             // 
@@ -95,7 +101,8 @@
             // 
             // softwaresBindingSource1
             // 
-            this.softwaresBindingSource1.RaiseListChangedEvents = false;
+            this.softwaresBindingSource1.DataMember = "Softwares";
+            this.softwaresBindingSource1.DataSource = this.citisoftDataSet;
             // 
             // softwareNameTextBox1
             // 
@@ -318,6 +325,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.linkLabel1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.softwareDescriptionTextBox1);
             this.panel1.Controls.Add(this.softwareNameTextBox1);
@@ -331,6 +339,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Transparent;
+            this.panel3.Controls.Add(this.linkLabel2);
             this.panel3.Controls.Add(this.resultsLabel);
             this.panel3.Controls.Add(this.pictureBox2);
             this.panel3.Controls.Add(this.softwareDescriptionTextBox2);
@@ -341,6 +350,16 @@
             this.panel3.Size = new System.Drawing.Size(647, 104);
             this.panel3.TabIndex = 28;
             this.panel3.Click += new System.EventHandler(this.panel3_Click);
+            // 
+            // resultsLabel
+            // 
+            this.resultsLabel.AutoSize = true;
+            this.resultsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultsLabel.Location = new System.Drawing.Point(327, 84);
+            this.resultsLabel.Name = "resultsLabel";
+            this.resultsLabel.Size = new System.Drawing.Size(80, 20);
+            this.resultsLabel.TabIndex = 18;
+            this.resultsLabel.Text = "No results";
             // 
             // pictureBox2
             // 
@@ -376,6 +395,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.Transparent;
+            this.panel4.Controls.Add(this.linkLabel3);
             this.panel4.Controls.Add(this.pictureBox3);
             this.panel4.Controls.Add(this.softwareDescriptionTextBox3);
             this.panel4.Controls.Add(this.softwareNameTextBox3);
@@ -420,6 +440,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.Transparent;
+            this.panel5.Controls.Add(this.linkLabel4);
             this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Controls.Add(this.softwareDescriptionTextBox4);
             this.panel5.Controls.Add(this.softwareNameTextBox4);
@@ -461,65 +482,57 @@
             this.softwareNameTextBox4.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox4.TabIndex = 5;
             // 
-            // resultsLabel
-            // 
-            this.resultsLabel.AutoSize = true;
-            this.resultsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultsLabel.Location = new System.Drawing.Point(327, 84);
-            this.resultsLabel.Name = "resultsLabel";
-            this.resultsLabel.Size = new System.Drawing.Size(80, 20);
-            this.resultsLabel.TabIndex = 18;
-            this.resultsLabel.Text = "No results";
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.Location = new System.Drawing.Point(32, 27);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(126, 44);
-            this.btnProfile.TabIndex = 28;
-            this.btnProfile.Text = "Profile";
-            this.btnProfile.UseVisualStyleBackColor = true;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
-            // 
-            // softwaresTableAdapter1
-            // 
-            this.softwaresTableAdapter1.ClearBeforeFill = true;
-            // 
             // linkLabel1
             // 
-            this.linkLabel1.Location = new System.Drawing.Point(545, 135);
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(286, 10);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(162, 26);
-            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.Size = new System.Drawing.Size(53, 13);
+            this.linkLabel1.TabIndex = 18;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "weblink";
+            this.linkLabel1.Text = "Web Link";
             // 
             // linkLabel2
             // 
-            this.linkLabel2.Location = new System.Drawing.Point(545, 302);
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(286, 10);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(122, 26);
-            this.linkLabel2.TabIndex = 30;
+            this.linkLabel2.Size = new System.Drawing.Size(53, 13);
+            this.linkLabel2.TabIndex = 19;
             this.linkLabel2.TabStop = true;
-            this.linkLabel2.Text = "weblink";
+            this.linkLabel2.Text = "Web Link";
             // 
             // linkLabel3
             // 
-            this.linkLabel3.Location = new System.Drawing.Point(535, 485);
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(286, 10);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(188, 20);
-            this.linkLabel3.TabIndex = 31;
+            this.linkLabel3.Size = new System.Drawing.Size(53, 13);
+            this.linkLabel3.TabIndex = 20;
             this.linkLabel3.TabStop = true;
-            this.linkLabel3.Text = "weblink";
+            this.linkLabel3.Text = "Web Link";
             // 
             // linkLabel4
             // 
-            this.linkLabel4.Location = new System.Drawing.Point(537, 657);
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(286, 10);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(198, 26);
-            this.linkLabel4.TabIndex = 32;
+            this.linkLabel4.Size = new System.Drawing.Size(53, 13);
+            this.linkLabel4.TabIndex = 21;
             this.linkLabel4.TabStop = true;
-            this.linkLabel4.Text = "weblink";
+            this.linkLabel4.Text = "Web Link";
+            // 
+            // btnProfile
+            // 
+            this.btnProfile.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.btnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProfile.Location = new System.Drawing.Point(15, 8);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(75, 23);
+            this.btnProfile.TabIndex = 30;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = false;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // SoftwareSales
             // 
@@ -527,6 +540,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 485);
+            this.Controls.Add(this.btnProfile);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
@@ -539,6 +553,7 @@
             this.Controls.Add(this.userLoggedInLabel);
             this.Controls.Add(this.nextPagebutton);
             this.Name = "SoftwareSales";
+            this.Text = "Form1";
             this.Load += new System.EventHandler(this.SoftwareSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
@@ -562,22 +577,12 @@
 
         }
 
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.LinkLabel linkLabel2;
-        private System.Windows.Forms.LinkLabel linkLabel3;
-        private System.Windows.Forms.LinkLabel linkLabel4;
-
-        private Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter
-            softwaresTableAdapter1;
-
-        private System.Windows.Forms.Button btnProfile;
-
         private System.Windows.Forms.Button btnClear;
 
         private System.Windows.Forms.Button btnSearch;
 
         #endregion
-        private Software_Engineering_Project_New.CitisoftDataSet citisoftDataSet;
+        private CitisoftDataSet citisoftDataSet;
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private CitisoftDataSetTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
         private System.Windows.Forms.BindingSource softwaresBindingSource1;
@@ -612,5 +617,10 @@
         private System.Windows.Forms.TextBox softwareDescriptionTextBox4;
         private System.Windows.Forms.TextBox softwareNameTextBox4;
         private System.Windows.Forms.Label resultsLabel;
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Button btnProfile;
     }
 }
