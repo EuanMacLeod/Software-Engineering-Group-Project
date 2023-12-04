@@ -33,7 +33,7 @@ namespace Software_Engineering_Project_New
         {
 
             resultsLabel.Visible = false;
-            userLoggedInLabel.Text = user.Name;
+            //userLoggedInLabel.Text = user.Name;
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
 
@@ -41,7 +41,18 @@ namespace Software_Engineering_Project_New
             panel2.Width = 159;
         }
 
+        private DataRow FetchVendorInfo(int vendorId)
+        {
+            string query = $"SELECT * FROM Vendors WHERE VendorId = {vendorId}";
+            DataTable vendorTable = DBConnections.getInstanceOfDBConnection().getDataTable(query);
 
+            if (vendorTable.Rows.Count > 0)
+            {
+                return vendorTable.Rows[0];
+            }
+
+            return null;
+        }
 
         private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
@@ -139,7 +150,42 @@ namespace Software_Engineering_Project_New
 
             // Set visibility for the resultsLabel
             resultsLabel.Visible = !anyTextBoxNotEmpty;
-        }
+
+            int vendorId = Convert.ToInt32(row["VendorId"]);
+
+            // Fetch the vendor information from the Vendors table
+            DataRow vendorRow = FetchVendorInfo(vendorId);
+
+            if (vendorRow != null)
+            {
+                string websiteUrl = vendorRow["Website"].ToString();
+
+                // Get the corresponding link label based on set number
+                LinkLabel linkLabel = (LinkLabel)this.Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
+
+                // Set the link label properties
+                linkLabel.Links.Clear();
+                linkLabel.Links.Add(0, linkLabel.Text.Length, websiteUrl);
+
+                // Handle link click
+                linkLabel.LinkClicked += (sender, e) =>
+                {
+                    try
+                    {
+                        // Open the URL in the default web browser
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Link.LinkData as string)
+                        {
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error opening URL: {ex.Message}");
+                    }
+                };
+            }
+        
+    }
 
 
 
@@ -287,6 +333,18 @@ namespace Software_Engineering_Project_New
             UpdateDisplayedSoftwareInfo();
 
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            UpdateProfile updateProfile = new UpdateProfile(this);
+
+            updateProfile.SetUserData(this.user);
+            this.Refresh();
+
+            updateProfile.ShowDialog();
+
+        }
+
 
         private void panel1_Click(object sender, EventArgs e)
         {
