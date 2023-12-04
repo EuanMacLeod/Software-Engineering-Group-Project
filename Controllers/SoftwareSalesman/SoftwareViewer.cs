@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.DirectoryServices;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -93,13 +94,16 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
 
                 if (string.IsNullOrEmpty(SoftwareRating.Text))
                 {
-                    SoftwareRating.Text = "Not enough reviews";
+                    SoftwareRating.Text = "(Not enough reviews)";
                 }
             }
             else
             {
                 SoftwareRating.Text = "N/A";
+
             }
+
+            
 
 
             if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)

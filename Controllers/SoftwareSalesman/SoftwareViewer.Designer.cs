@@ -182,7 +182,7 @@
             // 
             this.SoftwareRating.AutoSize = true;
             this.SoftwareRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SoftwareRating.Location = new System.Drawing.Point(178, 19);
+            this.SoftwareRating.Location = new System.Drawing.Point(167, 19);
             this.SoftwareRating.Name = "SoftwareRating";
             this.SoftwareRating.Size = new System.Drawing.Size(117, 20);
             this.SoftwareRating.TabIndex = 39;
