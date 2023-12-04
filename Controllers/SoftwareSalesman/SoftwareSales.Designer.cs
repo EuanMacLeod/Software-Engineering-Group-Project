@@ -66,6 +66,13 @@
             this.softwareDescriptionTextBox4 = new System.Windows.Forms.TextBox();
             this.softwareNameTextBox4 = new System.Windows.Forms.TextBox();
             this.resultsLabel = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnProfile = new System.Windows.Forms.Button();
+            this.softwaresTableAdapter1 = new Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -87,8 +94,7 @@
             // 
             // softwaresBindingSource
             // 
-            this.softwaresBindingSource.DataMember = "Softwares";
-            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource.RaiseListChangedEvents = false;
             // 
             // softwaresTableAdapter
             // 
@@ -96,8 +102,7 @@
             // 
             // softwaresBindingSource1
             // 
-            this.softwaresBindingSource1.DataMember = "Softwares";
-            this.softwaresBindingSource1.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource1.RaiseListChangedEvents = false;
             // 
             // softwareNameTextBox1
             // 
@@ -119,6 +124,57 @@
             this.softwareDescriptionTextBox1.ReadOnly = true;
             this.softwareDescriptionTextBox1.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox1.TabIndex = 6;
+            // 
+            // softwareDescriptionTextBox2
+            // 
+            this.softwareDescriptionTextBox2.Location = new System.Drawing.Point(194, 342);
+            this.softwareDescriptionTextBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareDescriptionTextBox2.Multiline = true;
+            this.softwareDescriptionTextBox2.Name = "softwareDescriptionTextBox2";
+            this.softwareDescriptionTextBox2.Size = new System.Drawing.Size(1058, 121);
+            this.softwareDescriptionTextBox2.TabIndex = 8;
+            // 
+            // softwareNameTextBox2
+            // 
+            this.softwareNameTextBox2.Location = new System.Drawing.Point(194, 299);
+            this.softwareNameTextBox2.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareNameTextBox2.Name = "softwareNameTextBox2";
+            this.softwareNameTextBox2.Size = new System.Drawing.Size(332, 31);
+            this.softwareNameTextBox2.TabIndex = 7;
+            // 
+            // softwareDescriptionTextBox3
+            // 
+            this.softwareDescriptionTextBox3.Location = new System.Drawing.Point(194, 518);
+            this.softwareDescriptionTextBox3.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareDescriptionTextBox3.Multiline = true;
+            this.softwareDescriptionTextBox3.Name = "softwareDescriptionTextBox3";
+            this.softwareDescriptionTextBox3.Size = new System.Drawing.Size(1058, 123);
+            this.softwareDescriptionTextBox3.TabIndex = 11;
+            // 
+            // softwareNameTextBox3
+            // 
+            this.softwareNameTextBox3.Location = new System.Drawing.Point(194, 475);
+            this.softwareNameTextBox3.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareNameTextBox3.Name = "softwareNameTextBox3";
+            this.softwareNameTextBox3.Size = new System.Drawing.Size(332, 31);
+            this.softwareNameTextBox3.TabIndex = 10;
+            // 
+            // softwareDescriptionTextBox4
+            // 
+            this.softwareDescriptionTextBox4.Location = new System.Drawing.Point(194, 696);
+            this.softwareDescriptionTextBox4.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareDescriptionTextBox4.Multiline = true;
+            this.softwareDescriptionTextBox4.Name = "softwareDescriptionTextBox4";
+            this.softwareDescriptionTextBox4.Size = new System.Drawing.Size(1058, 117);
+            this.softwareDescriptionTextBox4.TabIndex = 13;
+            // 
+            // softwareNameTextBox4
+            // 
+            this.softwareNameTextBox4.Location = new System.Drawing.Point(194, 653);
+            this.softwareNameTextBox4.Margin = new System.Windows.Forms.Padding(6);
+            this.softwareNameTextBox4.Name = "softwareNameTextBox4";
+            this.softwareNameTextBox4.Size = new System.Drawing.Size(332, 31);
+            this.softwareNameTextBox4.TabIndex = 12;
             // 
             // nextPagebutton
             // 
@@ -473,6 +529,56 @@
             this.resultsLabel.TabIndex = 18;
             this.resultsLabel.Text = "No results";
             // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(32, 27);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(126, 44);
+            this.btnProfile.TabIndex = 28;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // softwaresTableAdapter1
+            // 
+            this.softwaresTableAdapter1.ClearBeforeFill = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(545, 135);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(162, 26);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "weblink";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Location = new System.Drawing.Point(545, 302);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(122, 26);
+            this.linkLabel2.TabIndex = 30;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "weblink";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Location = new System.Drawing.Point(535, 485);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(188, 20);
+            this.linkLabel3.TabIndex = 31;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "weblink";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Location = new System.Drawing.Point(537, 657);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(198, 26);
+            this.linkLabel4.TabIndex = 32;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "weblink";
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,14 +590,31 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(1600, 906);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.linkLabel2);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.btnProfile);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.SearchBar);
             this.Controls.Add(this.PreviousPageButton);
             this.Controls.Add(this.userLoggedInLabel);
             this.Controls.Add(this.nextPagebutton);
+            this.Controls.Add(this.softwareDescriptionTextBox4);
+            this.Controls.Add(this.softwareNameTextBox4);
+            this.Controls.Add(this.softwareDescriptionTextBox3);
+            this.Controls.Add(this.softwareNameTextBox3);
+            this.Controls.Add(this.softwareDescriptionTextBox2);
+            this.Controls.Add(this.softwareNameTextBox2);
+            this.Controls.Add(this.softwareDescriptionTextBox1);
+            this.Controls.Add(this.softwareNameTextBox1);
+            this.Location = new System.Drawing.Point(15, 15);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "SoftwareSales";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.SoftwareSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
@@ -515,12 +638,22 @@
 
         }
 
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+
+        private Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter
+            softwaresTableAdapter1;
+
+        private System.Windows.Forms.Button btnProfile;
+
         private System.Windows.Forms.Button btnClear;
 
         private System.Windows.Forms.Button btnSearch;
 
         #endregion
-        private CitisoftDataSet citisoftDataSet;
+        private Software_Engineering_Project_New.CitisoftDataSet citisoftDataSet;
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private CitisoftDataSetTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
         private System.Windows.Forms.BindingSource softwaresBindingSource1;

@@ -37,6 +37,8 @@
             this.label_userLoggedin = new System.Windows.Forms.Label();
             this.bttn_sales = new System.Windows.Forms.RadioButton();
             this.bttn_DBEng = new System.Windows.Forms.RadioButton();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_userame
@@ -124,11 +126,22 @@
             this.bttn_DBEng.Text = "Database Engineer";
             this.bttn_DBEng.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 181);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(795, 247);
+            this.dataGridView1.TabIndex = 5;
+            // 
             // roleIdChange
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 211);
+            this.ClientSize = new System.Drawing.Size(808, 513);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.bttn_DBEng);
             this.Controls.Add(this.bttn_sales);
             this.Controls.Add(this.label_userLoggedin);
@@ -140,6 +153,7 @@
             this.Controls.Add(this.txt_userame);
             this.Name = "roleIdChange";
             this.Text = "roleIdChange";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,5 +170,6 @@
         private System.Windows.Forms.Button bttn_adjust;
         private System.Windows.Forms.RadioButton bttn_DBEng;
         private System.Windows.Forms.RadioButton bttn_sales;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

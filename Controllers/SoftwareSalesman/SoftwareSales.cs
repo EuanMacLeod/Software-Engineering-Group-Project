@@ -3,10 +3,12 @@ using System.Data;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
 using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 
 namespace Software_Engineering_Project_New
 {
@@ -14,6 +16,9 @@ namespace Software_Engineering_Project_New
     {
         int count;
         User user;
+        
+        private LinkLabel websiteLinkLabel;
+
 
 
         public SoftwareSales(User pUser)
@@ -22,6 +27,12 @@ namespace Software_Engineering_Project_New
             InitializeComponent();
             InitializeData();
         }
+        
+        public void RefreshUserData(User updatedUser)
+        {
+            this.user = updatedUser;
+        }
+        
 
         private void InitializeData()
         {
@@ -41,7 +52,18 @@ namespace Software_Engineering_Project_New
             panel2.Width = 159;
         }
 
+        private DataRow FetchVendorInfo(int vendorId)
+        {
+            string query = $"SELECT * FROM Vendors WHERE VendorId = {vendorId}";
+            DataTable vendorTable = DBConnections.getInstanceOfDBConnection().getDataTable(query);
 
+            if (vendorTable.Rows.Count > 0)
+            {
+                return vendorTable.Rows[0];
+            }
+
+            return null;
+        }
 
         private void UpdateDisplayedSoftwareInfo(DataTable data = null)
         {
@@ -73,10 +95,61 @@ namespace Software_Engineering_Project_New
 
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
+            // TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
+            // TextBox descriptionTextBox =
+            //     (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
+            //
+            // if (nameTextBox != null && descriptionTextBox != null)
+            // {
+            //     nameTextBox.Text = row["Name"].ToString();
+            //     descriptionTextBox.Text = row["Description"].ToString();
+            // }
+           TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
+    TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
             // Find and update Name TextBox and Description TextBox
             TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
             TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
 
+    if (nameTextBox != null && descriptionTextBox != null)
+    {
+        nameTextBox.Text = row["Name"].ToString();
+        descriptionTextBox.Text = row["Description"].ToString();
+    }
+    
+    int vendorId = Convert.ToInt32(row["VendorId"]);
+
+    // Fetch the vendor information from the Vendors table
+    DataRow vendorRow = FetchVendorInfo(vendorId);
+
+    if (vendorRow != null)
+    {
+        string websiteUrl = vendorRow["Website"].ToString();
+
+        // Get the corresponding link label based on set number
+        LinkLabel linkLabel = (LinkLabel)this.Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
+
+        // Set the link label properties
+        linkLabel.Links.Clear();
+        linkLabel.Links.Add(0, linkLabel.Text.Length, websiteUrl);
+
+        // Handle link click
+        linkLabel.LinkClicked += (sender, e) =>
+        {
+            try
+            {
+                // Open the URL in the default web browser
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Link.LinkData as string)
+                {
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening URL: {ex.Message}");
+            }
+        };
+    }
+        }
             if (nameTextBox != null && descriptionTextBox != null)
             {
                 nameTextBox.Text = row["Name"].ToString();
@@ -166,6 +239,18 @@ namespace Software_Engineering_Project_New
             count = count + 4;
             UpdateDisplayedSoftwareInfo();
         }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        
+        private void FilterButton_Click(object sender, EventArgs e)
+        {
+            if (panel2.Height == 187)
+            {
+                panel2.Height = 23;
+
+            }
 
         private void PreviousPageButton_Click(object sender, EventArgs e)
         {
@@ -194,13 +279,16 @@ namespace Software_Engineering_Project_New
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+            //this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            //string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
 
-            DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           string searchString = SearchBar.Text;
+            
+            
+           DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
 
-
-
+           UpdateDisplayedSoftwareInfo(searchResults);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -319,6 +407,19 @@ namespace Software_Engineering_Project_New
                 softwareViewerForm.ShowDialog();
             }
         }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            UpdateProfile updateProfile = new UpdateProfile(this);
+            
+            updateProfile.SetUserData(this.user);
+            this.Refresh();
+
+            updateProfile.ShowDialog();
+
+        }
+    }
+}
 
         private void panel4_Click(object sender, EventArgs e)
         {

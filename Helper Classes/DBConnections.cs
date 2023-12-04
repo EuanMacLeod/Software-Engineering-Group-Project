@@ -66,8 +66,7 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
-                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_OR_EMAIL;
+                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_AND_EMAIL;
                 command.Parameters.AddWithValue("Username", username);
                 command.Parameters.AddWithValue("@Email", email);
 
@@ -206,7 +205,7 @@ namespace Software_Engineering_Project_New
             }
         }
 
-        public DataTable Search(string search)
+        public DataTable Search(string search, bool filterCloudServices = false)
         {
             DataTable searchResults = new DataTable();
 
@@ -215,8 +214,20 @@ namespace Software_Engineering_Project_New
                 connectionToDatabase.Open();
 
                 string query = "SELECT * FROM Softwares WHERE Name LIKE @search";
+                
+                // Use CASE WHEN to conditionally filter by Cloud Services Available
+                if (filterCloudServices == true){
+                    
+                    query += " AND [Cloud Services Avaliable] = @filterCloudServices";
+                }
                 using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
                 {
+                    if (filterCloudServices == true)
+                    {
+
+                        command.Parameters.Add(new SqlParameter("@filterCloudServices", filterCloudServices));
+                    }
+
                     command.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));
 
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -317,19 +328,30 @@ namespace Software_Engineering_Project_New
         
         public void UpdateEmployeeInDB(int employeeID, string name, string contactNumber, string username, string password, string email)
         {
-            using (SqlConnection sqlcon = new SqlConnection(connectionString))
-            {
-                sqlcon.Open();
-                SqlCommand sqlcmd = new SqlCommand("EmployeesUpdate", sqlcon); // Assuming you have a stored procedure for updating employees.
-                sqlcmd.CommandType = CommandType.StoredProcedure;
-                sqlcmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                sqlcmd.Parameters.AddWithValue("@Name", name);
-                sqlcmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
-                sqlcmd.Parameters.AddWithValue("@Username", username);
-                sqlcmd.Parameters.AddWithValue("@Password", password);
-                sqlcmd.Parameters.AddWithValue("@Email", email);
-                sqlcmd.ExecuteNonQuery();
-            }
+             using (SqlConnection sqlcon = new SqlConnection(connectionString))
+                {
+                    sqlcon.Open();
+                    
+                    string query = "UPDATE Employees " +
+                                   "SET Name = @Name, " +
+                                   "    [Contact Number] = @ContactNumber, " +
+                                   "    Username = @Username, " +
+                                   "    Password = @Password, " +
+                                   "    Email = @Email " +
+                                   "WHERE EmployeeID = @EmployeeID";
+            
+                    using (SqlCommand sqlcmd = new SqlCommand(query, sqlcon))
+                    {
+                        sqlcmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                        sqlcmd.Parameters.AddWithValue("@Name", name);
+                        sqlcmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                        sqlcmd.Parameters.AddWithValue("@Username", username);
+                        sqlcmd.Parameters.AddWithValue("@Password", password);
+                        sqlcmd.Parameters.AddWithValue("@Email", email);
+            
+                        sqlcmd.ExecuteNonQuery();
+                    }
+                }
         }
 
 
@@ -379,7 +401,6 @@ namespace Software_Engineering_Project_New
                     username,
                     managerID,
                     roleID
-                    
                 );
                 return user;
             }
@@ -387,6 +408,36 @@ namespace Software_Engineering_Project_New
 
             return null;
         }
+        
+        public bool VerifyCurrentPassword(string username, string currentPassword)
+        {
+            DataTable dt = new DataTable();
+
+            // Search the DB for the user with the provided username and populate a datatable with the results
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                sqlcon.Open();
+                SqlCommand command = new SqlCommand();
+                command.Connection = sqlcon;
+                command.CommandText = Constants.SELECT_EMPLOYEE_WITH_USERNAME;
+                command.Parameters.AddWithValue("Username", username);
+
+                SqlDataAdapter sda = new SqlDataAdapter(command);
+
+                sda.Fill(dt);
+            }
+
+           
+           // if (dt.Rows.Count <= 0) return false; // If username not in db, return false
+
+            string hashedPassword = dt.Rows[0]["Password"].ToString();
+
+            // Verify the entered password
+            return BCrypt.Net.BCrypt.EnhancedVerify(currentPassword, hashedPassword);
+        }
+        
+        
+
     }
 }
 
