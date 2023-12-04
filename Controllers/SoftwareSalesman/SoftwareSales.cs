@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer.SubmitReview;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 
 namespace Software_Engineering_Project_New
@@ -139,6 +140,24 @@ namespace Software_Engineering_Project_New
             }
         };
     }
+    // adding review button
+    Button reviewButton = (Button)this.Controls.Find($"btnReview{setNumber}", true).FirstOrDefault();
+
+    // the event handler for the review button
+    reviewButton.Click += (sender, e) =>
+    {
+        // Handle the review button click
+        // Pass the software ID to the review form
+        int softwareId = Convert.ToInt32(row["SoftwareId"]);
+        OpenReviewForm(softwareId, this.user.Id);
+    };
+
+    
+        }
+        private void OpenReviewForm(int softwareId, int userId)
+        {
+            SubmitReview reviewForm = new SubmitReview(softwareId, userId);
+            reviewForm.ShowDialog();
         }
 
         private void ClearSoftwareInfoTextBoxes(int startFrom = 1)
@@ -300,6 +319,8 @@ namespace Software_Engineering_Project_New
             updateProfile.ShowDialog();
 
         }
+
+        
     }
 }
 

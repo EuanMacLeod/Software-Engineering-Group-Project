@@ -64,6 +64,10 @@
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.btnReview1 = new System.Windows.Forms.Button();
+            this.btnReview2 = new System.Windows.Forms.Button();
+            this.btnReview3 = new System.Windows.Forms.Button();
+            this.btnReview4 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource1)).BeginInit();
@@ -401,12 +405,53 @@
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "weblink";
             // 
+            // btnReview1
+            // 
+            this.btnReview1.Location = new System.Drawing.Point(640, 135);
+            this.btnReview1.Name = "btnReview1";
+            this.btnReview1.Size = new System.Drawing.Size(148, 26);
+            this.btnReview1.TabIndex = 33;
+            this.btnReview1.Text = "Review";
+            this.btnReview1.UseVisualStyleBackColor = true;
+            // 
+            // btnReview2
+            // 
+            this.btnReview2.Location = new System.Drawing.Point(644, 303);
+            this.btnReview2.Name = "btnReview2";
+            this.btnReview2.Size = new System.Drawing.Size(168, 26);
+            this.btnReview2.TabIndex = 34;
+            this.btnReview2.Text = "Review";
+            this.btnReview2.UseVisualStyleBackColor = true;
+           // this.btnReview2.Click += new System.EventHandler(this.btnReview2_Click);
+            // 
+            // btnReview3
+            // 
+            this.btnReview3.Location = new System.Drawing.Point(634, 483);
+            this.btnReview3.Name = "btnReview3";
+            this.btnReview3.Size = new System.Drawing.Size(194, 35);
+            this.btnReview3.TabIndex = 35;
+            this.btnReview3.Text = "Review";
+            this.btnReview3.UseVisualStyleBackColor = true;
+            // 
+            // btnReview4
+            // 
+            this.btnReview4.Location = new System.Drawing.Point(634, 655);
+            this.btnReview4.Name = "btnReview4";
+            this.btnReview4.Size = new System.Drawing.Size(200, 27);
+            this.btnReview4.TabIndex = 36;
+            this.btnReview4.Text = "Review";
+            this.btnReview4.UseVisualStyleBackColor = true;
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1600, 906);
+            this.Controls.Add(this.btnReview4);
+            this.Controls.Add(this.btnReview3);
+            this.Controls.Add(this.btnReview2);
+            this.Controls.Add(this.btnReview1);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel2);
@@ -440,6 +485,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button btnReview1;
+        private System.Windows.Forms.Button btnReview2;
+        private System.Windows.Forms.Button btnReview3;
+        private System.Windows.Forms.Button btnReview4;
 
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
