@@ -195,8 +195,11 @@ namespace Software_Engineering_Project_New
 
         private void nextPagebutton_Click(object sender, EventArgs e)
         {
-            count = count + 4;
-            UpdateDisplayedSoftwareInfo();
+            if (count < citisoftDataSet.Softwares.Rows.Count - 4)
+            {
+                count = count + 4;
+                UpdateDisplayedSoftwareInfo();
+            }
         }
 
         private void PreviousPageButton_Click(object sender, EventArgs e)
