@@ -41,14 +41,13 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         {
             LoginPage loginPage = new LoginPage();
             loginPage.Show();
-            Hide();
+            Close();
         }
 
         private void button_pdfTagging_Click(object sender, EventArgs e)
         {
             DatabaseEngineerPdfTaggingPage databaseEngineerPdfTaggingPage = new DatabaseEngineerPdfTaggingPage(user);
             databaseEngineerPdfTaggingPage.Show();
-            Hide();
         }
 
         private void bttn_adminTools_Click(object sender, EventArgs e)
@@ -56,11 +55,12 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             // initialise and show admin tools window
 
             new adminTools(user).Show();
+            new Sales(user).Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            new Sales(user).Show();
+            new SoftwareSales(user).Show();
         }
     }
 }

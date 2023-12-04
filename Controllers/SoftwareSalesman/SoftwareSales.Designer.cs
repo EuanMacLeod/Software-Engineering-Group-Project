@@ -87,8 +87,7 @@
             // 
             // softwaresBindingSource
             // 
-            this.softwaresBindingSource.DataMember = "Softwares";
-            this.softwaresBindingSource.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource.RaiseListChangedEvents = false;
             // 
             // softwaresTableAdapter
             // 
@@ -96,8 +95,7 @@
             // 
             // softwaresBindingSource1
             // 
-            this.softwaresBindingSource1.DataMember = "Softwares";
-            this.softwaresBindingSource1.DataSource = this.citisoftDataSet;
+            this.softwaresBindingSource1.RaiseListChangedEvents = false;
             // 
             // softwareNameTextBox1
             // 
@@ -473,6 +471,56 @@
             this.resultsLabel.TabIndex = 18;
             this.resultsLabel.Text = "No results";
             // 
+            // btnProfile
+            // 
+            this.btnProfile.Location = new System.Drawing.Point(32, 27);
+            this.btnProfile.Name = "btnProfile";
+            this.btnProfile.Size = new System.Drawing.Size(126, 44);
+            this.btnProfile.TabIndex = 28;
+            this.btnProfile.Text = "Profile";
+            this.btnProfile.UseVisualStyleBackColor = true;
+            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
+            // 
+            // softwaresTableAdapter1
+            // 
+            this.softwaresTableAdapter1.ClearBeforeFill = true;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Location = new System.Drawing.Point(545, 135);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(162, 26);
+            this.linkLabel1.TabIndex = 29;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "weblink";
+            // 
+            // linkLabel2
+            // 
+            this.linkLabel2.Location = new System.Drawing.Point(545, 302);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(122, 26);
+            this.linkLabel2.TabIndex = 30;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "weblink";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.Location = new System.Drawing.Point(535, 485);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(188, 20);
+            this.linkLabel3.TabIndex = 31;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "weblink";
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.Location = new System.Drawing.Point(537, 657);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(198, 26);
+            this.linkLabel4.TabIndex = 32;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "weblink";
+            // 
             // SoftwareSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -491,7 +539,6 @@
             this.Controls.Add(this.userLoggedInLabel);
             this.Controls.Add(this.nextPagebutton);
             this.Name = "SoftwareSales";
-            this.Text = "Form1";
             this.Load += new System.EventHandler(this.SoftwareSales_Load);
             ((System.ComponentModel.ISupportInitialize)(this.citisoftDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.softwaresBindingSource)).EndInit();
@@ -515,12 +562,22 @@
 
         }
 
+        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabel2;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+
+        private Software_Engineering_Project_New.CitisoftDataSetTableAdapters.SoftwaresTableAdapter
+            softwaresTableAdapter1;
+
+        private System.Windows.Forms.Button btnProfile;
+
         private System.Windows.Forms.Button btnClear;
 
         private System.Windows.Forms.Button btnSearch;
 
         #endregion
-        private CitisoftDataSet citisoftDataSet;
+        private Software_Engineering_Project_New.CitisoftDataSet citisoftDataSet;
         private System.Windows.Forms.BindingSource softwaresBindingSource;
         private CitisoftDataSetTableAdapters.SoftwaresTableAdapter softwaresTableAdapter;
         private System.Windows.Forms.BindingSource softwaresBindingSource1;

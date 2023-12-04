@@ -55,6 +55,10 @@
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
+    <Reference Include="Software Engineering Project New">
+      <HintPath>bin\Debug\Software Engineering Project New.exe</HintPath>
+    </Reference>
+    <Reference Include="System" />
     <Reference Include="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -141,10 +145,10 @@
     <Compile Include="Controllers\OpenPDF.Designer.cs">
       <DependentUpon>OpenPDF.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Sales.cs">
+    <Compile Include="Controllers\Dont Look\Sales.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Controllers\Sales.Designer.cs">
+    <Compile Include="Controllers\Dont Look\Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
     <Compile Include="Controllers\SoftwareSalesman\SoftwareViewer.cs">
@@ -152,6 +156,12 @@
     </Compile>
     <Compile Include="Controllers\SoftwareSalesman\SoftwareViewer.Designer.cs">
       <DependentUpon>SoftwareViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\UpdateProfile\UpdateProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controllers\UpdateProfile\UpdateProfile.Designer.cs">
+      <DependentUpon>UpdateProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper Classes\EmailService.cs" />
     <Compile Include="Helper Classes\Constants.cs" />
@@ -230,8 +240,11 @@
     <EmbeddedResource Include="Controllers\Signup\Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Controllers\Sales.resx">
+    <EmbeddedResource Include="Controllers\Dont Look\Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controllers\UpdateProfile\UpdateProfile.resx">
+      <DependentUpon>UpdateProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Controllers\SoftwareSalesman\SoftwareViewer.resx">
       <DependentUpon>SoftwareViewer.cs</DependentUpon>

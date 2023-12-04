@@ -32,6 +32,10 @@ namespace Software_Engineering_Project_New
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
                         break;
                     case (int)Roles.Admin:
+
+                        new DatabaseEngineerHomePage(user).Show();
+
+                        /*
                         DialogResult result =
                             MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
@@ -42,6 +46,7 @@ namespace Software_Engineering_Project_New
                         {
                             new DatabaseEngineerHomePage(user).Show();
                         }
+                        */
 
                         //Load into new pages here
 

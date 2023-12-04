@@ -3,10 +3,12 @@ using System.Data;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
 using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 
 namespace Software_Engineering_Project_New
 {
@@ -14,6 +16,9 @@ namespace Software_Engineering_Project_New
     {
         int count;
         User user;
+        
+        private LinkLabel websiteLinkLabel;
+
 
 
         public SoftwareSales(User pUser)
@@ -22,6 +27,12 @@ namespace Software_Engineering_Project_New
             InitializeComponent();
             InitializeData();
         }
+        
+        public void RefreshUserData(User updatedUser)
+        {
+            this.user = updatedUser;
+        }
+        
 
         private void InitializeData()
         {
@@ -240,13 +251,16 @@ namespace Software_Engineering_Project_New
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+            //this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            //string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
 
-            DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+           string searchString = SearchBar.Text;
+            
+            
+           DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
 
-
-
+           UpdateDisplayedSoftwareInfo(searchResults);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)

@@ -32,7 +32,7 @@ namespace Software_Engineering_Project_New
         }
 
 
-        private int verifyAdmin(String email)
+        private bool verifyAdmin(String email)
         {
             
             try
@@ -41,17 +41,17 @@ namespace Software_Engineering_Project_New
 
                 if (adminEmail.Equals(email))
                 {
-                    return 1; // Admin email matches the provided email
+                    return true; // Admin email matches the provided email
                 }
                 else
                 {
-                    return 0; // Admin email does not match the provided email
+                    return false; // Admin email does not match the provided email
                 }
             }
             catch (FormatException)
             {
                 // Handle the format exception if needed
-                return 0; // For simplicity, return false in case of a format exception
+                return false; // For simplicity, return false in case of a format exception
             }
         }
 
@@ -66,12 +66,7 @@ namespace Software_Engineering_Project_New
             {
                 MessageBox.Show("Passwords Don't Match");
             }
-            /*
-            else if (radioButton1.Checked == false && radioButton2.Checked == false)
-            {
-                MessageBox.Show("Please Choose A Role");
-            }
-            */
+           
             else if(DBConnections.getInstanceOfDBConnection().doesUserExist(txt_username.Text.Trim(), txt_email.Text.Trim()))
             {
                 MessageBox.Show("User Already Exists");
@@ -91,7 +86,7 @@ namespace Software_Engineering_Project_New
                 
                 //RoleID = radioButton1.Checked ? 3 : 4;
 
-                if(verifyAdmin(txt_email.Text.Trim()) == 1)
+                if(verifyAdmin(txt_email.Text.Trim()))
                 {
                     RoleID = 1;
                 }
