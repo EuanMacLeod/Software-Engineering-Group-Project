@@ -12,7 +12,8 @@ namespace Software_Engineering_Project_New
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new HomePage());
 
-            new HomePage().Show();
+            //new HomePage().Show();
+            new LoginPage().Show();
             Application.Run();
             Console.WriteLine("Bye Bye");
         }
