@@ -128,6 +128,24 @@ namespace Software_Engineering_Project_New
                 }
             }
 
+            for (int i = 1; i <= 4; i++)
+            {
+                // Check and set visibility for Name TextBox
+                TextBox textBox = (TextBox)Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
+
+                if (textBox != null)
+                {
+                    textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
+
+                    // Check and set visibility for corresponding weblink
+                    LinkLabel LinkLabel = (LinkLabel)Controls.Find($"linkLabel{i}", true).FirstOrDefault();
+
+                    if (LinkLabel != null) LinkLabel.Visible = textBox.Visible;
+
+                    if (!anyTextBoxNotEmpty && textBox.Visible) anyTextBoxNotEmpty = true;
+                }
+            }
+
             // Set visibility for Name and Description TextBoxes
             if (string.IsNullOrEmpty(nameTextBox.Text))
             {
@@ -224,10 +242,6 @@ namespace Software_Engineering_Project_New
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            //this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
-            //string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
-
-            // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
             string searchString = SearchBar.Text;
 
 
@@ -251,39 +265,26 @@ namespace Software_Engineering_Project_New
 
             if (checkBox2.Checked)
             {
-                bool isProffesional = true;
+                bool isProfesional = true;
 
-                while (isProffesional)
+                while (isProfesional)
                 {
-                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE  = true";
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE isProfesional = true";
                     DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
                 }
             }
 
-            if (RatingButton1.Checked)
-            {
-                bool starRating1 = true;
-            }
-
-            if (RatingButton2.Checked)
-            {
-                bool starRating2 = true;
-            }
-
-            if (RatingButton3.Checked)
-            {
-                bool starRating3 = true;
-            }
-
-            if (RatingButton4.Checked)
-            {
-                bool starRating4 = true;
-            }
         }
 
         private void SearchBar_Clicked(object sender, EventArgs e)
         {
             SearchBar.Clear();
+        }
+
+        public void FindAverage(object sender, EventArgs e)
+        {
+            
+
         }
 
         private void RatingButton1_CheckedChanged(object sender, EventArgs e)
@@ -292,14 +293,17 @@ namespace Software_Engineering_Project_New
 
         private void RatingButton2_CheckedChanged(object sender, EventArgs e)
         {
+
         }
 
         private void RatingButton3_CheckedChanged(object sender, EventArgs e)
         {
+
         }
 
         private void RatingButton4_CheckedChanged(object sender, EventArgs e)
         {
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -328,7 +332,7 @@ namespace Software_Engineering_Project_New
         }
 
 
-        private void panel1_Click(object sender, EventArgs e)
+        private void whenClicked()
         {
             string name = softwareNameTextBox1.Text;
             string description = softwareDescriptionTextBox1.Text;
@@ -343,53 +347,62 @@ namespace Software_Engineering_Project_New
                 softwareViewerForm.ShowDialog();
             }
         }
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
 
         private void panel3_Click(object sender, EventArgs e)
         {
-            string name = softwareNameTextBox2.Text;
-            string description = softwareDescriptionTextBox2.Text;
-
-
-            //this.Close();
-
-            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
-            {
-                softwareViewerForm.FillTextBox(name, description);
-
-                softwareViewerForm.ShowDialog();
-            }
+            whenClicked();
         }
 
         private void panel4_Click(object sender, EventArgs e)
         {
-            string name = softwareNameTextBox3.Text;
-            string description = softwareDescriptionTextBox3.Text;
-
-
-            //this.Close();
-
-            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
-            {
-                softwareViewerForm.FillTextBox(name, description);
-
-                softwareViewerForm.ShowDialog();
-            }
+            whenClicked();
         }
 
         private void panel5_Click(object sender, EventArgs e)
         {
-            string name = softwareNameTextBox4.Text;
-            string description = softwareDescriptionTextBox4.Text;
-
-
-            //this.Close();
-
-            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
-            {
-                softwareViewerForm.FillTextBox(name, description);
-
-                softwareViewerForm.ShowDialog();
-            }
+            whenClicked();
         }
+
+        private void softwareNameTextBox1_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+        private void softwareNameTextBox2_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+
+        private void softwareNameTextBox3_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+
+        private void softwareNameTextBox4_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+
+        private void softwareDescriptionTextBox1_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+        private void softwareDescriptionTextBox2_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+        private void softwareDescriptionTextBox3_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+        private void softwareDescriptionTextBox4_Click(object sender, EventArgs e)
+        {
+            whenClicked();
+        }
+
+
     }
 }

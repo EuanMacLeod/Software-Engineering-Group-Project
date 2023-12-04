@@ -113,6 +113,8 @@
             this.softwareNameTextBox1.ReadOnly = true;
             this.softwareNameTextBox1.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox1.TabIndex = 5;
+            this.softwareNameTextBox1.Click += new System.EventHandler(this.softwareNameTextBox1_Click);
+
             // 
             // softwareDescriptionTextBox1
             // 
@@ -124,6 +126,7 @@
             this.softwareDescriptionTextBox1.ReadOnly = true;
             this.softwareDescriptionTextBox1.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox1.TabIndex = 6;
+            this.softwareDescriptionTextBox1.Click += new System.EventHandler(this.softwareDescriptionTextBox1_Click);
             // 
             // nextPagebutton
             // 
@@ -382,6 +385,8 @@
             this.softwareDescriptionTextBox2.ReadOnly = true;
             this.softwareDescriptionTextBox2.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox2.TabIndex = 6;
+            this.softwareDescriptionTextBox2.Click += new System.EventHandler(this.softwareDescriptionTextBox2_Click);
+
             // 
             // softwareNameTextBox2
             // 
@@ -392,6 +397,8 @@
             this.softwareNameTextBox2.ReadOnly = true;
             this.softwareNameTextBox2.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox2.TabIndex = 5;
+            this.softwareNameTextBox2.Click += new System.EventHandler(this.softwareNameTextBox2_Click);
+
             // 
             // panel4
             // 
@@ -427,6 +434,8 @@
             this.softwareDescriptionTextBox3.ReadOnly = true;
             this.softwareDescriptionTextBox3.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox3.TabIndex = 6;
+            this.softwareDescriptionTextBox3.Click += new System.EventHandler(this.softwareDescriptionTextBox3_Click);
+
             // 
             // softwareNameTextBox3
             // 
@@ -437,6 +446,8 @@
             this.softwareNameTextBox3.ReadOnly = true;
             this.softwareNameTextBox3.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox3.TabIndex = 5;
+            this.softwareNameTextBox3.Click += new System.EventHandler(this.softwareNameTextBox3_Click);
+
             // 
             // panel5
             // 
@@ -472,6 +483,8 @@
             this.softwareDescriptionTextBox4.ReadOnly = true;
             this.softwareDescriptionTextBox4.Size = new System.Drawing.Size(531, 64);
             this.softwareDescriptionTextBox4.TabIndex = 6;
+            this.softwareDescriptionTextBox4.Click += new System.EventHandler(this.softwareDescriptionTextBox4_Click);
+
             // 
             // softwareNameTextBox4
             // 
@@ -482,6 +495,8 @@
             this.softwareNameTextBox4.ReadOnly = true;
             this.softwareNameTextBox4.Size = new System.Drawing.Size(168, 20);
             this.softwareNameTextBox4.TabIndex = 5;
+            this.softwareNameTextBox4.Click += new System.EventHandler(this.softwareNameTextBox4_Click);
+
             // 
             // linkLabel1
             // 
