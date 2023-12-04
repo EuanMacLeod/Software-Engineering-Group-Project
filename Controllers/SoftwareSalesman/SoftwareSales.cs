@@ -1,48 +1,42 @@
 ﻿using System;
 using System.Data;
-using System.Windows.Forms;
-using System.Xml.Serialization;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Threading;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Diagnostics;
 using System.Linq;
-using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
+using System.Windows.Forms;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
+using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
 
 namespace Software_Engineering_Project_New
 {
     public partial class SoftwareSales : Form
     {
-        int count;
-        User user;
-        
-        private LinkLabel websiteLinkLabel;
+        private int count;
+        private User user;
 
+        private LinkLabel websiteLinkLabel;
 
 
         public SoftwareSales(User pUser)
         {
-            this.user = pUser;
+            user = pUser;
             InitializeComponent();
             InitializeData();
         }
-        
+
         public void RefreshUserData(User updatedUser)
         {
-            this.user = updatedUser;
+            user = updatedUser;
         }
-        
+
 
         private void InitializeData()
         {
-            this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
+            softwaresTableAdapter.Fill(citisoftDataSet.Softwares);
             UpdateDisplayedSoftwareInfo();
         }
 
         public void SoftwareSales_Load(object sender, EventArgs e)
         {
-
             resultsLabel.Visible = false;
             //userLoggedInLabel.Text = user.Name;
             ClearSoftwareInfoTextBoxes();
@@ -57,10 +51,7 @@ namespace Software_Engineering_Project_New
             string query = $"SELECT * FROM Vendors WHERE VendorId = {vendorId}";
             DataTable vendorTable = DBConnections.getInstanceOfDBConnection().getDataTable(query);
 
-            if (vendorTable.Rows.Count > 0)
-            {
-                return vendorTable.Rows[0];
-            }
+            if (vendorTable.Rows.Count > 0) return vendorTable.Rows[0];
 
             return null;
         }
@@ -70,7 +61,7 @@ namespace Software_Engineering_Project_New
             // Clear existing displayed information
             ClearSoftwareInfoTextBoxes();
 
-            DataTable sourceData = data ?? this.citisoftDataSet.Softwares;
+            DataTable sourceData = data ?? citisoftDataSet.Softwares;
 
             for (int i = 0; i < 4; i++)
             {
@@ -80,7 +71,6 @@ namespace Software_Engineering_Project_New
                 {
                     DataRow row = sourceData.Rows[rowIndex];
                     SetSoftwareInfoTextBoxes(i + 1, row);
-
                 }
                 else
                 {
@@ -92,12 +82,12 @@ namespace Software_Engineering_Project_New
         }
 
 
-
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
             // Find and update Name TextBox and Description TextBox
-            TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
-            TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
+            TextBox nameTextBox = (TextBox)Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
+            TextBox descriptionTextBox =
+                (TextBox)Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
 
             if (nameTextBox != null && descriptionTextBox != null)
             {
@@ -110,40 +100,31 @@ namespace Software_Engineering_Project_New
             for (int i = 1; i <= 4; i++)
             {
                 // Check and set visibility for Name TextBox
-                TextBox textBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
+                TextBox textBox = (TextBox)Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
 
                 if (textBox != null)
                 {
                     textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
 
                     // Check and set visibility for corresponding PictureBox
-                    PictureBox pictureBox = (PictureBox)this.Controls.Find($"pictureBox{i}", true).FirstOrDefault();
+                    PictureBox pictureBox = (PictureBox)Controls.Find($"pictureBox{i}", true).FirstOrDefault();
 
-                    if (pictureBox != null)
-                    {
-                        pictureBox.Visible = textBox.Visible;
-                    }
+                    if (pictureBox != null) pictureBox.Visible = textBox.Visible;
 
-                    if (!anyTextBoxNotEmpty && textBox.Visible)
-                    {
-                        anyTextBoxNotEmpty = true;
-                    }
+                    if (!anyTextBoxNotEmpty && textBox.Visible) anyTextBoxNotEmpty = true;
                 }
             }
 
             // Check and set visibility for Description TextBoxes
             for (int i = 1; i <= 4; i++)
             {
-                TextBox textBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
+                TextBox textBox = (TextBox)Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
 
                 if (textBox != null)
                 {
                     textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
 
-                    if (!anyTextBoxNotEmpty && textBox.Visible)
-                    {
-                        anyTextBoxNotEmpty = true;
-                    }
+                    if (!anyTextBoxNotEmpty && textBox.Visible) anyTextBoxNotEmpty = true;
                 }
             }
 
@@ -172,7 +153,7 @@ namespace Software_Engineering_Project_New
                 string websiteUrl = vendorRow["Website"].ToString();
 
                 // Get the corresponding link label based on set number
-                LinkLabel linkLabel = (LinkLabel)this.Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
+                LinkLabel linkLabel = (LinkLabel)Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
 
                 // Set the link label properties
                 linkLabel.Links.Clear();
@@ -184,7 +165,7 @@ namespace Software_Engineering_Project_New
                     try
                     {
                         // Open the URL in the default web browser
-                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Link.LinkData as string)
+                        Process.Start(new ProcessStartInfo(e.Link.LinkData as string)
                         {
                             UseShellExecute = true
                         });
@@ -195,27 +176,21 @@ namespace Software_Engineering_Project_New
                     }
                 };
             }
-        
-    }
-
+        }
 
 
         private void ClearSoftwareInfoTextBoxes(int startFrom = 1)
         {
             for (int i = startFrom; i <= 4; i++)
             {
-                TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
+                TextBox nameTextBox = (TextBox)Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
                 TextBox descriptionTextBox =
-                    (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
+                    (TextBox)Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
 
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
-
-
             }
         }
-
-
 
 
         private void nextPagebutton_Click(object sender, EventArgs e)
@@ -238,15 +213,10 @@ namespace Software_Engineering_Project_New
         {
             //opens filter menu
             if (panel2.Height == 187)
-            {
                 panel2.Height = 23;
 
-            }
-
             else
-            {
                 panel2.Height = 187;
-            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -254,13 +224,13 @@ namespace Software_Engineering_Project_New
             //this.softwaresTableAdapter.Fill(this.citisoftDataSet.Softwares);
             //string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
 
-           // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
-           string searchString = SearchBar.Text;
-            
-            
-           DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
+            // DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+            string searchString = SearchBar.Text;
 
-           UpdateDisplayedSoftwareInfo(searchResults);
+
+            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
+
+            UpdateDisplayedSoftwareInfo(searchResults);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -269,19 +239,18 @@ namespace Software_Engineering_Project_New
             {
                 bool cloudNative = true;
 
-                while (cloudNative == true)
+                while (cloudNative)
                 {
                     string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
                     DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
                 }
-
             }
 
             if (checkBox2.Checked)
             {
                 bool isProffesional = true;
 
-                while (isProffesional == true)
+                while (isProffesional)
                 {
                     string sqlQuery = "SELECT Name, Description FROM Softwares WHERE  = true";
                     DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
@@ -307,56 +276,52 @@ namespace Software_Engineering_Project_New
             {
                 bool starRating4 = true;
             }
+        }
 
+        private void SearchBar_Clicked(object sender, EventArgs e)
+        {
+            SearchBar.Clear();
         }
 
         private void RatingButton1_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void RatingButton2_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void RatingButton3_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void RatingButton4_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            
             string searchString = SearchBar.Text;
 
 
             DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
 
             UpdateDisplayedSoftwareInfo(searchResults);
-
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             UpdateDisplayedSoftwareInfo();
-
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
             UpdateProfile updateProfile = new UpdateProfile(this);
 
-            updateProfile.SetUserData(this.user);
-            this.Refresh();
+            updateProfile.SetUserData(user);
+            Refresh();
 
             updateProfile.ShowDialog();
-
         }
 
 
@@ -423,7 +388,5 @@ namespace Software_Engineering_Project_New
                 softwareViewerForm.ShowDialog();
             }
         }
-
     }
 }
-

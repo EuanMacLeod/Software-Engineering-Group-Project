@@ -175,6 +175,7 @@
             this.SearchBar.Size = new System.Drawing.Size(279, 20);
             this.SearchBar.TabIndex = 22;
             this.SearchBar.Text = "Search...";
+            this.SearchBar.Click += new System.EventHandler(this.SearchBar_Clicked);
             // 
             // vScrollBar1
             // 
