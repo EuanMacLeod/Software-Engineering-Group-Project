@@ -41,6 +41,7 @@
             this.ratingLabel = new System.Windows.Forms.Label();
             this.ratingDateLabel = new System.Windows.Forms.Label();
             this.reviewComment = new System.Windows.Forms.Label();
+            this.SoftwareRating = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ViewerBackButton
@@ -177,11 +178,22 @@
             this.reviewComment.TabIndex = 38;
             this.reviewComment.Text = "Comment";
             // 
+            // SoftwareRating
+            // 
+            this.SoftwareRating.AutoSize = true;
+            this.SoftwareRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SoftwareRating.Location = new System.Drawing.Point(178, 19);
+            this.SoftwareRating.Name = "SoftwareRating";
+            this.SoftwareRating.Size = new System.Drawing.Size(117, 20);
+            this.SoftwareRating.TabIndex = 39;
+            this.SoftwareRating.Text = "softwareRating";
+            // 
             // SoftwareViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.SoftwareRating);
             this.Controls.Add(this.reviewComment);
             this.Controls.Add(this.ratingDateLabel);
             this.Controls.Add(this.ratingLabel);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.Label ratingLabel;
         private System.Windows.Forms.Label ratingDateLabel;
         private System.Windows.Forms.Label reviewComment;
+        private System.Windows.Forms.Label SoftwareRating;
     }
 }

@@ -39,13 +39,12 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
             this.Hide();
         }       
 
-
+         
 
         public void LoadAdditionalData()
         {
             string Software = SoftwareNameLabel.Text;
             DataTable AdditionalData = DBConnections.getInstanceOfDBConnection().Search(Software);
-
 
             //changes label text
             if (AdditionalData != null && AdditionalData.Rows.Count > 0)
@@ -86,6 +85,22 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
             //reviews
             string softwareID = AdditionalData.Rows[0]["SoftwareID"].ToString();
             DataTable ReviewsInfo = DBConnections.getInstanceOfDBConnection().SearchReviews(softwareID);
+
+            if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
+            {
+                double SoftwareAverage = Convert.ToDouble(ReviewsInfo.Compute("AVG([Review Score])", string.Empty));
+                SoftwareRating.Text = SoftwareAverage + "/5";
+
+                if (string.IsNullOrEmpty(SoftwareRating.Text))
+                {
+                    SoftwareRating.Text = "Not enough reviews";
+                }
+            }
+            else
+            {
+                SoftwareRating.Text = "N/A";
+            }
+
 
             if (ReviewsInfo != null && ReviewsInfo.Rows.Count > 0)
             {
