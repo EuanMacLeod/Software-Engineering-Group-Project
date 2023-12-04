@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Threading;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Linq;
+using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 
 namespace Software_Engineering_Project_New
@@ -41,8 +42,14 @@ namespace Software_Engineering_Project_New
 
         public void SoftwareSales_Load(object sender, EventArgs e)
         {
+
+            resultsLabel.Visible = false;
+            //userLoggedInLabel.Text = user.Name;
             ClearSoftwareInfoTextBoxes();
             UpdateDisplayedSoftwareInfo();
+
+            panel2.Height = 23;
+            panel2.Width = 159;
         }
 
         private DataRow FetchVendorInfo(int vendorId)
@@ -88,58 +95,110 @@ namespace Software_Engineering_Project_New
 
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
         {
-            // TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
-            // TextBox descriptionTextBox =
-            //     (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
-            //
-            // if (nameTextBox != null && descriptionTextBox != null)
-            // {
-            //     nameTextBox.Text = row["Name"].ToString();
-            //     descriptionTextBox.Text = row["Description"].ToString();
-            // }
-           TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
-    TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
+            // Find and update Name TextBox and Description TextBox
+            TextBox nameTextBox = (TextBox)this.Controls.Find($"softwareNameTextBox{setNumber}", true).FirstOrDefault();
+            TextBox descriptionTextBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{setNumber}", true).FirstOrDefault();
 
-    if (nameTextBox != null && descriptionTextBox != null)
-    {
-        nameTextBox.Text = row["Name"].ToString();
-        descriptionTextBox.Text = row["Description"].ToString();
-    }
-    
-    int vendorId = Convert.ToInt32(row["VendorId"]);
-
-    // Fetch the vendor information from the Vendors table
-    DataRow vendorRow = FetchVendorInfo(vendorId);
-
-    if (vendorRow != null)
-    {
-        string websiteUrl = vendorRow["Website"].ToString();
-
-        // Get the corresponding link label based on set number
-        LinkLabel linkLabel = (LinkLabel)this.Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
-
-        // Set the link label properties
-        linkLabel.Links.Clear();
-        linkLabel.Links.Add(0, linkLabel.Text.Length, websiteUrl);
-
-        // Handle link click
-        linkLabel.LinkClicked += (sender, e) =>
-        {
-            try
+            if (nameTextBox != null && descriptionTextBox != null)
             {
-                // Open the URL in the default web browser
-                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Link.LinkData as string)
+                nameTextBox.Text = row["Name"].ToString();
+                descriptionTextBox.Text = row["Description"].ToString();
+            }
+
+            bool anyTextBoxNotEmpty = false;
+
+            for (int i = 1; i <= 4; i++)
+            {
+                // Check and set visibility for Name TextBox
+                TextBox textBox = (TextBox)this.Controls.Find($"softwareNameTextBox{i}", true).FirstOrDefault();
+
+                if (textBox != null)
                 {
-                    UseShellExecute = true
-                });
+                    textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
+
+                    // Check and set visibility for corresponding PictureBox
+                    PictureBox pictureBox = (PictureBox)this.Controls.Find($"pictureBox{i}", true).FirstOrDefault();
+
+                    if (pictureBox != null)
+                    {
+                        pictureBox.Visible = textBox.Visible;
+                    }
+
+                    if (!anyTextBoxNotEmpty && textBox.Visible)
+                    {
+                        anyTextBoxNotEmpty = true;
+                    }
+                }
             }
-            catch (Exception ex)
+
+            // Check and set visibility for Description TextBoxes
+            for (int i = 1; i <= 4; i++)
             {
-                MessageBox.Show($"Error opening URL: {ex.Message}");
+                TextBox textBox = (TextBox)this.Controls.Find($"softwareDescriptionTextBox{i}", true).FirstOrDefault();
+
+                if (textBox != null)
+                {
+                    textBox.Visible = !string.IsNullOrEmpty(textBox.Text);
+
+                    if (!anyTextBoxNotEmpty && textBox.Visible)
+                    {
+                        anyTextBoxNotEmpty = true;
+                    }
+                }
             }
-        };
+
+            // Set visibility for Name and Description TextBoxes
+            if (string.IsNullOrEmpty(nameTextBox.Text))
+            {
+                nameTextBox.Visible = false;
+                descriptionTextBox.Visible = false;
+            }
+            else
+            {
+                nameTextBox.Visible = true;
+                descriptionTextBox.Visible = true;
+            }
+
+            // Set visibility for the resultsLabel
+            resultsLabel.Visible = !anyTextBoxNotEmpty;
+
+            int vendorId = Convert.ToInt32(row["VendorId"]);
+
+            // Fetch the vendor information from the Vendors table
+            DataRow vendorRow = FetchVendorInfo(vendorId);
+
+            if (vendorRow != null)
+            {
+                string websiteUrl = vendorRow["Website"].ToString();
+
+                // Get the corresponding link label based on set number
+                LinkLabel linkLabel = (LinkLabel)this.Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
+
+                // Set the link label properties
+                linkLabel.Links.Clear();
+                linkLabel.Links.Add(0, linkLabel.Text.Length, websiteUrl);
+
+                // Handle link click
+                linkLabel.LinkClicked += (sender, e) =>
+                {
+                    try
+                    {
+                        // Open the URL in the default web browser
+                        System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(e.Link.LinkData as string)
+                        {
+                            UseShellExecute = true
+                        });
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error opening URL: {ex.Message}");
+                    }
+                };
+            }
+        
     }
-        }
+
+
 
         private void ClearSoftwareInfoTextBoxes(int startFrom = 1)
         {
@@ -151,8 +210,12 @@ namespace Software_Engineering_Project_New
 
                 nameTextBox?.Clear();
                 descriptionTextBox?.Clear();
+
+
             }
         }
+
+
 
 
         private void nextPagebutton_Click(object sender, EventArgs e)
@@ -163,42 +226,17 @@ namespace Software_Engineering_Project_New
 
         private void PreviousPageButton_Click(object sender, EventArgs e)
         {
-            if (count > 4)
+            if (count > 0)
             {
-                count = 0;
+                count = count - 4;
                 UpdateDisplayedSoftwareInfo();
             }
         }
 
 
-        private void DisplayRowInDataGridView(DataGridView dataGridView, DataTable softwareTable, int rowIndex)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        
-        private void FilterButton_Click(object sender, EventArgs e)
-        {
-            if (panel2.Height == 187)
-            {
-                panel2.Height = 23;
-
-            }
-
-            else
-            {
-                panel2.Height = 187;
-            }
-        }
-
-
-
         private void FilterButton_Click_1(object sender, EventArgs e)
         {
+            //opens filter menu
             if (panel2.Height == 187)
             {
                 panel2.Height = 23;
@@ -230,6 +268,24 @@ namespace Software_Engineering_Project_New
             if (checkBox1.Checked)
             {
                 bool cloudNative = true;
+
+                while (cloudNative == true)
+                {
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+                    DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+                }
+
+            }
+
+            if (checkBox2.Checked)
+            {
+                bool isProffesional = true;
+
+                while (isProffesional == true)
+                {
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE  = true";
+                    DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
+                }
             }
 
             if (RatingButton1.Checked)
@@ -276,39 +332,98 @@ namespace Software_Engineering_Project_New
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
+            
             string searchString = SearchBar.Text;
-            
-            
+
+
             DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
-            
+
             UpdateDisplayedSoftwareInfo(searchResults);
 
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-           UpdateDisplayedSoftwareInfo(); 
+            UpdateDisplayedSoftwareInfo();
+
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
             UpdateProfile updateProfile = new UpdateProfile(this);
-            
+
             updateProfile.SetUserData(this.user);
             this.Refresh();
 
             updateProfile.ShowDialog();
 
         }
+
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox1.Text;
+            string description = softwareDescriptionTextBox1.Text;
+
+
+            //this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel3_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox2.Text;
+            string description = softwareDescriptionTextBox2.Text;
+
+
+            //this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel4_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox3.Text;
+            string description = softwareDescriptionTextBox3.Text;
+
+
+            //this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
+        private void panel5_Click(object sender, EventArgs e)
+        {
+            string name = softwareNameTextBox4.Text;
+            string description = softwareDescriptionTextBox4.Text;
+
+
+            //this.Close();
+
+            using (SoftwareViewer softwareViewerForm = new SoftwareViewer())
+            {
+                softwareViewerForm.FillTextBox(name, description);
+
+                softwareViewerForm.ShowDialog();
+            }
+        }
+
     }
 }
 
-
-
-
-
-
-
-        
-    
-// old code was not in use so removed that
