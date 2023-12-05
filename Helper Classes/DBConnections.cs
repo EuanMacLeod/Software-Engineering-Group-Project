@@ -55,6 +55,32 @@ namespace Software_Engineering_Project_New
         {
             return getDataSet(sqlQuery).Tables[0];
         }
+        
+        public void InsertReviewIntoDatabase(int softwareId, string reviewText, int userId)
+        {
+            using (SqlConnection sqlcon = new SqlConnection(connectionString))
+            {
+                sqlcon.Open();
+
+                string query = "INSERT INTO Reviews (SoftwareID,EmployeeID, [Review Text],[Date of Review], [Review Score]) " +
+                               "VALUES (@SoftwareID,@EmployeeID, @ReviewText,@DateOfReview, @score )";
+
+                using (SqlCommand sqlcmd = new SqlCommand(query, sqlcon))
+                {
+                    sqlcmd.Parameters.AddWithValue("@SoftwareID", softwareId);
+                    sqlcmd.Parameters.AddWithValue("@ReviewText", reviewText);
+                    sqlcmd.Parameters.AddWithValue("@EmployeeID", userId);
+                    // Add the current date to the parameter
+                    sqlcmd.Parameters.AddWithValue("@DateOfReview", DateTime.Now);
+                    //sets score to zero for now
+                    sqlcmd.Parameters.AddWithValue("@score", 0);
+
+
+                    sqlcmd.ExecuteNonQuery();
+                }
+            }
+        }
+        
 
 
         //returns true if a user with that username or email exists within the database
