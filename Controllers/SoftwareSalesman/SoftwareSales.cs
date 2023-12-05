@@ -80,6 +80,23 @@ namespace Software_Engineering_Project_New
                 }
             }
         }
+        
+        private void LinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            try
+            {
+                // Open the URL in the default web browser
+                Process.Start(new ProcessStartInfo(e.Link.LinkData as string)
+                {
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error opening URL: {ex.Message}");
+            }
+        }
+
 
 
         private void SetSoftwareInfoTextBoxes(int setNumber, DataRow row)
@@ -172,27 +189,15 @@ namespace Software_Engineering_Project_New
 
                 // Get the corresponding link label based on set number
                 LinkLabel linkLabel = (LinkLabel)Controls.Find($"linkLabel{setNumber}", true).FirstOrDefault();
+                
+                // Detachs the event handler before subscribing again
+                linkLabel.LinkClicked -= LinkLabel_LinkClicked;
 
-                // Set the link label properties
                 linkLabel.Links.Clear();
                 linkLabel.Links.Add(0, linkLabel.Text.Length, websiteUrl);
 
                 // Handle link click
-                linkLabel.LinkClicked += (sender, e) =>
-                {
-                    try
-                    {
-                        // Open the URL in the default web browser
-                        Process.Start(new ProcessStartInfo(e.Link.LinkData as string)
-                        {
-                            UseShellExecute = true
-                        });
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Error opening URL: {ex.Message}");
-                    }
-                };
+                linkLabel.LinkClicked += LinkLabel_LinkClicked;
             }
         }
 
