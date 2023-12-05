@@ -2,6 +2,7 @@
 using System.Data;
 using System.Diagnostics;
 using System.Linq;
+using Software_Engineering_Project_New.Controllers.DatabaseEngineer.SubmitReview;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Controllers.DatabaseEngineer.UpdateProfile;
 using Software_Engineering_Project_New.Controllers.SoftwareSalesman;
@@ -44,6 +45,11 @@ namespace Software_Engineering_Project_New
 
             panel2.Height = 23;
             panel2.Width = 159;
+        }
+        private void OpenReviewForm(int softwareId, int userId)
+        {
+            SubmitReview reviewForm = new SubmitReview(softwareId, userId);
+            reviewForm.ShowDialog();
         }
 
         private DataRow FetchVendorInfo(int vendorId)
@@ -199,6 +205,18 @@ namespace Software_Engineering_Project_New
                 // Handle link click
                 linkLabel.LinkClicked += LinkLabel_LinkClicked;
             }
+            // adding review button
+            Button reviewButton = (Button)this.Controls.Find($"btnReview{setNumber}", true).FirstOrDefault();
+
+            // the event handler for the review button
+            reviewButton.Click += (sender, e) =>
+            {
+                // Handle the review button click
+                // Pass the software ID to the review form
+                int softwareId = Convert.ToInt32(row["SoftwareId"]);
+                OpenReviewForm(softwareId, this.user.Id);
+            };
+
         }
 
 
