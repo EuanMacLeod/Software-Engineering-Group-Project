@@ -239,7 +239,7 @@ namespace Software_Engineering_Project_New
             {
                 connectionToDatabase.Open();
 
-                string query = "SELECT * FROM Softwares WHERE Name LIKE @search";
+                string query = "SELECT * FROM Softwares WHERE Name LIKE @search OR Description LIKE @search";
                 
                 // Use CASE WHEN to conditionally filter by Cloud Services Available
                 if (filterCloudServices == true){
