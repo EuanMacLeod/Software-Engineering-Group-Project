@@ -14,7 +14,10 @@
 
         //
         public static string SELECTALLMANAGERS =
-            "SELECT e.EmployeeID, e.name, e.ManagerID, m.name AS ManagerName FROM Employees e INNER JOIN employees m ON e.ManagerID = m.EmployeeID";
+            "SELECT e.EmployeeID, e.name, e.ManagerID, m.name AS ManagerName " +
+            "FROM Employees e " +
+            "INNER JOIN employees m " +
+            "ON e.ManagerID = m.EmployeeID";
 
 
         public static string SELECTEMPLOYEEROLES =

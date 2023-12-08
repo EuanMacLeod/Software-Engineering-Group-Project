@@ -265,23 +265,33 @@ namespace Software_Engineering_Project_New
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
+            return;
             string searchString = SearchBar.Text;
 
+            bool cloudNative = false;
 
-            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, true);
+            if (checkBox1.Checked)
+            {
+                cloudNative = true;
+            }
+
+
+
+            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, cloudNative);
 
             UpdateDisplayedSoftwareInfo(searchResults);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
+            return;
             if (checkBox1.Checked)
             {
                 bool cloudNative = true;
 
                 while (cloudNative)
                 {
-                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE cloud_native = true";
+                    string sqlQuery = "SELECT Name, Description FROM Softwares WHERE `Cloud Services Avaliable` = true";
                     DBConnections.getInstanceOfDBConnection().getDataSet(sqlQuery);
                 }
             }
@@ -332,15 +342,34 @@ namespace Software_Engineering_Project_New
         private void btnSearch_Click(object sender, EventArgs e)
         {
             string searchString = SearchBar.Text;
+            if (searchString == "Search...")
+            {
+                searchString = "";
+            }
 
+            bool cloudNative = false;
+            bool isProfesional = false;
 
-            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString);
+            if (checkBox1.Checked)
+            {
+                cloudNative = true;
+            }
+
+            if (checkBox2.Checked)
+            {
+                isProfesional = true;
+            }
+
+            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, cloudNative, isProfesional);
 
             UpdateDisplayedSoftwareInfo(searchResults);
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            SearchBar.Text = "Search...";
             UpdateDisplayedSoftwareInfo();
         }
 

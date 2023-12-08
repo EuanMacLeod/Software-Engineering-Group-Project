@@ -231,7 +231,7 @@ namespace Software_Engineering_Project_New
             }
         }
 
-        public DataTable Search(string search, bool filterCloudServices = false)
+        public DataTable Search(string search, bool filterCloudServices = false, bool filterAvaliableProfessional = false)
         {
             DataTable searchResults = new DataTable();
 
@@ -239,12 +239,17 @@ namespace Software_Engineering_Project_New
             {
                 connectionToDatabase.Open();
 
-                string query = "SELECT * FROM Softwares WHERE Name LIKE @search";
+                string query = "SELECT * FROM Softwares WHERE (Name LIKE @search OR Description LIKE @search)";
                 
                 // Use CASE WHEN to conditionally filter by Cloud Services Available
                 if (filterCloudServices == true){
                     
                     query += " AND [Cloud Services Avaliable] = @filterCloudServices";
+                }
+                if (filterAvaliableProfessional)
+                {
+
+                    query += " AND [Avaliable Professional] = @filterAvaliableProfessional";
                 }
                 using (SqlCommand command = new SqlCommand(query, connectionToDatabase))
                 {
@@ -253,9 +258,13 @@ namespace Software_Engineering_Project_New
 
                         command.Parameters.Add(new SqlParameter("@filterCloudServices", filterCloudServices));
                     }
+                    if (filterAvaliableProfessional)
+                    {
+
+                        command.Parameters.Add(new SqlParameter("@filterAvaliableProfessional", filterAvaliableProfessional));
+                    }
 
                     command.Parameters.Add(new SqlParameter("@search", "%" + search + "%"));
-
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         searchResults.Load(reader);
