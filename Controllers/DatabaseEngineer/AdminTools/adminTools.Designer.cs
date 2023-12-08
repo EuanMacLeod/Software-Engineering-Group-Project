@@ -52,7 +52,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(250, 224);
             this.button2.TabIndex = 0;
-            this.button2.Text = "funn clicky button";
+            this.button2.Text = "role id change";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button1_Click);
             // 
