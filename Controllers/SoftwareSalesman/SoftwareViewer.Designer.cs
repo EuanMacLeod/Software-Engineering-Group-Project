@@ -187,6 +187,7 @@
             this.SoftwareRating.Size = new System.Drawing.Size(117, 20);
             this.SoftwareRating.TabIndex = 39;
             this.SoftwareRating.Text = "softwareRating";
+            this.SoftwareRating.Click += new System.EventHandler(this.SoftwareRating_Click);
             // 
             // SoftwareViewer
             // 

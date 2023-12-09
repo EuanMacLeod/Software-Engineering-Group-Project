@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Software_Engineering_Project_New
+﻿namespace Software_Engineering_Project_New
 {
     public class User
     {

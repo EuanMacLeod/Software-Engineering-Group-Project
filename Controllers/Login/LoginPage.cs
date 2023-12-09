@@ -16,6 +16,7 @@ namespace Software_Engineering_Project_New
 
         private void button_login_Click(object sender, EventArgs e)
         {
+            //get information entered by user onto the form and pass to backend
             User user = DBConnections.getInstanceOfDBConnection().getUserFromDB(
                 txt_username.Text.Trim(),
                 txt_password.Text.Trim());
@@ -24,49 +25,30 @@ namespace Software_Engineering_Project_New
             if (user == null)
                 MessageBox.Show("Error Logging In:\nUsername Or Password Is Incorrect");
             else
-                //TO DO
-                //LOAD INTO NEW PAGE, PASS USER CLASS INTO NEXT FORM SO USER CAN BE RETAINED
-                switch (user.RoleId)
+                switch (user.RoleId) //Load different forms depending on the user's role
                 {
                     case null:
                         MessageBox.Show("User Account Has Not Yet Been Verfied, Please Contact Your Manager.");
                         break;
+
                     case (int)Roles.Admin:
-
                         new DatabaseEngineerHomePage(user).Show();
-
-                        /*
-                        DialogResult result =
-                            MessageBox.Show("Confirm for sales", "Confirmation", MessageBoxButtons.YesNo);
-                        if (result == DialogResult.Yes)
-                        {
-                            new Sales(user).Show();
-                        }
-                        else
-                        {
-                            new DatabaseEngineerHomePage(user).Show();
-                        }
-                        */
-
-                        //Load into new pages here
-
                         Hide();
-
                         break;
+
                     case (int)Roles.Manager:
-
                         break;
+
                     case (int)Roles.DatabaseEngineer:
                         DatabaseEngineerHomePage databaseEngineerHomePage = new DatabaseEngineerHomePage(user);
                         databaseEngineerHomePage.Show();
                         Hide();
-
                         break;
+
                     case (int)Roles.SoftwareSalesman:
                         SoftwareSales SoftwareSales = new SoftwareSales(user);
                         SoftwareSales.Show();
                         this.Hide();
-
                         break;
                 }
         }

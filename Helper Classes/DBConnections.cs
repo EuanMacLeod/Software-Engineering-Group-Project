@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Data.SqlTypes;
-using System.Net.Configuration;
 using System.Windows.Forms;
 using Software_Engineering_Project_New.Properties;
 
@@ -18,7 +16,6 @@ namespace Software_Engineering_Project_New
 
         private DBConnections()
         {
-            //connectionString = Settings.Default.CitisoftConnectionString;
             connectionString = Settings.Default.CitisoftConnectionString;
         }
 

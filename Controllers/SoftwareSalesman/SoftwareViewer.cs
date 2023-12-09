@@ -158,6 +158,11 @@ namespace Software_Engineering_Project_New.Controllers.SoftwareSalesman
         {
 
         }
+
+        private void SoftwareRating_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }
