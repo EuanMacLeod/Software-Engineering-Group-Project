@@ -24,12 +24,13 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
         private void DatabaseEngineerPdfTaggingPage_Load(object sender, EventArgs e)
         {
             populatePDFDgv(generatePDFDataTable());
-            populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection().getDataTable(Constants.SELECTALLSOFTWARES));
+            populateSoftwaresDgv(DBConnections.getInstanceOfDBConnection()
+                .getDataTable(Constants.SELECTALLSOFTWARES));
         }
-
-
+        
         private DataTable generatePDFDataTable()
         {
+            //creates a datatable with the relevant columns to store the PDF information
             DataTable dt = new DataTable();
 
             dt.Columns.Add("File Name");
@@ -43,6 +44,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
             string[] files = Directory.GetFiles(Constants.UNTAGGED_PDF_FOLDER_PATH);
 
+            //iterates through all the PDFs in the untagged folder and adds them to the datatable
             foreach (string file in files)
             {
                 FileInfo info = new FileInfo(file);
@@ -65,8 +67,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
 
             return dt;
         }
-
-
+        
         private void populateSoftwaresDgv(DataTable dt)
         {
             dgvSoftwares.DataSource = dt;
@@ -96,6 +97,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             else
                 SelectedPDFLabel.Text = "Selected PDF: ";
         }
+
 
 
         private void dgvSoftwares_SelectionChanged(object sender, EventArgs e)
@@ -188,9 +190,9 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
                 "You Are Tagging:\n" + dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value + "\nTo:\n" +
                 dgvSoftwares.SelectedRows[0].Cells[2].Value, "confirm", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
+
             if (dr == DialogResult.Yes)
             {
-                //todo move selected document from untagged to tagged
                 string pdfName = dgvUntaggedPDFViewer.SelectedRows[0].Cells[0].Value.ToString();
 
                 string untaggedPDFPath = Path.Combine(Constants.UNTAGGED_PDF_FOLDER_PATH + pdfName);

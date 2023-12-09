@@ -89,7 +89,7 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_AND_EMAIL;
+                command.CommandText = Constants.COUNT_PEOPLE_WITH_NAME_OR_EMAIL;
                 command.Parameters.AddWithValue("Username", username);
                 command.Parameters.AddWithValue("@Email", email);
 
@@ -303,9 +303,8 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
-                command.CommandText =
-                    "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
+                command.CommandText = Constants.UPDATESOFTWAREPDF;
+                    //"UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
                 command.Parameters.AddWithValue("@SoftwareID", softwareID);
                 command.Parameters.AddWithValue("@pdfFilePath", pdfFilePath);
 
@@ -321,7 +320,6 @@ namespace Software_Engineering_Project_New
             {
                 SqlCommand command = new SqlCommand();
                 command.Connection = sqlcon;
-                //command.CommandText = "SELECT COUNT(*) FROM Employees WHERE Username= @Username OR Email= @Email";
                 command.CommandText = Constants.DELETE_EMPLOYEE;
                 command.Parameters.AddWithValue("@EmployeeID", employeeID);
 
@@ -335,10 +333,6 @@ namespace Software_Engineering_Project_New
         public void addEmployeeToDB(string name, string contactNumber, string username, string password, string email,
             int? roleID)
         {
-            //return _instance ?? (_instance = new DBConnections());
-
-            //param.Value = activity.StaffId ?? (object)DBNull.Value;
-
             using (SqlConnection sqlcon = new SqlConnection(connectionString))
             {
                 sqlcon.Open();
@@ -351,11 +345,9 @@ namespace Software_Engineering_Project_New
                 sqlcmd.Parameters.AddWithValue("@Email", email);
                 sqlcmd.Parameters.AddWithValue("@RoleID", (roleID ?? (object)DBNull.Value)); //if roleID is null, set the parameter to null aswell
                 
-
                 sqlcmd.ExecuteNonQuery();
                 
             }
-           
         }
         
         public void UpdateEmployeeInDB(int employeeID, string name, string contactNumber, string username, string password, string email)

@@ -83,16 +83,12 @@ namespace Software_Engineering_Project_New
             
             else
             {
-                
-                //RoleID = radioButton1.Checked ? 3 : 4;
-
                 if(verifyAdmin(txt_email.Text.Trim()))
                 {
                     RoleID = 1;
                 }
 
                 string passwordHash = BCrypt.Net.BCrypt.EnhancedHashPassword(txt_password.Text.Trim(), 13);
-                //MessageBox.Show(passwordHash);
 
                 DBConnections.getInstanceOfDBConnection().addEmployeeToDB(
                     txt_firstname.Text.Trim(),
@@ -103,12 +99,6 @@ namespace Software_Engineering_Project_New
                     null
 
                 );
-                /*
-                if (isAdmin == 1)
-                {
-                    DBConnections.getInstanceOfDBConnection().createGod(isAdmin);
-                }
-                */
                 MessageBox.Show("Registration Successful");
 
                 new HomePage().Show();

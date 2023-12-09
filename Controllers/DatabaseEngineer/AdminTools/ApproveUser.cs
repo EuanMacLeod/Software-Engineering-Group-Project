@@ -21,7 +21,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             populateDgv(generateDataTable());
         }
 
-
         private void populateDgv(DataTable dt)
         {
             UsersAwaitingApprovalDgv.DataSource = dt;
@@ -29,12 +28,11 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
 
         private DataTable generateDataTable()
         {
-            DataTable dt = DBConnections.getInstanceOfDBConnection().getDataTable("SELECT * FROM Employees WHERE RoleID IS NULL");
+            DataTable dt = DBConnections.getInstanceOfDBConnection()
+                .getDataTable(Constants.SELECTALLUNAPPROVEDEMPLOYEES);
 
             return dt;
         }
-
-
 
         private void updateSelectedEmployeeLabel()
         {
@@ -50,7 +48,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             }
         }
 
-
         private void UsersAwaitingApprovalDgv_SelectionChanged(object sender, EventArgs e)
         {
             //ensures that only one row of the Softwares dgv can be selected at a time
@@ -58,6 +55,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
 
             updateSelectedEmployeeLabel();
         }
+
 
         private void AdminRadioButton_Clicked(object sender, EventArgs e)
         {
@@ -77,6 +75,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
             selectedRoleId = (int)Roles.DatabaseEngineer;
         }
 
+
         private void ConfirmButton_Clicked(object sender, EventArgs e)
         {
             if (UsersAwaitingApprovalDgv.SelectedRows.Count != 1)
@@ -84,14 +83,12 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                 MessageBox.Show("Please select one user to approve");
                 return;
             }
-
             if (selectedRoleId == 0)
             {
                 MessageBox.Show("Please select a role for the user");
                 return;
             }
-
-
+            
             DialogResult dr = MessageBox.Show(
                 "Is all the selected information is correct?.",
                 "confirm",
@@ -113,8 +110,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                         DBConnections.getInstanceOfDBConnection().deleteEmployee(selectedUserId);
                         MessageBox.Show("User Has Been Rejected");
                     }
-                    
-
                 }
                 catch (Exception ex)
                 {
@@ -123,7 +118,6 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Error);
                 }
-
                 
                 dr = MessageBox.Show(
                     "Would you like to send an email to inform the user?",
@@ -138,9 +132,18 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer.AdminToo
                     EmailService.getInstanceOfEmailService().sendEmail(recipient, subject, body);
                 }
                 
-
                 populateDgv(generateDataTable());
             }
+        }
+
+        private void DatabaseEngineerRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,6 +7,8 @@
         //
         public static string SELECTALLEMPLOYEES = "SELECT * FROM Employees";
 
+        public static string SELECTALLUNAPPROVEDEMPLOYEES = "SELECT * FROM Employees WHERE RoleID IS NULL";
+
         //
         public static string SELECTALLVENDORS = "SELECT * FROM Vendors";
 
@@ -53,6 +55,9 @@
         public static string INSERTPerson = "INSERT INTO Person (Name, Age) VALUES (@Name, @Age)";
 
         public static string UPDATE_EMPLOYEE_ROLE = "UPDATE Employees SET RoleID = @RoleID WHERE EmployeeID = @EmployeeID";
+
+        public static string UPDATESOFTWAREPDF =
+            "UPDATE Softwares SET [Document Link] = @pdfFilePath WHERE SoftwareID = @SoftwareID";
 
         public static string DELETE_EMPLOYEE = "DELETE FROM Employees WHERE EmployeeID = @EmployeeID";
 

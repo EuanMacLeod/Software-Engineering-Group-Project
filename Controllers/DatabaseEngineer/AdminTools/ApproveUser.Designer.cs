@@ -48,11 +48,12 @@
             // 
             this.UsersAwaitingApprovalDgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UsersAwaitingApprovalDgv.Location = new System.Drawing.Point(0, 0);
+            this.UsersAwaitingApprovalDgv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UsersAwaitingApprovalDgv.Name = "UsersAwaitingApprovalDgv";
             this.UsersAwaitingApprovalDgv.ReadOnly = true;
             this.UsersAwaitingApprovalDgv.RowHeadersWidth = 62;
             this.UsersAwaitingApprovalDgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.UsersAwaitingApprovalDgv.Size = new System.Drawing.Size(1653, 566);
+            this.UsersAwaitingApprovalDgv.Size = new System.Drawing.Size(1102, 368);
             this.UsersAwaitingApprovalDgv.TabIndex = 0;
             this.UsersAwaitingApprovalDgv.SelectionChanged += new System.EventHandler(this.UsersAwaitingApprovalDgv_SelectionChanged);
             // 
@@ -60,9 +61,10 @@
             // 
             this.SelectedEmployeeLabel.AutoSize = true;
             this.SelectedEmployeeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SelectedEmployeeLabel.Location = new System.Drawing.Point(12, 569);
+            this.SelectedEmployeeLabel.Location = new System.Drawing.Point(8, 370);
+            this.SelectedEmployeeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.SelectedEmployeeLabel.Name = "SelectedEmployeeLabel";
-            this.SelectedEmployeeLabel.Size = new System.Drawing.Size(376, 46);
+            this.SelectedEmployeeLabel.Size = new System.Drawing.Size(255, 31);
             this.SelectedEmployeeLabel.TabIndex = 1;
             this.SelectedEmployeeLabel.Text = "Selected Employee:";
             // 
@@ -70,9 +72,10 @@
             // 
             this.ManagerRadioButton.AutoSize = true;
             this.ManagerRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManagerRadioButton.Location = new System.Drawing.Point(6, 189);
+            this.ManagerRadioButton.Location = new System.Drawing.Point(4, 41);
+            this.ManagerRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ManagerRadioButton.Name = "ManagerRadioButton";
-            this.ManagerRadioButton.Size = new System.Drawing.Size(133, 33);
+            this.ManagerRadioButton.Size = new System.Drawing.Size(90, 24);
             this.ManagerRadioButton.TabIndex = 3;
             this.ManagerRadioButton.TabStop = true;
             this.ManagerRadioButton.Text = "Manager";
@@ -83,9 +86,10 @@
             // 
             this.SalesmanRadioButton.AutoSize = true;
             this.SalesmanRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SalesmanRadioButton.Location = new System.Drawing.Point(6, 228);
+            this.SalesmanRadioButton.Location = new System.Drawing.Point(4, 69);
+            this.SalesmanRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.SalesmanRadioButton.Name = "SalesmanRadioButton";
-            this.SalesmanRadioButton.Size = new System.Drawing.Size(145, 33);
+            this.SalesmanRadioButton.Size = new System.Drawing.Size(98, 24);
             this.SalesmanRadioButton.TabIndex = 4;
             this.SalesmanRadioButton.TabStop = true;
             this.SalesmanRadioButton.Text = "Salesman";
@@ -96,22 +100,25 @@
             // 
             this.DatabaseEngineerRadioButton.AutoSize = true;
             this.DatabaseEngineerRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatabaseEngineerRadioButton.Location = new System.Drawing.Point(6, 267);
+            this.DatabaseEngineerRadioButton.Location = new System.Drawing.Point(4, 97);
+            this.DatabaseEngineerRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DatabaseEngineerRadioButton.Name = "DatabaseEngineerRadioButton";
-            this.DatabaseEngineerRadioButton.Size = new System.Drawing.Size(244, 33);
+            this.DatabaseEngineerRadioButton.Size = new System.Drawing.Size(165, 24);
             this.DatabaseEngineerRadioButton.TabIndex = 5;
             this.DatabaseEngineerRadioButton.TabStop = true;
             this.DatabaseEngineerRadioButton.Text = "Database Engineer";
             this.DatabaseEngineerRadioButton.UseVisualStyleBackColor = true;
+            this.DatabaseEngineerRadioButton.CheckedChanged += new System.EventHandler(this.DatabaseEngineerRadioButton_CheckedChanged);
             this.DatabaseEngineerRadioButton.Click += new System.EventHandler(this.DatabaseEngineerRadioButton_Clicked);
             // 
             // AdminRadioButton
             // 
             this.AdminRadioButton.AutoSize = true;
             this.AdminRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AdminRadioButton.Location = new System.Drawing.Point(6, 150);
+            this.AdminRadioButton.Location = new System.Drawing.Point(4, 17);
+            this.AdminRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.AdminRadioButton.Name = "AdminRadioButton";
-            this.AdminRadioButton.Size = new System.Drawing.Size(106, 33);
+            this.AdminRadioButton.Size = new System.Drawing.Size(72, 24);
             this.AdminRadioButton.TabIndex = 2;
             this.AdminRadioButton.TabStop = true;
             this.AdminRadioButton.Text = "Admin";
@@ -124,19 +131,22 @@
             this.groupBox1.Controls.Add(this.AdminRadioButton);
             this.groupBox1.Controls.Add(this.ManagerRadioButton);
             this.groupBox1.Controls.Add(this.SalesmanRadioButton);
-            this.groupBox1.Location = new System.Drawing.Point(614, 569);
+            this.groupBox1.Location = new System.Drawing.Point(409, 370);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(297, 352);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(171, 156);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // ConfirmButton
             // 
             this.ConfirmButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfirmButton.Location = new System.Drawing.Point(1308, 590);
+            this.ConfirmButton.Location = new System.Drawing.Point(872, 384);
+            this.ConfirmButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConfirmButton.Name = "ConfirmButton";
-            this.ConfirmButton.Size = new System.Drawing.Size(285, 122);
+            this.ConfirmButton.Size = new System.Drawing.Size(190, 79);
             this.ConfirmButton.TabIndex = 7;
             this.ConfirmButton.Text = "Confirm";
             this.ConfirmButton.UseVisualStyleBackColor = true;
@@ -146,9 +156,10 @@
             // 
             this.panel1.Controls.Add(this.RejectRadioButton);
             this.panel1.Controls.Add(this.ApproveRadioButton);
-            this.panel1.Location = new System.Drawing.Point(937, 590);
+            this.panel1.Location = new System.Drawing.Point(625, 384);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(272, 218);
+            this.panel1.Size = new System.Drawing.Size(181, 142);
             this.panel1.TabIndex = 6;
             // 
             // RejectRadioButton
@@ -156,9 +167,10 @@
             this.RejectRadioButton.AutoSize = true;
             this.RejectRadioButton.Checked = true;
             this.RejectRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RejectRadioButton.Location = new System.Drawing.Point(3, 64);
+            this.RejectRadioButton.Location = new System.Drawing.Point(2, 42);
+            this.RejectRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.RejectRadioButton.Name = "RejectRadioButton";
-            this.RejectRadioButton.Size = new System.Drawing.Size(107, 33);
+            this.RejectRadioButton.Size = new System.Drawing.Size(73, 24);
             this.RejectRadioButton.TabIndex = 1;
             this.RejectRadioButton.TabStop = true;
             this.RejectRadioButton.Text = "Reject";
@@ -168,23 +180,25 @@
             // 
             this.ApproveRadioButton.AutoSize = true;
             this.ApproveRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ApproveRadioButton.Location = new System.Drawing.Point(3, 16);
+            this.ApproveRadioButton.Location = new System.Drawing.Point(2, 10);
+            this.ApproveRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ApproveRadioButton.Name = "ApproveRadioButton";
-            this.ApproveRadioButton.Size = new System.Drawing.Size(128, 33);
+            this.ApproveRadioButton.Size = new System.Drawing.Size(86, 24);
             this.ApproveRadioButton.TabIndex = 0;
             this.ApproveRadioButton.Text = "Approve";
             this.ApproveRadioButton.UseVisualStyleBackColor = true;
             // 
             // ApproveUser
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1665, 1026);
+            this.ClientSize = new System.Drawing.Size(1110, 667);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SelectedEmployeeLabel);
             this.Controls.Add(this.UsersAwaitingApprovalDgv);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ApproveUser";
             this.Text = "ApproveUser";
             ((System.ComponentModel.ISupportInitialize)(this.UsersAwaitingApprovalDgv)).EndInit();
