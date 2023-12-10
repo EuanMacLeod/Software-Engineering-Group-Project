@@ -348,7 +348,7 @@ namespace Software_Engineering_Project_New
             }
 
             bool cloudNative = false;
-            bool isProfesional = false;
+            bool isProfessional = false;
 
             if (checkBox1.Checked)
             {
@@ -357,10 +357,10 @@ namespace Software_Engineering_Project_New
 
             if (checkBox2.Checked)
             {
-                isProfesional = true;
+                isProfessional = true;
             }
 
-            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, cloudNative, isProfesional);
+            DataTable searchResults = DBConnections.getInstanceOfDBConnection().Search(searchString, cloudNative, isProfessional);
 
             UpdateDisplayedSoftwareInfo(searchResults);
         }

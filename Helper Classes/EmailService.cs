@@ -1,10 +1,4 @@
 ﻿using Software_Engineering_Project_New.Properties;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net.Mail;
 
 namespace Software_Engineering_Project_New.Helper_Classes
@@ -21,7 +15,6 @@ namespace Software_Engineering_Project_New.Helper_Classes
         {
             username = Settings.Default.EmailUsername;
             password = Settings.Default.EmailPassword;
-
         }
 
         public static EmailService getInstanceOfEmailService()
@@ -46,6 +39,5 @@ namespace Software_Engineering_Project_New.Helper_Classes
 
             SmtpServer.Send(mail);
         }
-
     }
 }

@@ -103,8 +103,6 @@ namespace Software_Engineering_Project_New
 
                 new HomePage().Show();
                 Hide();
-
-
                 
             }
         }
@@ -112,7 +110,8 @@ namespace Software_Engineering_Project_New
 
         private void backButton_Clicked(object sender, EventArgs e)
         {
-            new HomePage().Show();
+            new LoginPage().Show();
+            //new HomePage().Show();
             Close();
         }
 
