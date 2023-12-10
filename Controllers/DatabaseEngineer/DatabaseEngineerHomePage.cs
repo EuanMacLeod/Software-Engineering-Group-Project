@@ -55,7 +55,7 @@ namespace Software_Engineering_Project_New.Controllers.DatabaseEngineer
             // initialise and show admin tools window
 
             new adminTools(user).Show();
-            new Sales(user).Show();
+            //new Sales(user).Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
