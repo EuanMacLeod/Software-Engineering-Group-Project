@@ -292,7 +292,6 @@
     <None Include="Citisoft_Softwares.xss">
       <DependentUpon>Citisoft_Softwares.xsd</DependentUpon>
     </None>
-    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
