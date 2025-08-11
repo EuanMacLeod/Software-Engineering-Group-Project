@@ -1,5 +1,5 @@
 # Software-Engineering-Group-Project
-Inside of this Repo you will find a group project created for MOD003263 at Anglia Ruskin University.
+Inside of this Repo you will find a group project created for Computer Science Course.
 
 BEFORE YOU START
 
